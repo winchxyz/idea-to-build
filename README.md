@@ -155,7 +155,7 @@ idea-to-brainstorm/
 └── examples/                 # Template, guide + real comparison transcripts
 ```
 
-> Roadmap directories not shipped in v0.1.0: `distributions/cowork-plugin/`, `distributions/claude-code-plugin/`. The `examples/` directory ships with a template, an authoring guide, and three real comparison transcripts (stickman game; personal-health-AI startup; Hyperliquid wallet — the last runs the full methodology through Phase 5 critique) — each the same prompt run as plain Claude vs. through the methodology. A broader library lands in v0.2. See [`CHANGELOG.md`](CHANGELOG.md).
+> Roadmap directories not shipped in v0.1.0: `distributions/cowork-plugin/`, `distributions/claude-code-plugin/`. The `examples/` directory ships with a template, an authoring guide, and four real comparison transcripts — each the same prompt run as plain Claude vs. through the methodology: a stickman game, a personal-health-AI startup, a Hyperliquid wallet (full methodology through Phase 5 critique), and an AI support agent (the "can it say no?" test, where the methodology recommends *not* building). A broader library lands in v0.2. See [`CHANGELOG.md`](CHANGELOG.md).
 
 Full architecture: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
 
