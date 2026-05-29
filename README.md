@@ -1,6 +1,8 @@
 <div align="center">
 
-# 🧠 idea-to-brainstorm
+<img src="assets/logo.png" alt="idea-to-brainstorm — multi-agent brainstorming methodology" width="800"/>
+
+# idea-to-brainstorm
 
 **A multi-agent brainstorming methodology for founders, builders, and creators.**
 
