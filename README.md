@@ -50,7 +50,7 @@ Two install paths ship today. Two more are on the roadmap.
 ```bash
 git clone https://github.com/winchxyz/idea-to-brainstorm.git
 ```
-Open the cloned folder in Cowork (or Claude Code) and the coordinator + sub-agents activate automatically via `core/CLAUDE.md`.
+Open the cloned folder in Cowork (or Claude Code). The root [`CLAUDE.md`](CLAUDE.md) activates the coordinator and sub-agents automatically — it bootstraps the full specification in `core/CLAUDE.md`.
 
 ### ✅ Option 2: Standalone prompt — any LLM (available now)
 Copy [`distributions/standalone-prompts/lite.md`](distributions/standalone-prompts/lite.md) into ChatGPT, Claude, Gemini, or any chat. Degraded quality (no sub-agent isolation, no cross-session memory), but zero setup.
@@ -138,8 +138,9 @@ Full methodology: [`docs/METHODOLOGY.md`](docs/METHODOLOGY.md)
 
 ```
 idea-to-brainstorm/
+├── CLAUDE.md                 # Entry point — auto-activates the coordinator
 ├── core/
-│   ├── CLAUDE.md             # Main coordinator
+│   ├── CLAUDE.md             # Full coordinator specification
 │   ├── agents/               # 5 specialized sub-agents
 │   ├── skills/               # Recommendation + confidence module
 │   └── templates/            # Project context file template
