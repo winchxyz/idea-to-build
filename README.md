@@ -152,10 +152,10 @@ idea-to-brainstorm/
 │   ├── METHODOLOGY.md        # Core principles in depth
 │   ├── PHASES.md             # 6 phases explained
 │   └── PROFILES.md           # Profile authoring guide
-└── examples/                 # Template, guide + first real comparison transcript
+└── examples/                 # Template, guide + real comparison transcripts
 ```
 
-> Roadmap directories not shipped in v0.1.0: `distributions/cowork-plugin/`, `distributions/claude-code-plugin/`. The `examples/` directory ships with a template, an authoring guide, and a first real transcript (stickman: plain vs methodology) in v0.1.0; a broader library lands in v0.2. See [`CHANGELOG.md`](CHANGELOG.md).
+> Roadmap directories not shipped in v0.1.0: `distributions/cowork-plugin/`, `distributions/claude-code-plugin/`. The `examples/` directory ships with a template, an authoring guide, and two real comparison transcripts (stickman game; personal-health-AI startup) — each the same prompt run as plain Claude vs. through the methodology. A broader library lands in v0.2. See [`CHANGELOG.md`](CHANGELOG.md).
 
 Full architecture: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
 
