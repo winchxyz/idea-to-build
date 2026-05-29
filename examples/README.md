@@ -25,6 +25,10 @@ Copy [`TEMPLATE.md`](TEMPLATE.md) to start.
 - [ ] Dead-end tangents trimmed so the example stays readable.
 - [ ] If the transcript is **illustrative rather than a real session**, say so explicitly at the top. Never present a fabricated transcript as real — factual honesty is the whole point of this project.
 
-## Status
+## Examples in this directory
 
-This directory currently ships **scaffolding only** (this README + the template). Real transcripts are planned for v0.2 — contributions welcome via PR (see [`../CONTRIBUTING.md`](../CONTRIBUTING.md)).
+- [`stickman-comparison.md`](stickman-comparison.md) — a simple game idea. Shows the contrast at its starkest: plain Claude builds instantly, the methodology stops to scope.
+- [`health-system-comparison.md`](health-system-comparison.md) — a personal-health-AI startup. The harder case: plain Claude was already competent, and the methodology still added strategic depth (beachhead, regulatory risk, an architectural blocker).
+- [`hyperliquid-wallet-comparison.md`](hyperliquid-wallet-comparison.md) — a Hyperliquid crypto wallet. The fullest example, running the methodology through Phase 5 (isolated critique). Read this one to see the whole method.
+
+More transcripts — including different domains and full 6-phase runs — are planned for v0.2. Contributions welcome via PR (see [`../CONTRIBUTING.md`](../CONTRIBUTING.md)).
