@@ -13,7 +13,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 - Methodology documentation: ARCHITECTURE, PHASES, METHODOLOGY
 - Standalone-prompt distribution (lite, single-prompt version for any LLM)
 - Project context file template
-- `examples/` scaffolding: transcript template and authoring guide
+- `examples/`: transcript template, authoring guide, and a first real comparison transcript (stickman — plain Claude vs. methodology)
 - CONTRIBUTING guide
 - MIT License
 
@@ -26,7 +26,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ### Known limitations
 - Cowork plugin (`distributions/cowork-plugin/`) and Claude Code plugin (`distributions/claude-code-plugin/`) installers planned for v0.2
-- `examples/` ships with a template and authoring guide only; real brainstorm transcripts planned for v0.2
+- `examples/` has one real comparison transcript so far; a broader library of brainstorm transcripts is planned for v0.2
 - MCP server distribution planned for v0.3
 - Skills directory currently contains only `recommendation-confidence.md`; additional skills (premortem helpers, phase advancement) planned for v0.2
 - No automated tests for sub-agent output quality
