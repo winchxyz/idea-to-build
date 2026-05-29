@@ -21,12 +21,14 @@ Turn any raw idea into a battle-tested strategy in 30 minutes — powered by Cla
 
 LLMs are great at telling you why your idea is brilliant. They're terrible at telling you why it will fail.
 
-Ask Claude or ChatGPT to brainstorm and you get:
+Ask any LLM — Claude, ChatGPT, Gemini, Grok — to brainstorm and you get the same failure modes:
 - ❌ Same-side agreement (no real pushback)
 - ❌ Fabricated market sizes and made-up statistics
 - ❌ Generic SWOT lists that fit any business
 - ❌ "5 great ideas!" — none of which are actually different
 - ❌ No memory across sessions — you re-explain context every time
+
+This tool fixes those failures. The **full multi-agent version runs on Claude** (Cowork or Claude Code) — that's where sub-agent isolation lives. A **degraded-but-functional standalone prompt** in `distributions/standalone-prompts/lite.md` works in any other LLM.
 
 ## The Solution
 
