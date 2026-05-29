@@ -13,7 +13,7 @@ Turn any raw idea into a battle-tested strategy in 30 minutes — powered by Cla
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![Status](https://img.shields.io/badge/status-v0.1.2-orange.svg)](CHANGELOG.md)
 
-[Quick Start](#-quick-start) • [How It Works](#-how-it-works) • [Profiles](#-profiles) • [Why This](#-why-this-vs-alternatives) • [Contribute](CONTRIBUTING.md)
+[Quick Start](#-quick-start) • [See It in Action](#-see-it-in-action) • [How It Works](#-how-it-works) • [Profiles](#-profiles) • [Why This](#-why-this-vs-alternatives) • [Contribute](CONTRIBUTING.md)
 
 </div>
 
@@ -39,6 +39,17 @@ This tool fixes those failures. The **full multi-agent version runs on Claude** 
 It's the same way professional strategy teams work: separate people for ideation, critique, and execution. We just made each "person" a specialized Claude agent.
 
 > "It found a flaw in my pivot that I'd been missing for three weeks." — early tester
+
+---
+
+## 👀 See It in Action
+
+The same one-line prompt, run as a normal chat vs. through the methodology — side by side. The contrast is the whole pitch:
+
+- [**Stickman game**](examples/stickman-comparison.md) — the contrast at its starkest: plain Claude builds instantly, the methodology stops to scope.
+- [**Personal health AI**](examples/health-system-comparison.md) — the harder case: plain Claude was already competent, and the methodology still added strategy (beachhead, regulatory risk, an architectural blocker).
+- [**Hyperliquid wallet**](examples/hyperliquid-wallet-comparison.md) — the full method through an isolated Phase-5 critique. Read this one to see the whole thing.
+- [**AI support agent**](examples/ai-support-agent-comparison.md) — the "can it say no?" test: the methodology pushes back and recommends *not* building the idea.
 
 ---
 
