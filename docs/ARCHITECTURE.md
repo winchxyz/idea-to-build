@@ -23,7 +23,7 @@ The single biggest quality lever in any structured brainstorm is **process isola
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
                               │
-              dispatches via Task tool (sub-agent)
+          launches a real sub-agent (Agent in Cowork / Task in Claude Code)
                               │
         ┌─────────────────────┼─────────────────────┐
         │                     │                     │
@@ -111,11 +111,11 @@ The coordinator and sub-agents assume access to:
 
 - **Read / Write / Edit** — for context file management
 - **Web Search** — for Tier 3 factual rigor
-- **Task** (sub-agent dispatch) — for Phase 5 and Phase 6 isolation
+- **Sub-agent launch** — for Phase 5 and Phase 6 isolation. This is the **`Agent`** tool in Cowork and the **`Task`** tool in Claude Code. ⚠️ It is *not* the `TaskCreate`/`TaskUpdate`/`TaskList` to-do tools, which only track a checklist and provide no context isolation.
 
 If a target environment lacks any of these, the relevant capability degrades gracefully:
 - No web search → Tier 3 claims are flagged 🔍 instead of researched
-- No Task tool → all phases run in single-agent mode (degraded critique quality)
+- No sub-agent launch tool → all phases run in single-agent mode (degraded critique quality), and the critique must be labeled ⚠️ "non-isolated" rather than claiming isolation
 
 ## Trade-Offs We Accepted
 

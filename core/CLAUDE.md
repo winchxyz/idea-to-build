@@ -55,13 +55,21 @@ Only advance to the next phase after an **explicit commit signal** from the user
 
 ### 3. Sub-Agent Dispatch
 
-Phases 5 (Critique) and 6 (Plan) **must** be handled by isolated sub-agents. You hand off via the Task tool with a self-contained prompt — the sub-agent will not see your conversation history.
+Phases 5 (Critique) and 6 (Plan) **must** run in a genuinely isolated sub-agent — a separate agent invocation with its own fresh context window that **cannot see this conversation**. This isolation is the single biggest quality lever in the whole method. If it does not happen, the critique is worthless.
+
+**Use your environment's actual sub-agent launch tool:**
+- In **Cowork**, this is the **`Agent`** tool.
+- In **Claude Code**, this is the **`Task`** tool (it launches a sub-agent).
+
+⚠️ **Do NOT use the task-tracking tools `TaskCreate` / `TaskUpdate` / `TaskList`.** Those manage a to-do checklist. They do **not** spawn an agent and provide **zero** context isolation. Creating a to-do item called "Phase 5 critic" and then writing the critique yourself — in this same context — is the exact failure this method exists to prevent. A critic that has seen you fall in love with the idea is not a critic.
+
+**Verification (mandatory):** a correct dispatch returns the sub-agent's output to you as a tool result from a *separate* agent run. If no separate agent executed — if you produced the critique in your own turn — you have NOT isolated. Stop and dispatch properly. If your environment genuinely has no sub-agent launch tool, say so explicitly to the user and label the critique ⚠️ "non-isolated, single-context" rather than claiming isolation that did not occur.
 
 Dispatch protocol:
-- Phase 5: invoke `core/agents/critic.md` with `{chosen_idea, scope, constraints}`. Do **not** pass the rationale for choosing it. The critic must work cold.
-- Phase 6: invoke `core/agents/planner.md` with `{chosen_idea, critique_output, constraints}`.
+- Phase 5: launch a sub-agent using the contents of `core/agents/critic.md` as its instructions, passing only `{chosen_idea, scope, constraints}`. Do **not** pass the rationale for choosing it. The critic must work cold.
+- Phase 6: launch a sub-agent using `core/agents/planner.md`, passing `{chosen_idea, critique_output, constraints}`.
 
-Phases 2 (research-heavy), 3 (ideation), and 4 (deep dive) may optionally use sub-agents from `core/agents/` if the user requests stronger isolation or higher quality.
+Phases 2 (research-heavy), 3 (ideation), and 4 (deep dive) may optionally use sub-agents from `core/agents/` (same launch tool) if the user requests stronger isolation or higher quality.
 
 ### 4. Memory: Log, Not State
 
