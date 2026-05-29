@@ -56,10 +56,10 @@ Open the cloned folder in Cowork (or Claude Code) and the coordinator + sub-agen
 Copy [`distributions/standalone-prompts/lite.md`](distributions/standalone-prompts/lite.md) into ChatGPT, Claude, Gemini, or any chat. Degraded quality (no sub-agent isolation, no cross-session memory), but zero setup.
 
 ### 🚧 Option 3: Cowork plugin (.plugin) — on roadmap
-A drag-and-drop `.plugin` installer is planned for v0.2. Track [issue #2](#) for status.
+A drag-and-drop `.plugin` installer is planned for v0.2. Track [issue #1](https://github.com/winchxyz/idea-to-brainstorm/issues/1) for status.
 
 ### 🚧 Option 4: Claude Code plugin — on roadmap
-Marketplace registration and `claude plugin install` support are planned for v0.2. Track [issue #3](#) for status.
+Marketplace registration and `claude plugin install` support are planned for v0.2. Track [issue #2](https://github.com/winchxyz/idea-to-brainstorm/issues/2) for status.
 
 ---
 
