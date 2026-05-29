@@ -146,14 +146,15 @@ idea-to-brainstorm/
 ├── profiles/                 # 6 domain profiles (general + 5 specialized)
 ├── distributions/
 │   └── standalone-prompts/   # Lite version for any LLM
-└── docs/
-    ├── ARCHITECTURE.md       # How sub-agents are orchestrated
-    ├── METHODOLOGY.md        # Core principles in depth
-    ├── PHASES.md             # 6 phases explained
-    └── PROFILES.md           # Profile authoring guide
+├── docs/
+│   ├── ARCHITECTURE.md       # How sub-agents are orchestrated
+│   ├── METHODOLOGY.md        # Core principles in depth
+│   ├── PHASES.md             # 6 phases explained
+│   └── PROFILES.md           # Profile authoring guide
+└── examples/                 # Transcript template + guide (real transcripts: v0.2)
 ```
 
-> Roadmap directories not shipped in v0.1.0: `distributions/cowork-plugin/`, `distributions/claude-code-plugin/`, `examples/`. See [`CHANGELOG.md`](CHANGELOG.md).
+> Roadmap directories not shipped in v0.1.0: `distributions/cowork-plugin/`, `distributions/claude-code-plugin/`. The `examples/` directory ships with a template and authoring guide in v0.1.0; real brainstorm transcripts land in v0.2. See [`CHANGELOG.md`](CHANGELOG.md).
 
 Full architecture: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
 
