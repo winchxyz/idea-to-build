@@ -1,0 +1,23 @@
+# Active Projects
+
+Index of all projects under brainstorming or in execution. Each project has its own file at `context/<slug>.md`.
+
+| Slug | Name | Stage | Last updated |
+|------|------|-------|-------------|
+| example-project | Example: replace with your project | Brainstorm (Phase 1) | YYYY-MM-DD |
+
+## Stages (legend)
+
+- **Brainstorm** — discussing concept, hypotheses, direction
+- **Prototype** — building, no customers/revenue yet
+- **MVP** — first users/customers, validating the model
+- **Growth** — model validated, scaling
+- **Execution** — stable phase, optimization
+
+## Archive
+
+_Move projects here when paused or closed — preserves context without cluttering the active list._
+
+| Slug | Name | Status | Frozen |
+|------|------|--------|--------|
+| | | | |

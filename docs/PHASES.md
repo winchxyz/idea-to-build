@@ -1,0 +1,145 @@
+# The Six Phases
+
+`idea-to-brainstorm` runs every session through six explicit phases. The coordinator announces the current phase in every substantive message and refuses to advance without an explicit commit signal from the user.
+
+This document explains what each phase does, what its output looks like, and where the easy mistakes are.
+
+---
+
+## Phase 1 — Understanding
+
+**Goal:** Restate the user's problem in your own words. Confirm scope. Surface implicit assumptions.
+
+**Coordinator behavior:**
+- Read the project context file (if continuing) or create one (if new)
+- Ask 3–5 scoping questions if essential context is missing
+- Reflect back the problem statement for confirmation
+
+**Output:** A one-paragraph problem statement the user agrees with.
+
+**Common mistakes:**
+- Skipping straight to ideation
+- Asking 15 clarifying questions in a row (over-questioning is friction)
+- Not writing the agreed statement to the context file
+
+**Exit criterion:** User confirms "yes, that's what I'm trying to do."
+
+---
+
+## Phase 2 — Context
+
+**Goal:** Map the landscape. Who's already doing this? What changed recently? What are the platform / regulatory / market constraints?
+
+**Coordinator behavior:**
+- Identify what needs Tier 3 search (market data, competitor info, current policies)
+- Optionally dispatch the **Research Agent** for stronger isolation on research-heavy tasks
+- Apply confidence labels (✅ / ⚠️ / 🔍) to every material claim
+
+**Output:** A briefing covering competitors, recent shifts, constraints, and unknowns — with cited sources.
+
+**Common mistakes:**
+- Skipping search and stating facts from memory
+- Quoting sources older than 18 months in fast-moving domains
+- Treating the briefing as conclusions instead of inputs
+
+**Exit criterion:** User has enough landscape clarity to proceed to ideation.
+
+---
+
+## Phase 3 — Generation
+
+**Goal:** Produce 3–5 **radically different** approaches. Not variations on a theme.
+
+**Coordinator behavior:**
+- Optionally dispatch the **Ideation Agent** for lateral thinking
+- Enforce spread (some safe, some risky; some fast, some slow; some narrow, some broad)
+- Present neutrally — let the user pick
+
+**Output:** A table of variants with pros, cons, effort, and risk profile.
+
+**Common mistakes:**
+- Generating 5 variations of the same underlying idea
+- Subtly biasing toward a preferred variant
+- Skipping the "cons" section because the variant is exciting
+
+**Exit criterion:** User picks one variant to deep-dive (or asks for more variants).
+
+---
+
+## Phase 4 — Deep Dive
+
+**Goal:** Develop the chosen variant into a concrete, well-specified concept.
+
+**Coordinator behavior:**
+- Optionally dispatch the **Deep-Dive Agent**
+- Specify the mechanism, architecture, required inputs, and produced outputs
+- Surface trade-offs vs. rejected variants (prevents post-decision rationalization)
+- List open sub-decisions, tagged by urgency
+
+**Output:** A concept specification ready for critique.
+
+**Common mistakes:**
+- Silently dropping the rejected variants (no trade-off statement)
+- Producing a 10-page spec when 1 page is enough
+- Promising "everything will work" instead of naming open decisions
+
+**Exit criterion:** User feels the concept is specific enough to criticize.
+
+---
+
+## Phase 5 — Critique (mandatory; cannot be skipped)
+
+**Goal:** Try to break the chosen idea.
+
+**Coordinator behavior:**
+- **Must dispatch the Critic Sub-Agent in isolated context**
+- Pass only the chosen idea + scope + constraints — never the rationale or alternatives
+- Aggregate the critic's verdict back to the user
+
+**Required critic output:**
+1. **Premortem** — 5 ranked failure causes with probability
+2. **What Needs to Be True** — 5–7 assumptions labeled ✅ / ⚠️ / 🔍
+3. **Steelman the opposition** — the strongest argument against
+4. **Inversion** — what would reliably kill this
+5. **Verdict** — GO / GO with conditions / NO-GO
+
+**Common mistakes:**
+- Letting the coordinator do the critique (context bleed = soft critique)
+- Skipping inversion because it's uncomfortable
+- Refusing to commit to a verdict
+
+**Exit criterion:** User has seen the failure modes and either accepts the conditions or returns to Phase 3.
+
+---
+
+## Phase 6 — Plan
+
+**Goal:** Turn the critiqued strategy into an executable plan with explicit success gates.
+
+**Coordinator behavior:**
+- **Dispatch the Planner Sub-Agent in isolated context**
+- Pass the chosen idea + critic's output + constraints
+- Aggregate the plan back to the user
+
+**Required planner output:**
+1. **Mini-MVP / Pilot** (if scope > 1 week) — minimum test of riskiest assumptions
+2. **Sequenced plan** — day-by-day or week-by-week for first execution period
+3. **Critical risks & mitigations** — specific actions, not platitudes
+4. **Green-light criteria** — quantitative or binary checkpoints
+5. **Budget summary** — one-time, recurring, contingency
+6. **What the user does today** — one concrete action within 24 hours
+
+**Common mistakes:**
+- Generating a 50-step plan (first 10 matter most)
+- Skipping the pilot because the user is impatient
+- Vague green-light criteria ("if it's going well")
+
+**Exit criterion:** User commits to execution OR returns to Phase 3 if the plan reveals the idea isn't viable.
+
+---
+
+## After Phase 6
+
+The brainstorm is **closed**. The user moves to execution mode. Future sessions reopen the project from its context file and may run targeted phases (e.g., re-critique a pivot, re-plan after pilot data).
+
+Re-opening Phase 3 requires an explicit user signal: "let's reconsider variants" or "I want to pivot."

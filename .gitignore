@@ -1,0 +1,36 @@
+# Project context files — user-specific, not part of the framework.
+# Pattern note: we exclude the *contents* of context/ (not the dir itself)
+# so the `!` exception for INDEX.md.template can fire.
+context/*
+!context/INDEX.md.template
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Local config
+.env
+.env.local
+
+# Node / build artifacts (for future MCP server work)
+node_modules/
+dist/
+build/
+*.log
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Temporary
+*.tmp
+tmp/
