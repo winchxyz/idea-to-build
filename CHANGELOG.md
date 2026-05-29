@@ -4,6 +4,14 @@ All notable changes to `idea-to-brainstorm` are tracked here.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.1] — 2026-05-29
+
+### Fixed
+- Root `CLAUDE.md` now auto-activates the coordinator on clone-and-open. Previously the spec lived only in `core/CLAUDE.md`, which is not auto-loaded when the repo root is opened in Cowork/Claude Code — users got a generic assistant instead of the methodology.
+
+### Added
+- First real example transcript: `examples/stickman-comparison.md` (same prompt run as plain Claude vs. the methodology).
+
 ## [0.1.0] — 2026-05-29
 
 ### Added
