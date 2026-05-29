@@ -31,5 +31,6 @@ Copy [`TEMPLATE.md`](TEMPLATE.md) to start.
 - [`health-system-comparison.md`](health-system-comparison.md) — a personal-health-AI startup. The harder case: plain Claude was already competent, and the methodology still added strategic depth (beachhead, regulatory risk, an architectural blocker).
 - [`hyperliquid-wallet-comparison.md`](hyperliquid-wallet-comparison.md) — a Hyperliquid crypto wallet. The fullest example, running the methodology through Phase 5 (isolated critique). Read this one to see the whole method.
 - [`ai-support-agent-comparison.md`](ai-support-agent-comparison.md) — an AI support agent that "replaces" support teams. The "can it say no?" test: the methodology pushes back, honors the user's override, and lets sourced research recommend *not* building.
+- [`food-delivery-comparison.md`](food-delivery-comparison.md) — a food delivery app. The fullest "can it say no?" arc, with **trace-verified** isolation: the cold critic returns NO-GO on the head-on idea the founder insisted on, then GO-with-conditions on the pivot.
 
 More transcripts — including different domains and full 6-phase runs — are planned for v0.2. Contributions welcome via PR (see [`../CONTRIBUTING.md`](../CONTRIBUTING.md)).
