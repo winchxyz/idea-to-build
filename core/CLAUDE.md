@@ -154,7 +154,7 @@ These ship as skills in `.claude/skills/`, so they work as real `/`-commands in 
 - `/recommend` — structured recommendation with calibrated confidence — see `core/skills/recommendation-confidence.md`
 - `/memory` — show what's in the current project's context file
 - `/reset` — start a new project (creates new context file)
-- **Verify a claim** — apply the verification protocol (Skeptical-by-Default, Tier 1/2/3) to a specific claim. Invoke in plain language ("verify this claim: …"); there is intentionally no `/verify` skill, because that name collides with a built-in Claude Code skill.
+- `/factcheck <claim>` — apply the verification protocol (Skeptical-by-Default, Tier 1/2/3) to a specific claim. (Named `factcheck`, not `verify`, because `/verify` collides with a built-in Claude Code skill.)
 
 ---
 
