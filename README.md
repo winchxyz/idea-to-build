@@ -53,6 +53,7 @@ The same one-line prompt, run as a normal chat vs. through the methodology — s
 - [**Hyperliquid wallet**](examples/hyperliquid-wallet-comparison.md) — the full method through a trace-verified isolated Phase-5 critique that returns NO-GO. Read this one to see the whole thing.
 - [**AI support agent**](examples/ai-support-agent-comparison.md) — the "can it say no?" test: the methodology pushes back and recommends *not* building the idea.
 - [**Food delivery app**](examples/food-delivery-comparison.md) — the fullest "can it say no?" arc (trace-verified): the cold critic returns NO-GO on the head-on idea, then GO-with-conditions on the pivot.
+- [**Profiles in action**](examples/profiles-comparison.md) — a different cut: the *same* idea run through all six profiles, showing how each asks different questions. Proof the profiles aren't cosmetic.
 
 ---
 
@@ -116,7 +117,7 @@ idea-to-brainstorm ships with **6 modes**: one general-purpose base plus five do
 | 🗺️ [Product Roadmap](profiles/product-roadmap.md) | Feature prioritization, GTM | ICE/RICE, Kano, North Star Metric |
 | 🧭 [Personal Decisions](profiles/personal-decisions.md) | Career moves, life transitions | Reversibility, Expected Value, Inversion |
 
-Profiles override defaults inside each phase. Switch with `/profile startup`.
+Profiles override defaults inside each phase. Switch with `/profile startup`. See all six compared on one idea: [`profiles-comparison.md`](examples/profiles-comparison.md).
 
 ---
 
@@ -172,7 +173,7 @@ idea-to-brainstorm/
 └── examples/                 # Template, guide + real comparison transcripts
 ```
 
-> Roadmap directories not yet shipped (planned for v0.2): `distributions/cowork-plugin/`, `distributions/claude-code-plugin/`. The `examples/` directory ships with a template, an authoring guide, and five real comparison transcripts — each the same prompt run as plain Claude vs. through the methodology: a stickman game, a personal-health-AI startup, a Hyperliquid wallet (full methodology through a trace-verified Phase 5 critique → NO-GO), an AI support agent, and a food-delivery app (where a trace-verified isolated critic returns NO-GO on the head-on idea, then GO-with-conditions on the pivot). A broader library lands in v0.2. See [`CHANGELOG.md`](CHANGELOG.md).
+> Roadmap directories not yet shipped (planned for v0.2): `distributions/cowork-plugin/`, `distributions/claude-code-plugin/`. The `examples/` directory ships with a template, an authoring guide, and six real transcripts — five run the same prompt as plain Claude vs. through the methodology: a stickman game, a personal-health-AI startup, a Hyperliquid wallet (full methodology through a trace-verified Phase 5 critique → NO-GO), an AI support agent, and a food-delivery app (where a trace-verified isolated critic returns NO-GO on the head-on idea, then GO-with-conditions on the pivot) — plus a profiles comparison that runs one idea through all six profiles. A broader library lands in v0.2. See [`CHANGELOG.md`](CHANGELOG.md).
 
 Full architecture: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
 
