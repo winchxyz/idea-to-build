@@ -4,6 +4,11 @@ All notable changes to `idea-to-brainstorm` are tracked here.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+- **Scaffolder + `/scaffold` command.** After Phase 6, generate a ready-to-build project folder from the brainstorm's context file: `CLAUDE.md` (chosen approach, rejected variants, risks to watch, go/no-go gates), `README.md`, `DECISIONS.md`, `PLAN.md`. Produces the *briefing*, not application code — you open the folder in Claude Code and it builds. Spec in `core/agents/scaffolder.md`; gated to require a completed Phase 6.
+
 ## [0.1.4] — 2026-05-31
 
 ### Added

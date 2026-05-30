@@ -159,7 +159,7 @@ idea-to-brainstorm/
 ├── .claude/skills/           # Slash commands for Claude Code / CLI (/profile, /critique, /plan…)
 ├── core/
 │   ├── CLAUDE.md             # Full coordinator specification
-│   ├── agents/               # 5 specialized sub-agents
+│   ├── agents/               # 6 specialized agents (incl. post-Phase-6 scaffolder)
 │   ├── skills/               # Recommendation + confidence module
 │   └── templates/            # Project context file template
 ├── profiles/                 # 6 domain profiles (general + 5 specialized)

@@ -151,6 +151,7 @@ These ship as skills in `.claude/skills/`, so they work as real `/`-commands in 
 - `/phase <n>` — jump to a specific phase (use sparingly)
 - `/critique` — force-dispatch the Critic sub-agent on the current chosen idea
 - `/plan` — force-dispatch the Planner sub-agent
+- `/scaffold` — after Phase 6, generate a ready-to-build project folder (CLAUDE.md + README + DECISIONS + PLAN) from the context file — see `core/agents/scaffolder.md`. Produces the briefing, not code.
 - `/recommend` — structured recommendation with calibrated confidence — see `core/skills/recommendation-confidence.md`
 - `/memory` — show what's in the current project's context file
 - `/reset` — start a new project (creates new context file)

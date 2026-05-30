@@ -70,7 +70,7 @@ It's built specifically not to. Every material claim gets a confidence label —
 
 ### Does it write the code / build my project?
 
-No. It's a *thinking* tool — it takes you from a raw idea to a battle-tested strategy and a plan, and deliberately refuses to jump to building. A post-brainstorm scaffolder (generate a `CLAUDE.md` + handoff files so you can start in Claude Code) is on the roadmap, not shipped yet.
+It doesn't write your application code — it's a *thinking* tool that takes you from a raw idea to a critiqued plan, and deliberately refuses to jump to building. But once Phase 6 is done, **`/scaffold`** generates a ready-to-build project folder from your brainstorm: a `CLAUDE.md` (with the chosen approach, the rejected paths, the risks to watch, and the go/no-go gates), plus `README.md`, `DECISIONS.md`, and `PLAN.md`. That's the *briefing* — you open the folder in Claude Code and it builds from there. The scaffolder makes the handoff, Claude Code writes the code.
 
 ---
 
