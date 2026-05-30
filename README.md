@@ -48,8 +48,9 @@ The same one-line prompt, run as a normal chat vs. through the methodology — s
 
 - [**Stickman game**](examples/stickman-comparison.md) — the contrast at its starkest: plain Claude builds instantly, the methodology stops to scope.
 - [**Personal health AI**](examples/health-system-comparison.md) — the harder case: plain Claude was already competent, and the methodology still added strategy (beachhead, regulatory risk, an architectural blocker).
-- [**Hyperliquid wallet**](examples/hyperliquid-wallet-comparison.md) — the full method through an isolated Phase-5 critique. Read this one to see the whole thing.
+- [**Hyperliquid wallet**](examples/hyperliquid-wallet-comparison.md) — the full method through a trace-verified isolated Phase-5 critique that returns NO-GO. Read this one to see the whole thing.
 - [**AI support agent**](examples/ai-support-agent-comparison.md) — the "can it say no?" test: the methodology pushes back and recommends *not* building the idea.
+- [**Food delivery app**](examples/food-delivery-comparison.md) — the fullest "can it say no?" arc (trace-verified): the cold critic returns NO-GO on the head-on idea, then GO-with-conditions on the pivot.
 
 ---
 
