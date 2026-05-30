@@ -9,6 +9,9 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 ### Added
 - Fifth example transcript: `examples/food-delivery-comparison.md` (food delivery — the fullest "can it say no?" arc, and the first example with **trace-verified** sub-agent isolation after the dispatch fix: the cold critic returns NO-GO on the head-on idea, then GO-with-conditions on the pivot).
 
+### Changed
+- Re-recorded `examples/hyperliquid-wallet-comparison.md` from a **trace-verified isolated run** (Phase 5 shows `ran an agent`). The earlier version documented a run whose dispatch had used the to-do tool rather than a real sub-agent, so its "isolated critique" claim wasn't accurate; the new run genuinely isolates and returns NO-GO.
+
 ### Fixed
 - **Sub-agent dispatch now targets the real agent-launch tool.** The protocol said "the Task tool," which in Cowork collides with the `TaskCreate`/`TaskUpdate` *to-do* tools — so the coordinator created a checklist item and wrote the critique itself in-context, instead of spawning an isolated critic. Phases 5/6 were running with no real context isolation (the core value prop). `core/CLAUDE.md` §3, the root `CLAUDE.md`, and `docs/ARCHITECTURE.md` now name the correct tool per host (`Agent` in Cowork, `Task` in Claude Code), explicitly forbid the to-do tools, and require a verification step that a separate agent actually ran.
 
