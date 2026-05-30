@@ -117,7 +117,7 @@ idea-to-brainstorm ships with **6 modes**: one general-purpose base plus five do
 | 🗺️ [Product Roadmap](profiles/product-roadmap.md) | Feature prioritization, GTM | ICE/RICE, Kano, North Star Metric |
 | 🧭 [Personal Decisions](profiles/personal-decisions.md) | Career moves, life transitions | Reversibility, Expected Value, Inversion |
 
-Profiles override defaults inside each phase. Switch with `/profile startup`. See all six compared on one idea: [`profiles-comparison.md`](examples/profiles-comparison.md).
+Profiles override defaults inside each phase. Switch with `/profile startup` — a real slash command in Claude Code and the Claude CLI; in Cowork, just say it in plain language ("switch to the startup profile"). See all six compared on one idea: [`profiles-comparison.md`](examples/profiles-comparison.md).
 
 ---
 
@@ -156,6 +156,7 @@ Full methodology: [`docs/METHODOLOGY.md`](docs/METHODOLOGY.md)
 ```
 idea-to-brainstorm/
 ├── CLAUDE.md                 # Entry point — auto-activates the coordinator
+├── .claude/skills/           # Slash commands for Claude Code / CLI (/profile, /critique, /plan…)
 ├── core/
 │   ├── CLAUDE.md             # Full coordinator specification
 │   ├── agents/               # 5 specialized sub-agents

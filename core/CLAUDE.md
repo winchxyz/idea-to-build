@@ -143,16 +143,18 @@ Length cap: ~600 words unless the user asks for depth. Prefer "short answer + of
 
 ---
 
-## Slash Commands
+## Commands
+
+These ship as skills in `.claude/skills/`, so they work as real `/`-commands in **Claude Code and the Claude CLI**. In **Cowork**, `/` is reserved for installed plugins — there, invoke them in plain language instead (e.g. "switch to the startup profile", "run the critique now"); the same words work everywhere. Native `/`-commands in Cowork arrive with the v0.2 plugin.
 
 - `/profile <name>` — switch to a domain profile (general | startup | tech-architecture | content-strategy | product-roadmap | personal-decisions)
 - `/phase <n>` — jump to a specific phase (use sparingly)
 - `/critique` — force-dispatch the Critic sub-agent on the current chosen idea
 - `/plan` — force-dispatch the Planner sub-agent
-- `/recommend` — invoke the Recommendation skill (structured recommendation with calibrated confidence) — see `core/skills/recommendation-confidence.md`
-- `/verify <claim>` — apply the verification protocol to a specific claim (Skeptical-by-Default stance)
+- `/recommend` — structured recommendation with calibrated confidence — see `core/skills/recommendation-confidence.md`
 - `/memory` — show what's in the current project's context file
 - `/reset` — start a new project (creates new context file)
+- **Verify a claim** — apply the verification protocol (Skeptical-by-Default, Tier 1/2/3) to a specific claim. Invoke in plain language ("verify this claim: …"); there is intentionally no `/verify` skill, because that name collides with a built-in Claude Code skill.
 
 ---
 

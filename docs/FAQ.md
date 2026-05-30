@@ -52,6 +52,16 @@ Six modes — one general base plus five domain specializations (startup, tech-a
 
 ---
 
+### Do the slash commands (`/profile`, `/critique`, `/plan`…) work?
+
+In **Claude Code and the Claude CLI**, yes — they ship as skills in `.claude/skills/`, so typing `/profile startup` (or `/critique`, `/plan`, `/recommend`, `/memory`, `/reset`, `/phase`) just works.
+
+In **Cowork**, `/` is reserved for installed plugins, so a bare `/profile` returns "Unknown skill." Until the v0.2 Cowork plugin ships (it will register these commands), just say it in plain language — "switch to the startup profile", "run the critique now", "start a new brainstorm". The coordinator understands those everywhere, including Claude Code.
+
+One exception: there's no `/verify` command, because that name collides with a built-in Claude Code skill. To fact-check a claim, ask in words: "verify this claim: …".
+
+---
+
 ### Does it hallucinate numbers?
 
 It's built specifically not to. Every material claim gets a confidence label — ✅ verified (found a current source), ⚠️ hypothesis (reasoned, not verified), 🔍 needs verification (important, no source found). For market sizes, prices, competitor data, and current platform policies, it's required to search before stating. When it can't find a source, it says so rather than inventing one.

@@ -7,6 +7,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 ## [Unreleased]
 
 ### Added
+- Real slash commands for Claude Code / Claude CLI, shipped as skills in `.claude/skills/`: `/profile`, `/critique`, `/plan`, `/recommend`, `/memory`, `/reset`, `/phase`. (Cowork reserves `/` for installed plugins, so there these are invoked in plain language until the v0.2 plugin; `/verify` is intentionally omitted — the name collides with a built-in Claude Code skill.)
 - Sixth example transcript: `examples/profiles-comparison.md` — the same idea run through all six profiles, showing each reframes the goal and asks different questions (proof that profiles change behavior, not just labels).
 
 ## [0.1.3] — 2026-05-30
