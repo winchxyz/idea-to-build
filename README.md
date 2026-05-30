@@ -44,6 +44,8 @@ It's the same way professional strategy teams work: separate people for ideation
 
 ## 👀 See It in Action
 
+https://github.com/user-attachments/assets/3125c26d-b5fb-4daf-aa59-fa99e93be2b9
+
 The same one-line prompt, run as a normal chat vs. through the methodology — side by side. The contrast is the whole pitch:
 
 - [**Stickman game**](examples/stickman-comparison.md) — the contrast at its starkest: plain Claude builds instantly, the methodology stops to scope.
