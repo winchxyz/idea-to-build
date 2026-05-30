@@ -11,7 +11,7 @@ Turn any raw idea into a battle-tested strategy in 30 minutes — powered by Cla
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Claude](https://img.shields.io/badge/Powered%20by-Claude-D97757)](https://claude.com)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
-[![Status](https://img.shields.io/badge/status-v0.1.4-orange.svg)](CHANGELOG.md)
+[![Status](https://img.shields.io/badge/status-v0.1.5-orange.svg)](CHANGELOG.md)
 
 [Quick Start](#-quick-start) • [See It in Action](#-see-it-in-action) • [How It Works](#-how-it-works) • [Profiles](#-profiles) • [Why This](#-why-this-vs-alternatives) • [Contribute](CONTRIBUTING.md)
 
@@ -46,7 +46,7 @@ It's the same way professional strategy teams work: separate people for ideation
 
 https://github.com/user-attachments/assets/7ae6376f-8eb4-448a-9a11-2b4781f59f57
 
-The contrast is the whole pitch. The first five take one prompt and run it two ways — a normal chat vs. the methodology, side by side. The last runs a single idea through all six profiles:
+Real sessions, each linked in full. Five take one prompt and run it two ways — a normal chat vs. the methodology, side by side. One runs a single idea through all six profiles. And one is a full start-to-finish run that ends in a buildable plan:
 
 - [**Stickman game**](examples/stickman-comparison.md) — the contrast at its starkest: plain Claude builds instantly, the methodology stops to scope.
 - [**Personal health AI**](examples/health-system-comparison.md) — the harder case: plain Claude was already competent, and the methodology still added strategy (beachhead, regulatory risk, an architectural blocker).
@@ -54,6 +54,7 @@ The contrast is the whole pitch. The first five take one prompt and run it two w
 - [**AI support agent**](examples/ai-support-agent-comparison.md) — the "can it say no?" test: the methodology pushes back and recommends *not* building the idea.
 - [**Food delivery app**](examples/food-delivery-comparison.md) — the fullest "can it say no?" arc (trace-verified): the cold critic returns NO-GO on the head-on idea, then GO-with-conditions on the pivot.
 - [**Profiles in action**](examples/profiles-comparison.md) — a different cut: the *same* idea run through all six profiles, showing how each asks different questions. Proof the profiles aren't cosmetic.
+- [**Full run: medieval tycoon game**](examples/medieval-tycoon-fullrun.md) — the whole method, Phase 1 → 6 → `/scaffold`. The idea *survives*: scoped, critiqued (GO with conditions), planned with a kill-switch, handed off as a buildable folder. This is the constructive path, not a rejection.
 
 ---
 
@@ -174,7 +175,7 @@ idea-to-brainstorm/
 └── examples/                 # Template, guide + real comparison transcripts
 ```
 
-> Roadmap directories not yet shipped (planned for v0.2): `distributions/cowork-plugin/`, `distributions/claude-code-plugin/`. The `examples/` directory ships with a template, an authoring guide, and six real transcripts — five run the same prompt as plain Claude vs. through the methodology: a stickman game, a personal-health-AI startup, a Hyperliquid wallet (full methodology through a trace-verified Phase 5 critique → NO-GO), an AI support agent, and a food-delivery app (where a trace-verified isolated critic returns NO-GO on the head-on idea, then GO-with-conditions on the pivot) — plus a profiles comparison that runs one idea through all six profiles. A broader library lands in v0.2. See [`CHANGELOG.md`](CHANGELOG.md).
+> Roadmap directories not yet shipped (planned for v0.2): `distributions/cowork-plugin/`, `distributions/claude-code-plugin/`. The `examples/` directory ships with a template, an authoring guide, and seven real transcripts — five run the same prompt as plain Claude vs. through the methodology: a stickman game, a personal-health-AI startup, a Hyperliquid wallet (full methodology through a trace-verified Phase 5 critique → NO-GO), an AI support agent, and a food-delivery app (where a trace-verified isolated critic returns NO-GO on the head-on idea, then GO-with-conditions on the pivot) — plus a profiles comparison (one idea, six profiles) and a full start-to-finish run that ends in a buildable plan. A broader library lands in v0.2. See [`CHANGELOG.md`](CHANGELOG.md).
 
 Full architecture: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
 

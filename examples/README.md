@@ -33,5 +33,6 @@ Copy [`TEMPLATE.md`](TEMPLATE.md) to start.
 - [`ai-support-agent-comparison.md`](ai-support-agent-comparison.md) — an AI support agent that "replaces" support teams. The "can it say no?" test: the methodology pushes back, honors the user's override, and lets sourced research recommend *not* building.
 - [`food-delivery-comparison.md`](food-delivery-comparison.md) — a food delivery app. The fullest "can it say no?" arc, with **trace-verified** isolation: the cold critic returns NO-GO on the head-on idea the founder insisted on, then GO-with-conditions on the pivot.
 - [`profiles-comparison.md`](profiles-comparison.md) — a different kind of comparison: the *same* idea run through all six profiles, showing how each reframes the goal and asks different questions. Proof that profiles aren't cosmetic.
+- [`medieval-tycoon-fullrun.md`](medieval-tycoon-fullrun.md) — the whole method start to finish (Phase 1 → 6 → `/scaffold`). The idea *survives*: scoped, critiqued (GO with conditions), planned with a kill-switch, and handed off as a buildable folder. The constructive counterpart to the "can it say no?" runs.
 
 More transcripts — including different domains and full 6-phase runs — are planned for v0.2. Contributions welcome via PR (see [`../CONTRIBUTING.md`](../CONTRIBUTING.md)).
