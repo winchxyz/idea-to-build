@@ -4,7 +4,7 @@ All notable changes to `idea-to-brainstorm` are tracked here.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [0.1.4] — 2026-05-31
 
 ### Added
 - Real slash commands for Claude Code / Claude CLI, shipped as skills in `.claude/skills/`: `/profile`, `/critique`, `/plan`, `/recommend`, `/memory`, `/reset`, `/phase`, `/factcheck`. (Cowork reserves `/` for installed plugins, so there these are invoked in plain language until the v0.2 plugin. The claim-verifier is named `/factcheck`, not `/verify`, to avoid colliding with a built-in Claude Code skill.)
