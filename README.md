@@ -46,7 +46,7 @@ It's the same way professional strategy teams work: separate people for ideation
 
 https://github.com/user-attachments/assets/7ae6376f-8eb4-448a-9a11-2b4781f59f57
 
-The same one-line prompt, run as a normal chat vs. through the methodology — side by side. The contrast is the whole pitch:
+The contrast is the whole pitch. The first five take one prompt and run it two ways — a normal chat vs. the methodology, side by side. The last runs a single idea through all six profiles:
 
 - [**Stickman game**](examples/stickman-comparison.md) — the contrast at its starkest: plain Claude builds instantly, the methodology stops to scope.
 - [**Personal health AI**](examples/health-system-comparison.md) — the harder case: plain Claude was already competent, and the methodology still added strategy (beachhead, regulatory risk, an architectural blocker).
