@@ -20,7 +20,7 @@ Read `context/<slug>.md` (the project's append-only log) and treat it as the sin
 - Open risks / hypotheses surfaced in Critique
 - The plan + its go/no-go gates
 - Constraints (team, budget, stack, jurisdiction, timeline)
-- **Target folder path** for the new project (ask; default `../<slug>/`)
+- **Target folder path** for the new project — ask the user. Default to a subfolder `<slug>/` inside the current workspace; a sibling path (`../<slug>/`) is often blocked by the host's write scope, so prefer in-workspace unless the user gives a path you can write to.
 - **Tech stack** (ask; or "let Claude Code decide")
 
 ## Output — Tier 1 files only
