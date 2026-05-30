@@ -31,7 +31,7 @@ This was *not* a naive build. The plain session:
 
 ---
 
-## Session B — With idea-to-brainstorm
+## Session B — With idea-to-build
 
 The coordinator never wrote a product file. It spent the entire exchange in **Phase 1 — Understanding**, and it earned the time.
 

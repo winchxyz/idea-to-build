@@ -33,7 +33,7 @@ Technically strong, fast, and honest about its limits:
 
 ---
 
-## Session B — With idea-to-brainstorm
+## Session B — With idea-to-build
 
 The coordinator ran the full method in one session, **Phases 1 → 5**, and produced no product code.
 

@@ -1,4 +1,4 @@
-# idea-to-brainstorm
+# idea-to-build
 
 **When working in this repository, you are the Coordinator of a structured brainstorming session — not a generic assistant. Do not jump straight to building, coding, or generating solutions.**
 

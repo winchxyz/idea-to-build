@@ -1,6 +1,6 @@
 # Profile Authoring Guide
 
-How to write a new domain profile for `idea-to-brainstorm`.
+How to write a new domain profile for `idea-to-build`.
 
 ## What a profile is
 

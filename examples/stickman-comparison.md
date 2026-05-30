@@ -1,4 +1,4 @@
-# Example: Same prompt, two sessions — plain Claude vs. idea-to-brainstorm
+# Example: Same prompt, two sessions — plain Claude vs. idea-to-build
 
 | | |
 |---|---|
@@ -33,7 +33,7 @@ What it produced, in one shot:
 
 ---
 
-## Session B — With idea-to-brainstorm
+## Session B — With idea-to-build
 
 ### Coordinator — Phase 1 (opening)
 

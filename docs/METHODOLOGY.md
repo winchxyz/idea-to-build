@@ -1,6 +1,6 @@
 # Methodology
 
-The principles behind `idea-to-brainstorm`. If you understand these, you can adapt the tool to any domain.
+The principles behind `idea-to-build`. If you understand these, you can adapt the tool to any domain.
 
 ---
 

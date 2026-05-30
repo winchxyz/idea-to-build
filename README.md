@@ -1,12 +1,12 @@
 <div align="center">
 
-<img src="assets/logo.png" alt="idea-to-brainstorm — multi-agent brainstorming methodology" width="800"/>
+<img src="assets/logo.png" alt="idea-to-build — multi-agent brainstorming methodology" width="800"/>
 
-# idea-to-brainstorm
+# idea-to-build
 
-**A multi-agent brainstorming methodology for founders, builders, and creators.**
+**A multi-agent brainstorming methodology that takes a raw idea to a plan you can build — for founders, builders, and creators.**
 
-Turn any raw idea into a battle-tested strategy in 30 minutes — powered by Claude sub-agents that argue with you, fact-check you, and don't let you skip the hard parts.
+Turn a raw idea into a plan you can actually build — in about 30 minutes. Claude sub-agents research it, argue with it, and won't let you skip the hard parts; when it's done, it hands the whole thing to Claude Code ready to build.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Claude](https://img.shields.io/badge/Powered%20by-Claude-D97757)](https://claude.com)
@@ -38,6 +38,8 @@ This tool fixes those failures. The **full multi-agent version runs on Claude** 
 
 It's the same way professional strategy teams work: separate people for ideation, critique, and execution. We just made each "person" a specialized Claude agent.
 
+And when the brainstorm is done, `/scaffold` hands the whole thing to Claude Code as a ready-to-build folder — the chosen approach, the paths you rejected, the risks to watch, the go/no-go gates. Idea in, buildable plan out. That's the "to-build" in the name.
+
 > "It found a flaw in my pivot that I'd been missing for three weeks." — early tester
 
 ---
@@ -64,7 +66,7 @@ Two install paths ship today. Two more are on the roadmap.
 
 ### ✅ Option 1: GitHub template / Cowork folder (available now)
 ```bash
-git clone https://github.com/winchxyz/idea-to-brainstorm.git
+git clone https://github.com/winchxyz/idea-to-build.git
 ```
 Open the cloned folder in Cowork (or Claude Code). The root [`CLAUDE.md`](CLAUDE.md) activates the coordinator and sub-agents automatically — it bootstraps the full specification in `core/CLAUDE.md`.
 
@@ -72,10 +74,10 @@ Open the cloned folder in Cowork (or Claude Code). The root [`CLAUDE.md`](CLAUDE
 Copy [`distributions/standalone-prompts/lite.md`](distributions/standalone-prompts/lite.md) into ChatGPT, Claude, Gemini, or any chat. Degraded quality (no sub-agent isolation, no cross-session memory), but zero setup.
 
 ### 🚧 Option 3: Cowork plugin (.plugin) — on roadmap
-A drag-and-drop `.plugin` installer is planned for v0.2. Track [issue #1](https://github.com/winchxyz/idea-to-brainstorm/issues/1) for status.
+A drag-and-drop `.plugin` installer is planned for v0.2. Track [issue #1](https://github.com/winchxyz/idea-to-build/issues/1) for status.
 
 ### 🚧 Option 4: Claude Code plugin — on roadmap
-Marketplace registration and `claude plugin install` support are planned for v0.2. Track [issue #2](https://github.com/winchxyz/idea-to-brainstorm/issues/2) for status.
+Marketplace registration and `claude plugin install` support are planned for v0.2. Track [issue #2](https://github.com/winchxyz/idea-to-build/issues/2) for status.
 
 ---
 
@@ -107,7 +109,7 @@ A coordinator agent guides you through six phases. For the two most-skipped phas
 
 ## 📚 Profiles
 
-idea-to-brainstorm ships with **6 modes**: one general-purpose base plus five domain specializations.
+idea-to-build ships with **6 modes**: one general-purpose base plus five domain specializations.
 
 | Profile | When to use | Key tools |
 |---------|-------------|-----------|
@@ -124,7 +126,7 @@ Profiles override defaults inside each phase. Switch with `/profile startup` —
 
 ## 🆚 Why This vs Alternatives
 
-| | Raw ChatGPT/Claude | Awesome-prompts repo | LangChain/CrewAI build | **idea-to-brainstorm** |
+| | Raw ChatGPT/Claude | Awesome-prompts repo | LangChain/CrewAI build | **idea-to-build** |
 |---|---|---|---|---|
 | Setup time | 0 sec | 30 sec | 30+ min | ✅ 60 sec |
 | Forced critique | ❌ | ⚠️ Often skipped | ✅ if coded | ✅ Hard-gated |
@@ -155,7 +157,7 @@ Full methodology: [`docs/METHODOLOGY.md`](docs/METHODOLOGY.md)
 ## 🏗️ Architecture
 
 ```
-idea-to-brainstorm/
+idea-to-build/
 ├── CLAUDE.md                 # Entry point — auto-activates the coordinator
 ├── .claude/skills/           # Slash commands for Claude Code / CLI (/profile, /critique, /plan…)
 ├── core/
@@ -202,9 +204,9 @@ MIT — see [`LICENSE`](LICENSE). Use it, fork it, ship it commercially. Just do
 
 ## ⭐ Star History
 
-If `idea-to-brainstorm` helped you avoid a bad decision (or commit to a good one), a star makes our day.
+If `idea-to-build` helped you avoid a bad decision (or commit to a good one), a star makes our day.
 
-[![Star History Chart](https://api.star-history.com/svg?repos=winchxyz/idea-to-brainstorm&type=Date)](https://star-history.com/#winchxyz/idea-to-brainstorm&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=winchxyz/idea-to-build&type=Date)](https://star-history.com/#winchxyz/idea-to-build&Date)
 
 ---
 

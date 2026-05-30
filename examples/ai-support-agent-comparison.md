@@ -29,7 +29,7 @@
 
 ---
 
-## Session B — With idea-to-brainstorm
+## Session B — With idea-to-build
 
 The coordinator never wrote a line of product code. It spent Phases 1–2 deciding whether this should exist.
 

@@ -30,7 +30,7 @@
 
 ---
 
-## Session B — With idea-to-brainstorm
+## Session B — With idea-to-build
 
 The coordinator never built the app. It spent five phases deciding whether the business could exist — and let an isolated critic deliver the verdict.
 

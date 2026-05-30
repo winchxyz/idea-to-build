@@ -1,11 +1,11 @@
 ---
 name: profile
-description: Switch the idea-to-brainstorm coordinator to a domain profile — general, startup, tech-architecture, content-strategy, product-roadmap, or personal-decisions. Use when the user types "/profile <name>" or asks to switch, activate, or change the brainstorming profile.
+description: Switch the idea-to-build coordinator to a domain profile — general, startup, tech-architecture, content-strategy, product-roadmap, or personal-decisions. Use when the user types "/profile <name>" or asks to switch, activate, or change the brainstorming profile.
 ---
 
 # /profile — switch domain profile
 
-The user wants to activate a domain **profile** for the idea-to-brainstorm coordinator. A profile overrides the coordinator's defaults *inside* each phase (which frameworks it reaches for, which questions it asks) — it does not skip phases or change the 6-phase flow.
+The user wants to activate a domain **profile** for the idea-to-build coordinator. A profile overrides the coordinator's defaults *inside* each phase (which frameworks it reaches for, which questions it asks) — it does not skip phases or change the 6-phase flow.
 
 ## Steps
 

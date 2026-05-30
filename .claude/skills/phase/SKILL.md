@@ -1,6 +1,6 @@
 ---
 name: phase
-description: Jump the idea-to-brainstorm session to a specific phase (1–6). Use sparingly — when the user types "/phase <n>" or explicitly asks to skip to a phase.
+description: Jump the idea-to-build session to a specific phase (1–6). Use sparingly — when the user types "/phase <n>" or explicitly asks to skip to a phase.
 ---
 
 # /phase — jump to a phase (use sparingly)

@@ -1,6 +1,6 @@
 ---
 name: factcheck
-description: Apply the idea-to-brainstorm verification protocol (Tier 1/2/3, Skeptical-by-Default) to a specific claim. Use when the user types "/factcheck <claim>" or asks to verify, fact-check, or pressure-test a specific statement.
+description: Apply the idea-to-build verification protocol (Tier 1/2/3, Skeptical-by-Default) to a specific claim. Use when the user types "/factcheck <claim>" or asks to verify, fact-check, or pressure-test a specific statement.
 ---
 
 # /factcheck — verify a claim (Skeptical-by-Default)

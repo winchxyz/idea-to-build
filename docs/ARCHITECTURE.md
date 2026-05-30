@@ -1,6 +1,6 @@
 # Architecture
 
-This document explains how `idea-to-brainstorm` is built and why.
+This document explains how `idea-to-build` is built and why.
 
 ## Design Goal
 

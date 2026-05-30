@@ -1,6 +1,6 @@
 ---
 name: scaffold
-description: After a completed idea-to-brainstorm (Phase 6 done), generate a ready-to-build project folder — CLAUDE.md + README + DECISIONS + PLAN — so you can open it in Claude Code and start building. Use when the user types "/scaffold" or asks to scaffold / hand the brainstorm off to a build.
+description: After a completed idea-to-build (Phase 6 done), generate a ready-to-build project folder — CLAUDE.md + README + DECISIONS + PLAN — so you can open it in Claude Code and start building. Use when the user types "/scaffold" or asks to scaffold / hand the brainstorm off to a build.
 ---
 
 # /scaffold — hand the brainstorm off to a buildable folder

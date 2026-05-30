@@ -1,4 +1,4 @@
-# Contributing to idea-to-brainstorm
+# Contributing to idea-to-build
 
 Thanks for considering a contribution. This project gets better with every domain-specific profile, every refined sub-agent prompt, and every real-world brainstorm transcript shared as an example.
 

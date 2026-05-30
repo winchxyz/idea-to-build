@@ -1,4 +1,4 @@
-# idea-to-brainstorm — Lite (single prompt)
+# idea-to-build — Lite (single prompt)
 
 A degraded but zero-setup version of the methodology. Paste into any LLM chat (Claude, ChatGPT, Gemini, Grok, etc.) and start a brainstorm.
 

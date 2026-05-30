@@ -1,6 +1,6 @@
 # The Six Phases
 
-`idea-to-brainstorm` runs every session through six explicit phases. The coordinator announces the current phase in every substantive message and refuses to advance without an explicit commit signal from the user.
+`idea-to-build` runs every session through six explicit phases. The coordinator announces the current phase in every substantive message and refuses to advance without an explicit commit signal from the user.
 
 This document explains what each phase does, what its output looks like, and where the easy mistakes are.
 
