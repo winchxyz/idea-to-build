@@ -44,12 +44,6 @@ It's the same way professional strategy teams work: separate people for ideation
 
 ## 👀 See It in Action
 
-<div align="center">
-  <a href="assets/demo.mp4"><img src="assets/demo-poster.png" alt="Watch the demo" width="760"/></a>
-  <br/>
-  <em>▶ <a href="assets/demo.mp4">Watch the 60-second demo</a> — the food-delivery prompt, run two ways.</em>
-</div>
-
 The same one-line prompt, run as a normal chat vs. through the methodology — side by side. The contrast is the whole pitch:
 
 - [**Stickman game**](examples/stickman-comparison.md) — the contrast at its starkest: plain Claude builds instantly, the methodology stops to scope.
