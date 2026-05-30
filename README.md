@@ -130,6 +130,8 @@ Profiles override defaults inside each phase. Switch with `/profile startup`.
 | Domain profiles | ❌ One-size | ❌ | ⚠️ DIY | ✅ 6 ready |
 | Cost per brainstorm | Free–$1 | Free | $$ (LLM API) | Free (your Claude subscription) |
 
+More questions — *is it really multi-agent? could a prompt do this? does it actually say no?* — see the [**FAQ**](docs/FAQ.md).
+
 ---
 
 ## 🎯 Core Principles
@@ -163,7 +165,8 @@ idea-to-brainstorm/
 │   ├── ARCHITECTURE.md       # How sub-agents are orchestrated
 │   ├── METHODOLOGY.md        # Core principles in depth
 │   ├── PHASES.md             # 6 phases explained
-│   └── PROFILES.md           # Profile authoring guide
+│   ├── PROFILES.md           # Profile authoring guide
+│   └── FAQ.md                # Common questions, answered honestly
 └── examples/                 # Template, guide + real comparison transcripts
 ```
 
