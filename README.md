@@ -46,7 +46,7 @@ And when the brainstorm is done, `/scaffold` hands the whole thing to Claude Cod
 
 ## 👀 See It in Action
 
-https://github.com/user-attachments/assets/d9bc4921-a034-4398-bbb8-266c3031bce8
+https://github.com/user-attachments/assets/b3c68305-1573-43d5-80f3-f496d2ab7f2f
 
 Real sessions, each linked in full — strongest first. Most put one prompt through a normal chat vs. the methodology, side by side; one runs a single idea through all six profiles; the first is a complete start-to-finish run that ends in a buildable plan:
 
