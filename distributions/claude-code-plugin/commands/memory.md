@@ -1,5 +1,4 @@
 ---
-name: memory
 description: Show what idea-to-build has recorded in the current project's context file. Use when the user types "/memory" or asks what's saved / remembered about the project.
 ---
 

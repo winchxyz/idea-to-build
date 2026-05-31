@@ -1,5 +1,4 @@
 ---
-name: critique
 description: Force-dispatch the idea-to-build Critic (Phase 5) on the currently chosen idea. Use when the user types "/critique" or asks to run the critique, stress-test, or premortem the chosen idea now.
 ---
 

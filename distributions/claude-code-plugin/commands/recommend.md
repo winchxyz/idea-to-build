@@ -1,5 +1,4 @@
 ---
-name: recommend
 description: Produce a structured idea-to-build recommendation with calibrated confidence. Use when the user types "/recommend" or asks for a calibrated recommendation / your honest call.
 ---
 

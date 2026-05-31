@@ -1,5 +1,4 @@
 ---
-name: reset
 description: Start a fresh idea-to-build project — a new context file and cleared focus. Use when the user types "/reset" or asks to start over / begin a new brainstorm.
 ---
 

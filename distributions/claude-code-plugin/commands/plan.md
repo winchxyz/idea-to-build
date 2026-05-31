@@ -1,5 +1,4 @@
 ---
-name: plan
 description: Force-dispatch the idea-to-build Planner (Phase 6) to turn the chosen, critiqued idea into an actionable plan with gates. Use when the user types "/plan" or asks to build the plan now.
 ---
 
