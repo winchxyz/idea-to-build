@@ -210,3 +210,5 @@ Each principle exists because LLMs predictably fail without it:
 - Push-back-once fights both sycophancy and noise
 
 Together they produce brainstorms that feel like working with a thoughtful senior advisor — not a chatbot that agrees with everything.
+
+And the methodology doesn't stop at talk. A finished brainstorm hands off — via `/scaffold` — to a buildable plan you take straight into Claude Code: the chosen approach, the rejected paths, the risks to watch, the go/no-go gates. Idea in, something you can ship out. That's the "to-build" in idea-to-build.

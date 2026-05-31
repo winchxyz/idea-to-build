@@ -54,7 +54,7 @@ Six modes — one general base plus five domain specializations (startup, tech-a
 
 ### Do the slash commands (`/profile`, `/critique`, `/plan`…) work?
 
-In **Claude Code and the Claude CLI**, yes — they ship as skills in `.claude/skills/`, so typing `/profile startup` (or `/critique`, `/plan`, `/recommend`, `/memory`, `/reset`, `/phase`) just works.
+In **Claude Code and the Claude CLI**, yes — they ship as skills in `.claude/skills/`, so typing `/profile startup` (or `/critique`, `/plan`, `/recommend`, `/memory`, `/reset`, `/phase`, `/scaffold`) just works.
 
 In **Cowork**, `/` is reserved for installed plugins, so a bare `/profile` returns "Unknown skill." Until the v0.2 Cowork plugin ships (it will register these commands), just say it in plain language — "switch to the startup profile", "run the critique now", "start a new brainstorm". The coordinator understands those everywhere, including Claude Code.
 

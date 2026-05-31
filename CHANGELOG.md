@@ -4,6 +4,13 @@ All notable changes to `idea-to-build` are tracked here.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.6] — 2026-05-31
+
+### Changed
+- **Renamed `idea-to-brainstorm` → `idea-to-build`** and repositioned the whole project around the full arc: a raw idea → an honest 6-phase brainstorm → a critiqued, scoped plan → a `/scaffold` build handoff. NO-GO is one honest outcome, not the headline; the constructive idea→build path is.
+- **Windows 98 visual identity** — new README banner / social card and a new demo video, all in a cohesive retro-UI style.
+- **Documentation aligned to idea→build:** the scaffolder / Phase-6 → build handoff is now surfaced across README (How It Works diagram, Why This table, a new "ends in a build" principle), `core/CLAUDE.md`, `docs/ARCHITECTURE.md`, `docs/PHASES.md`, `docs/FAQ.md`, `docs/METHODOLOGY.md`, and `CONTRIBUTING.md`. "See It in Action" reordered strongest-first, led by the full idea→build run. Fixed a stale "five sub-agents" count (there are six agents: research, ideation, deep-dive, critic, planner, scaffolder).
+
 ## [0.1.5] — 2026-05-31
 
 ### Added

@@ -10,7 +10,7 @@ The biggest impact contribution. Profiles specialize the core methodology for a 
 A new profile lives in `profiles/<name>.md` and follows the structure of existing profiles. See [`docs/PROFILES.md`](docs/PROFILES.md) for the authoring guide.
 
 ### 🛠️ Sub-Agent Prompt Improvements
-The five sub-agents (`core/agents/`) are the engine. If you find a way to make the Critic more adversarial, the Researcher more rigorous, or the Planner more concrete — open a PR.
+The agents in `core/agents/` are the engine (research, ideation, deep-dive, critic, planner, and the post-Phase-6 scaffolder). If you find a way to make the Critic more adversarial, the Researcher more rigorous, or the Planner more concrete — open a PR.
 
 When changing a sub-agent prompt, include in the PR:
 - What problem the change solves

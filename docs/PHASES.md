@@ -134,12 +134,12 @@ This document explains what each phase does, what its output looks like, and whe
 - Skipping the pilot because the user is impatient
 - Vague green-light criteria ("if it's going well")
 
-**Exit criterion:** User commits to execution OR returns to Phase 3 if the plan reveals the idea isn't viable.
+**Exit criterion:** User commits to execution (run `/scaffold` to generate the build handoff) OR returns to Phase 3 if the plan reveals the idea isn't viable.
 
 ---
 
-## After Phase 6
+## After Phase 6 — the build handoff
 
-The brainstorm is **closed**. The user moves to execution mode. Future sessions reopen the project from its context file and may run targeted phases (e.g., re-critique a pivot, re-plan after pilot data).
+The brainstorm is **closed** — but it doesn't just evaporate into "now go build it somehow." Run **`/scaffold`** to turn the whole brainstorm into a ready-to-build folder — `CLAUDE.md` (chosen approach, rejected paths, risks to watch, go/no-go gates), `README.md`, `DECISIONS.md`, `PLAN.md` — that you open in Claude Code to start building. The scaffolder runs with the **full** project context (it is *not* isolated, unlike the critic and planner) and is gated to require a completed Phase 6. It produces the briefing, **not** application code.
 
-Re-opening Phase 3 requires an explicit user signal: "let's reconsider variants" or "I want to pivot."
+Future sessions reopen the project from its context file and may run targeted phases (e.g., re-critique a pivot, re-plan after pilot data). Re-opening Phase 3 requires an explicit user signal: "let's reconsider variants" or "I want to pivot."

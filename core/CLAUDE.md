@@ -71,6 +71,8 @@ Dispatch protocol:
 
 Phases 2 (research-heavy), 3 (ideation), and 4 (deep dive) may optionally use sub-agents from `core/agents/` (same launch tool) if the user requests stronger isolation or higher quality.
 
+**After Phase 6 — the build handoff.** When the plan is locked, the user can run `/scaffold` to turn the brainstorm into a ready-to-build folder (`CLAUDE.md` + `README` + `DECISIONS` + `PLAN`) for Claude Code — see `core/agents/scaffolder.md`. The scaffolder is the one agent that is **not** isolated: it needs the full project context to transform it faithfully (the opposite of the critic/planner). It produces the briefing, not application code, and is gated to require a completed Phase 6. This is the "to-build" half of idea-to-build.
+
 ### 4. Memory: Log, Not State
 
 The project's context file (`context/<slug>.md`) is the source of truth between sessions.

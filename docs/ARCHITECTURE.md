@@ -4,9 +4,9 @@ This document explains how `idea-to-build` is built and why.
 
 ## Design Goal
 
-**Maximize the quality of a brainstorming session while minimizing setup friction.**
+**Take a raw idea to a plan you can build — maximize the quality of the brainstorm in between, with minimal setup friction.**
 
-The single biggest quality lever in any structured brainstorm is **process isolation** — different perspectives on the same problem, operating without contaminating each other. We achieve this with native Claude sub-agents.
+The single biggest quality lever in any structured brainstorm is **process isolation** — different perspectives on the same problem, operating without contaminating each other. We achieve this with native Claude sub-agents. The arc doesn't stop at a plan: a final scaffolder turns the brainstorm into a folder Claude Code can build from.
 
 ## High-Level Architecture
 
@@ -51,6 +51,10 @@ A critic that watched the user spend 30 messages defending an idea is biased tow
 A planner that has seen the ideation debate may inherit unresolved tensions and produce a plan that hedges. A planner that sees only "X was chosen, here are the critic's risks" produces a tighter, more committed plan.
 
 For Phases 1–4, continuity matters more than isolation. The coordinator holds context naturally and saves on token cost.
+
+## The Scaffolder — the opposite design choice (after Phase 6)
+
+The critic and planner are isolated *because* judgment must be unbiased. The **scaffolder** is the inverse, on purpose: it runs with the **full** project context. Its job is to *transform* a finished brainstorm into a buildable handoff — `CLAUDE.md`, `README.md`, `DECISIONS.md`, `PLAN.md` — so it needs everything the brainstorm decided, including the rejected paths and the risks to carry forward. Isolation would cripple it. It's gated to require a completed Phase 6, and it produces the briefing, **not** application code — you open the folder in Claude Code and build from there. This is the "to-build" half of idea-to-build.
 
 ## Memory Model
 
@@ -128,7 +132,7 @@ If a target environment lacks any of these, the relevant capability degrades gra
 - We do not orchestrate external APIs (no LangChain-style chains).
 - We do not embed retrieval / RAG (the context file is the memory).
 - We do not run the brainstorm autonomously — the user is always in the loop.
-- We do not generate slides, docs, or deliverables — that's the user's job after Phase 6.
+- We do not write application code — after Phase 6, `/scaffold` produces the build *briefing* (`CLAUDE.md`, `README`, `DECISIONS`, `PLAN`); Claude Code writes the code.
 
 ## Future Architecture Considerations
 

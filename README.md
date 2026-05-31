@@ -11,7 +11,7 @@ Turn a raw idea into a plan you can actually build — in about 30 minutes. Clau
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Claude](https://img.shields.io/badge/Powered%20by-Claude-D97757)](https://claude.com)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
-[![Status](https://img.shields.io/badge/status-v0.1.5-orange.svg)](CHANGELOG.md)
+[![Status](https://img.shields.io/badge/status-v0.1.6-orange.svg)](CHANGELOG.md)
 
 [Quick Start](#-quick-start) • [See It in Action](#-see-it-in-action) • [How It Works](#-how-it-works) • [Profiles](#-profiles) • [Why This](#-why-this-vs-alternatives) • [Contribute](CONTRIBUTING.md)
 
@@ -48,15 +48,15 @@ And when the brainstorm is done, `/scaffold` hands the whole thing to Claude Cod
 
 https://github.com/user-attachments/assets/d9bc4921-a034-4398-bbb8-266c3031bce8
 
-Real sessions, each linked in full. Five take one prompt and run it two ways — a normal chat vs. the methodology, side by side. One runs a single idea through all six profiles. And one is a full start-to-finish run that ends in a buildable plan:
+Real sessions, each linked in full — strongest first. Most put one prompt through a normal chat vs. the methodology, side by side; one runs a single idea through all six profiles; the first is a complete start-to-finish run that ends in a buildable plan:
 
-- [**Stickman game**](examples/stickman-comparison.md) — the contrast at its starkest: plain Claude builds instantly, the methodology stops to scope.
+- [**Full run: medieval tycoon game**](examples/medieval-tycoon-fullrun.md) — the whole method, Phase 1 → 6 → `/scaffold`. A vague "tycoon game" comes out scoped, critiqued (GO with conditions), planned with a kill-switch, and handed off as a buildable folder. **Start here — it's the idea→build arc end to end.**
+- [**Hyperliquid wallet**](examples/hyperliquid-wallet-comparison.md) — the deepest comparison: the full method through a trace-verified isolated Phase-5 critique. Read this to see the rigor.
 - [**Personal health AI**](examples/health-system-comparison.md) — the harder case: plain Claude was already competent, and the methodology still added strategy (beachhead, regulatory risk, an architectural blocker).
-- [**Hyperliquid wallet**](examples/hyperliquid-wallet-comparison.md) — the full method through a trace-verified isolated Phase-5 critique that returns NO-GO. Read this one to see the whole thing.
-- [**AI support agent**](examples/ai-support-agent-comparison.md) — the "can it say no?" test: the methodology pushes back and recommends *not* building the idea.
-- [**Food delivery app**](examples/food-delivery-comparison.md) — the fullest "can it say no?" arc (trace-verified): the cold critic returns NO-GO on the head-on idea, then GO-with-conditions on the pivot.
-- [**Profiles in action**](examples/profiles-comparison.md) — a different cut: the *same* idea run through all six profiles, showing how each asks different questions. Proof the profiles aren't cosmetic.
-- [**Full run: medieval tycoon game**](examples/medieval-tycoon-fullrun.md) — the whole method, Phase 1 → 6 → `/scaffold`. The idea *survives*: scoped, critiqued (GO with conditions), planned with a kill-switch, handed off as a buildable folder. This is the constructive path, not a rejection.
+- [**Profiles in action**](examples/profiles-comparison.md) — the *same* idea run through all six profiles, showing how each asks different questions. Proof the profiles aren't cosmetic.
+- [**Food delivery app**](examples/food-delivery-comparison.md) — the "can it say no?" test (trace-verified): the cold critic returns NO-GO on the head-on idea, then GO-with-conditions on the pivot.
+- [**AI support agent**](examples/ai-support-agent-comparison.md) — another honest NO-GO: the methodology pushes back and recommends *not* building the idea.
+- [**Stickman game**](examples/stickman-comparison.md) — the simplest contrast: plain Claude builds instantly, the methodology stops to scope. A quick way to see the difference.
 
 ---
 
@@ -154,6 +154,7 @@ More questions — *is it really multi-agent? could a prompt do this? does it ac
 5. **Forced critique.** Phase 5 cannot be skipped. Premortem + What-Needs-to-Be-True are mandatory.
 6. **Sub-agent isolation.** Critic and Planner agents work in fresh context. They cannot inherit your biases.
 7. **Memory as a log, not state.** Decisions and rejected options are appended, never overwritten. History matters.
+8. **Ends in a build, not just a brainstorm.** The point isn't a tidy writeup — it's a scoped, critiqued plan you can act on. `/scaffold` turns the finished brainstorm into a folder Claude Code builds from.
 
 Full methodology: [`docs/METHODOLOGY.md`](docs/METHODOLOGY.md)
 
