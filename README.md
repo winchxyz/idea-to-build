@@ -83,7 +83,7 @@ Marketplace registration and `claude plugin install` support are planned for v0.
 
 ## 🧩 How It Works
 
-A coordinator agent guides you through six phases. For the two most-skipped phases (critique and planning), it spawns dedicated sub-agents with **isolated context** — so they can't drink the Kool-Aid.
+A coordinator agent guides you through six phases. For the two most-skipped phases — critique and planning — it spawns isolated sub-agents that can't see the conversation, so they can't drink the Kool-Aid. When the plan is done, a scaffolder turns the whole brainstorm into a folder Claude Code can build from.
 
 ```
 ┌────────────────────────────────────────────────────────────────┐
@@ -100,10 +100,14 @@ A coordinator agent guides you through six phases. For the two most-skipped phas
 │  Phase 6 ─ Plan            📋 Planner Sub-Agent  ◄── isolated │
 │                             Sees: choice + critique            │
 │                             Forced: actionable steps + gates   │
+├────────────────────────────────────────────────────────────────┤
+│  /scaffold ───────────────▶ 📦 Scaffolder → buildable folder   │
+│                             (CLAUDE.md · README · DECISIONS ·   │
+│                              PLAN) → open in Claude Code, build │
 └────────────────────────────────────────────────────────────────┘
 ```
 
-**Why isolation matters:** A critic that has seen 30 messages of you defending an idea is biased toward letting you keep it. A critic that sees only "the user chose X, premortem it" has no such bias. This is the single biggest quality lever.
+**Why isolation matters:** A critic that has seen 30 messages of you defending an idea is biased toward letting you keep it. A critic that sees only "the user chose X, premortem it" has no such bias. This is the single biggest quality lever — and the reason the plan you walk out with is one you can actually build, not just a nicer version of what you already believed.
 
 ---
 
@@ -134,6 +138,7 @@ Profiles override defaults inside each phase. Switch with `/profile startup` —
 | Cross-session memory | ❌ | ❌ | ✅ if coded | ✅ Context files |
 | Phase isolation | ❌ Single context bleed | ❌ | ✅ if multi-agent | ✅ Sub-agents native |
 | Domain profiles | ❌ One-size | ❌ | ⚠️ DIY | ✅ 6 ready |
+| Ends in a buildable plan | ❌ Just a chat | ❌ | ⚠️ DIY | ✅ `/scaffold` → folder Claude Code builds |
 | Cost per brainstorm | Free–$1 | Free | $$ (LLM API) | Free (your Claude subscription) |
 
 More questions — *is it really multi-agent? could a prompt do this? does it actually say no?* — see the [**FAQ**](docs/FAQ.md).
@@ -162,7 +167,7 @@ idea-to-build/
 ├── .claude/skills/           # Slash commands for Claude Code / CLI (/profile, /critique, /plan…)
 ├── core/
 │   ├── CLAUDE.md             # Full coordinator specification
-│   ├── agents/               # 6 specialized agents (incl. post-Phase-6 scaffolder)
+│   ├── agents/               # 6 agents: research, ideation, deep-dive, critic, planner, scaffolder
 │   ├── skills/               # Recommendation + confidence module
 │   └── templates/            # Project context file template
 ├── profiles/                 # 6 domain profiles (general + 5 specialized)
