@@ -1,0 +1,18 @@
+{
+  "name": "idea-to-build",
+  "owner": {
+    "name": "winchxyz",
+    "url": "https://github.com/winchxyz"
+  },
+  "description": "idea-to-build — a multi-agent brainstorming methodology that takes a raw idea to a plan you can build.",
+  "plugins": [
+    {
+      "name": "idea-to-build",
+      "source": "./distributions/claude-code-plugin",
+      "description": "6-phase brainstorm coordinator with isolated critique, fact-checking, domain profiles, 6 sub-agents, and a /scaffold build handoff.",
+      "version": "0.2.0",
+      "homepage": "https://github.com/winchxyz/idea-to-build",
+      "license": "MIT"
+    }
+  ]
+}
