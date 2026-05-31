@@ -4,6 +4,15 @@ All notable changes to `idea-to-build` are tracked here.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.2] — 2026-06-01
+
+### Changed
+- **Plugin capabilities now ship as real slash commands.** All ten live in `commands/*.md` (flat command files) instead of `skills/`, so they invoke as user-typed `/idea-to-build:start`, `/idea-to-build:critique`, `/idea-to-build:scaffold`, etc. (Cowork / Claude Code register a plugin's `commands/` as slash commands; `skills/` are only model-auto-invoked — which is why the earlier skills-based build showed up in the menu but returned "Unknown command".) **Verified executing in both the Claude Code CLI and Cowork.**
+- Slimmed the plugin manifest to the minimal shape Cowork expects (`name`, `version`, `description`, `author`, `keywords`) and removed the duplicate top-level `agents/` directory — the commands dispatch the six sub-agents via the bundled `core/agents/` specs.
+
+### Added
+- **Manual-upload install path for Cowork.** `idea-to-build-plugin.zip` is attached to the GitHub release; the README documents installing it via **Create plugin → Upload plugin** (it lands under *My Uploads*) as a fallback for a known Cowork marketplace-update bug (greyed-out *Update* button / stale cache, Anthropic issues #54276 / #40600). The zip is built with forward-slash entries so Cowork reads its structure correctly.
+
 ## [0.2.0] — 2026-05-31
 
 ### Added

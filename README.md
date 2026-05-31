@@ -11,7 +11,7 @@ Turn a raw idea into a plan you can actually build — in about 30 minutes. Clau
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Claude](https://img.shields.io/badge/Powered%20by-Claude-D97757)](https://claude.com)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
-[![Status](https://img.shields.io/badge/status-v0.2.0-orange.svg)](CHANGELOG.md)
+[![Status](https://img.shields.io/badge/status-v0.2.2-orange.svg)](CHANGELOG.md)
 
 [Quick Start](#-quick-start) • [See It in Action](#-see-it-in-action) • [How It Works](#-how-it-works) • [Profiles](#-profiles) • [Why This](#-why-this-vs-alternatives) • [Contribute](CONTRIBUTING.md)
 
@@ -67,12 +67,14 @@ Four install paths — all available.
 ### ✅ Option 1: Plugin via marketplace — Claude Code (recommended)
 ```bash
 /plugin marketplace add winchxyz/idea-to-build
-/plugin install idea-to-build@idea-to-build
+/plugin install idea-to-build@idea-to-build-store
 ```
-Then run `/idea-to-build:start` to activate the coordinator. All commands are namespaced `/idea-to-build:*` (e.g. `/idea-to-build:critique`, `/idea-to-build:scaffold`), and the six sub-agents register as `idea-to-build:critic`, `idea-to-build:planner`, etc.
+Then run `/idea-to-build:start` to activate the coordinator. All ten commands are namespaced `/idea-to-build:*` (e.g. `/idea-to-build:critique`, `/idea-to-build:scaffold`). Verified working in the Claude Code CLI.
 
-### ✅ Option 2: Plugin via marketplace — Cowork
-In Cowork: **Customize → Personal plugins → `+` → Create plugin → Add marketplace**, enter `winchxyz/idea-to-build`, hit **Sync**, then install the **idea-to-build** plugin. Activate it in chat with `/idea-to-build:start`.
+### ✅ Option 2: Plugin — Cowork
+In Cowork: **Customize → Personal plugins → `+` → Create plugin → Add marketplace**, enter `winchxyz/idea-to-build`, hit **Sync**, install the plugin, then run `/idea-to-build:start`.
+
+> **If Cowork's marketplace lags or won't update** — a known Cowork plugin-update bug where the *Update* button stays greyed out and re-adding reuses a stale cache — install it manually instead: download **`idea-to-build-plugin.zip`** from the [latest release](https://github.com/winchxyz/idea-to-build/releases/latest), then **Customize → Personal plugins → `+` → Create plugin → Upload plugin** and pick the zip. It lands under **My Uploads** and works identically.
 
 ### ✅ Option 3: Clone the repo (Cowork folder / Claude Code)
 ```bash
