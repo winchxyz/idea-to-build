@@ -1,6 +1,6 @@
 ---
 name: profile
-description: Switch the idea-to-build coordinator to a domain profile — general, startup, tech-architecture, content-strategy, product-roadmap, or personal-decisions. Use when the user types "/profile <name>" or asks to switch, activate, or change the brainstorming profile.
+description: Switch the idea-to-build coordinator to a domain profile — general, startup, tech-architecture, content-strategy, product-roadmap, or personal-decisions. Use when the user types "/profile startup" (or any profile name) or asks to switch, activate, or change the brainstorming profile.
 ---
 
 # /profile — switch domain profile
