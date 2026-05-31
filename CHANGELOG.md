@@ -4,6 +4,11 @@ All notable changes to `idea-to-build` are tracked here.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.7] — 2026-05-31
+
+### Changed
+- **Refreshed the Windows 98 brand.** New social card (`assets/logo.png`): the old feature line and button row are replaced by the `idea → brainstorm → critique → 📁 build` arc plus the tagline *"Build the thing you can't stop thinking about."*; the MIT chip was dropped. The README demo video is re-cut to match — the full idea→build arc in the retro UI, with the prompt, the isolated critic's `context = chosen idea + scope only`, and `/scaffold` all typed live, an isolated `Critic.exe — clean context` window returning 🟡 GO-with-conditions, and the run ending on the scaffolded `medieval-village-tycoon\` folder. Visual only — no methodology change.
+
 ## [0.1.6] — 2026-05-31
 
 ### Changed
