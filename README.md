@@ -11,7 +11,7 @@ Turn a raw idea into a plan you can actually build — in about 30 minutes. Clau
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Claude](https://img.shields.io/badge/Powered%20by-Claude-D97757)](https://claude.com)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
-[![Status](https://img.shields.io/badge/status-v0.1.7-orange.svg)](CHANGELOG.md)
+[![Status](https://img.shields.io/badge/status-v0.2.0-orange.svg)](CHANGELOG.md)
 
 [Quick Start](#-quick-start) • [See It in Action](#-see-it-in-action) • [How It Works](#-how-it-works) • [Profiles](#-profiles) • [Why This](#-why-this-vs-alternatives) • [Contribute](CONTRIBUTING.md)
 
@@ -62,22 +62,26 @@ Real sessions, each linked in full — strongest first. Most put one prompt thro
 
 ## 🚀 Quick Start
 
-Two install paths ship today. Two more are on the roadmap.
+Four install paths — all available.
 
-### ✅ Option 1: GitHub template / Cowork folder (available now)
+### ✅ Option 1: Plugin via marketplace — Claude Code (recommended)
+```bash
+/plugin marketplace add winchxyz/idea-to-build
+/plugin install idea-to-build@idea-to-build
+```
+Then run `/idea-to-build:start` to activate the coordinator. All commands are namespaced `/idea-to-build:*` (e.g. `/idea-to-build:critique`, `/idea-to-build:scaffold`), and the six sub-agents register as `idea-to-build:critic`, `idea-to-build:planner`, etc.
+
+### ✅ Option 2: Plugin via marketplace — Cowork
+In Cowork: **Customize → Personal plugins → `+` → Create plugin → Add marketplace**, enter `winchxyz/idea-to-build`, hit **Sync**, then install the **idea-to-build** plugin. Activate it in chat with `/idea-to-build:start`.
+
+### ✅ Option 3: Clone the repo (Cowork folder / Claude Code)
 ```bash
 git clone https://github.com/winchxyz/idea-to-build.git
 ```
-Open the cloned folder in Cowork (or Claude Code). The root [`CLAUDE.md`](CLAUDE.md) activates the coordinator and sub-agents automatically — it bootstraps the full specification in `core/CLAUDE.md`.
+Open the cloned folder. The root [`CLAUDE.md`](CLAUDE.md) bootstraps the coordinator automatically (no `/start` needed); the repo's `.claude/skills/` provide the `/`-commands in Claude Code.
 
-### ✅ Option 2: Standalone prompt — any LLM (available now)
-Copy [`distributions/standalone-prompts/lite.md`](distributions/standalone-prompts/lite.md) into ChatGPT, Claude, Gemini, or any chat. Degraded quality (no sub-agent isolation, no cross-session memory), but zero setup.
-
-### 🚧 Option 3: Cowork plugin (.plugin) — on roadmap
-A drag-and-drop `.plugin` installer is planned for v0.2. Track [issue #1](https://github.com/winchxyz/idea-to-build/issues/1) for status.
-
-### 🚧 Option 4: Claude Code plugin — on roadmap
-Marketplace registration and `claude plugin install` support are planned for v0.2. Track [issue #2](https://github.com/winchxyz/idea-to-build/issues/2) for status.
+### ✅ Option 4: Standalone prompt — any LLM
+Copy [`distributions/standalone-prompts/lite.md`](distributions/standalone-prompts/lite.md) into ChatGPT, Claude, Gemini, or any chat. Degraded quality (no sub-agent isolation, no cross-session memory, no `/scaffold`), but zero setup.
 
 ---
 

@@ -4,6 +4,18 @@ All notable changes to `idea-to-build` are tracked here.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.0] — 2026-05-31
+
+### Added
+- **Installable plugin (Claude Code + Cowork).** New `distributions/claude-code-plugin/` packages the whole methodology as a Claude Code plugin: `.claude-plugin/plugin.json`, the 6 sub-agents (`agents/*.md` with frontmatter), all command skills, and a self-contained copy of `core/`, `profiles/`, and `docs/` so the skills resolve their references via `${CLAUDE_PLUGIN_ROOT}`.
+- **Marketplace manifest** at the repo root (`.claude-plugin/marketplace.json`) so the plugin installs with `/plugin marketplace add winchxyz/idea-to-build` → `/plugin install idea-to-build@idea-to-build` in Claude Code, and via **Customize → Add marketplace → `winchxyz/idea-to-build`** in Cowork.
+- **`/start` activation command** (`/idea-to-build:start`). Plugins don't auto-load a `CLAUDE.md`, so this switches the coordinator role on. On a cloned repo the root `CLAUDE.md` still bootstraps automatically, so `/start` is optional there.
+
+### Changed
+- **README Quick Start** reworked: the marketplace plugin is now the recommended install (Claude Code + Cowork), with clone-the-repo and the standalone prompt as the other two paths. Removed the "on roadmap" placeholders for the plugins.
+- **`lite.md`** aligned to the idea→build framing and now names the `/scaffold` build handoff as a concrete reason to upgrade from the lite fallback (which legitimately stops at the plan).
+- Resolves the v0.2 plugin/distribution roadmap (issues #1, #2, #4).
+
 ## [0.1.7] — 2026-05-31
 
 ### Changed

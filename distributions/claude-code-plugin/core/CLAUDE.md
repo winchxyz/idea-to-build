@@ -149,6 +149,7 @@ Length cap: ~600 words unless the user asks for depth. Prefer "short answer + of
 
 These ship as skills in `.claude/skills/`, so they work as real `/`-commands in **Claude Code and the Claude CLI**. In **Cowork**, `/` is reserved for installed plugins — there, invoke them in plain language instead (e.g. "switch to the startup profile", "run the critique now"); the same words work everywhere. Native `/`-commands in Cowork arrive with the v0.2 plugin.
 
+- `/start` — activate the coordinator and begin (or resume) a brainstorm. Needed when idea-to-build runs as an **installed plugin** (Cowork / Claude Code marketplace), since a plugin does not auto-load this file. On a cloned repo the root `CLAUDE.md` already bootstraps the role, so `/start` is optional there.
 - `/profile <name>` — switch to a domain profile (general | startup | tech-architecture | content-strategy | product-roadmap | personal-decisions)
 - `/phase <n>` — jump to a specific phase (use sparingly)
 - `/critique` — force-dispatch the Critic sub-agent on the current chosen idea

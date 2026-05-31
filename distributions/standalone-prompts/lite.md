@@ -1,6 +1,6 @@
 # idea-to-build — Lite (single prompt)
 
-A degraded but zero-setup version of the methodology. Paste into any LLM chat (Claude, ChatGPT, Gemini, Grok, etc.) and start a brainstorm.
+A degraded but zero-setup version of the methodology. Paste into any LLM chat (Claude, ChatGPT, Gemini, Grok, etc.) and take a raw idea through an honest 6-phase brainstorm to a plan. (The full version then turns that plan into a buildable folder via `/scaffold`; lite stops at the plan.)
 
 **Trade-offs vs. full version:**
 - No sub-agent isolation — Phases 5 (Critique) and 6 (Plan) are weaker because the same context that generated the idea also critiques it.
@@ -83,6 +83,7 @@ Begin by asking: "What idea are you exploring?" — then enter Phase 1.
 
 ## When to upgrade to the full version
 
+- You want the brainstorm to **end in something you can build** — the full version's `/scaffold` turns the finished plan into a `CLAUDE.md` + `README` + `DECISIONS` + `PLAN` folder you open in Claude Code. Lite stops at the plan; it can't scaffold a folder.
 - You'll be brainstorming repeatedly and want cross-session memory
 - The stakes are high enough that you want sub-agent critique (which can't drink the Kool-Aid)
 - You want domain profiles instead of the general default
