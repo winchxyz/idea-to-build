@@ -173,6 +173,7 @@ Full methodology: [`docs/METHODOLOGY.md`](docs/METHODOLOGY.md)
 idea-to-build/
 ├── CLAUDE.md                 # Entry point — auto-activates the coordinator
 ├── .claude/skills/           # Slash commands for Claude Code and the Claude CLI (/profile, /critique…)
+├── .claude-plugin/           # Marketplace manifest (Add marketplace / /plugin install)
 ├── core/
 │   ├── CLAUDE.md             # Full coordinator specification
 │   ├── agents/               # 6 agents: research, ideation, deep-dive, critic, planner, scaffolder
@@ -180,6 +181,7 @@ idea-to-build/
 │   └── templates/            # Project context file template
 ├── profiles/                 # 6 domain profiles (general + 5 specialized)
 ├── distributions/
+│   ├── claude-code-plugin/   # Installable plugin — 10 commands + 6 agents (Cowork / Claude CLI)
 │   └── standalone-prompts/   # Lite version for any LLM
 ├── docs/
 │   ├── ARCHITECTURE.md       # How sub-agents are orchestrated
@@ -190,7 +192,7 @@ idea-to-build/
 └── examples/                 # Template, guide + real comparison transcripts
 ```
 
-> Roadmap directories not yet shipped (planned for v0.2): `distributions/cowork-plugin/`, `distributions/claude-code-plugin/`. The `examples/` directory ships with a template, an authoring guide, and seven real transcripts — five run the same prompt as plain Claude vs. through the methodology: a stickman game, a personal-health-AI startup, a Hyperliquid wallet (full methodology through a trace-verified Phase 5 critique → NO-GO), an AI support agent, and a food-delivery app (where a trace-verified isolated critic returns NO-GO on the head-on idea, then GO-with-conditions on the pivot) — plus a profiles comparison (one idea, six profiles) and a full start-to-finish run that ends in a buildable plan. A broader library lands in v0.2. See [`CHANGELOG.md`](CHANGELOG.md).
+> The `examples/` directory ships with a template, an authoring guide, and seven real transcripts — five run the same prompt as plain Claude vs. through the methodology: a stickman game, a personal-health-AI startup, a Hyperliquid wallet (full methodology through a trace-verified Phase 5 critique → NO-GO), an AI support agent, and a food-delivery app (where a trace-verified isolated critic returns NO-GO on the head-on idea, then GO-with-conditions on the pivot) — plus a profiles comparison (one idea, six profiles) and a full start-to-finish run that ends in a buildable plan. A broader library lands in v0.2. See [`CHANGELOG.md`](CHANGELOG.md).
 
 Full architecture: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
 
