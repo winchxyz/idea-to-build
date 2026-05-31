@@ -1,6 +1,5 @@
 ---
-name: start
-description: Activate the idea-to-build coordinator and begin (or resume) a structured 6-phase brainstorm. Use when the user types "/start" / "/idea-to-build:start" or asks to begin an idea-to-build session.
+description: Activate the idea-to-build coordinator and begin (or resume) a structured 6-phase brainstorm.
 ---
 
 # /start — activate the idea-to-build coordinator
