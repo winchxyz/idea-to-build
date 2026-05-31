@@ -68,7 +68,7 @@ Four install paths — all available.
 In a terminal, run `claude`, then:
 ```bash
 /plugin marketplace add winchxyz/idea-to-build
-/plugin install idea-to-build@idea-to-build-store
+/plugin install idea-to-build@idea-to-build
 ```
 Then `/idea-to-build:start` to activate the coordinator. All ten commands are namespaced `/idea-to-build:*` (e.g. `/idea-to-build:critique`, `/idea-to-build:scaffold`). The `/plugin …` commands run in the Claude CLI; once installed, the `/idea-to-build:*` commands work in your CLI sessions. Verified working.
 
