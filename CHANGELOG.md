@@ -7,7 +7,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 ## [0.2.2] — 2026-06-01
 
 ### Changed
-- **Plugin capabilities now ship as real slash commands.** All ten live in `commands/*.md` (flat command files) instead of `skills/`, so they invoke as user-typed `/idea-to-build:start`, `/idea-to-build:critique`, `/idea-to-build:scaffold`, etc. (Cowork / Claude Code register a plugin's `commands/` as slash commands; `skills/` are only model-auto-invoked — which is why the earlier skills-based build showed up in the menu but returned "Unknown command".) **Verified executing in both the Claude Code CLI and Cowork.**
+- **Plugin capabilities now ship as real slash commands.** All ten live in `commands/*.md` (flat command files) instead of `skills/`, so they invoke as user-typed `/idea-to-build:start`, `/idea-to-build:critique`, `/idea-to-build:scaffold`, etc. (Cowork / Claude Code register a plugin's `commands/` as slash commands; `skills/` are only model-auto-invoked — which is why the earlier skills-based build showed up in the menu but returned "Unknown command".) **Verified executing in both the Claude CLI and the Cowork / Claude Code desktop app.**
 - Slimmed the plugin manifest to the minimal shape Cowork expects (`name`, `version`, `description`, `author`, `keywords`) and removed the duplicate top-level `agents/` directory — the commands dispatch the six sub-agents via the bundled `core/agents/` specs.
 
 ### Added
@@ -17,7 +17,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ### Added
 - **Installable plugin (Claude Code + Cowork).** New `distributions/claude-code-plugin/` packages the whole methodology as a Claude Code plugin: `.claude-plugin/plugin.json`, the 6 sub-agents (`agents/*.md` with frontmatter), all command skills, and a self-contained copy of `core/`, `profiles/`, and `docs/` so the skills resolve their references via `${CLAUDE_PLUGIN_ROOT}`.
-- **Marketplace manifest** at the repo root (`.claude-plugin/marketplace.json`) so the plugin installs with `/plugin marketplace add winchxyz/idea-to-build` → `/plugin install idea-to-build@idea-to-build` in Claude Code, and via **Customize → Add marketplace → `winchxyz/idea-to-build`** in Cowork.
+- **Marketplace manifest** at the repo root (`.claude-plugin/marketplace.json`) so the plugin installs with `/plugin marketplace add winchxyz/idea-to-build` → `/plugin install idea-to-build@idea-to-build` in the Claude CLI, and via **Customize → Add marketplace → `winchxyz/idea-to-build`** in the Cowork / Claude Code desktop app.
 - **`/start` activation command** (`/idea-to-build:start`). Plugins don't auto-load a `CLAUDE.md`, so this switches the coordinator role on. On a cloned repo the root `CLAUDE.md` still bootstraps automatically, so `/start` is optional there.
 
 ### Changed

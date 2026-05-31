@@ -30,7 +30,7 @@ Ask any LLM — Claude, ChatGPT, Gemini, Grok — to brainstorm and you get the 
 - ❌ "5 great ideas!" — none of which are actually different
 - ❌ No memory across sessions — you re-explain context every time
 
-This tool fixes those failures. The **full multi-agent version runs on Claude** (Cowork or Claude Code) — that's where sub-agent isolation lives. A **degraded-but-functional standalone prompt** in `distributions/standalone-prompts/lite.md` works in any other LLM.
+This tool fixes those failures. The **full multi-agent version runs on Claude** (Cowork, Claude Code, or the Claude CLI) — that's where sub-agent isolation lives. A **degraded-but-functional standalone prompt** in `distributions/standalone-prompts/lite.md` works in any other LLM.
 
 ## The Solution
 
@@ -64,23 +64,24 @@ Real sessions, each linked in full — strongest first. Most put one prompt thro
 
 Four install paths — all available.
 
-### ✅ Option 1: Plugin via marketplace — Claude Code (recommended)
+### ✅ Option 1: Plugin via marketplace — Claude CLI (terminal)
+In a terminal, run `claude`, then:
 ```bash
 /plugin marketplace add winchxyz/idea-to-build
 /plugin install idea-to-build@idea-to-build-store
 ```
-Then run `/idea-to-build:start` to activate the coordinator. All ten commands are namespaced `/idea-to-build:*` (e.g. `/idea-to-build:critique`, `/idea-to-build:scaffold`). Verified working in the Claude Code CLI.
+Then `/idea-to-build:start` to activate the coordinator. All ten commands are namespaced `/idea-to-build:*` (e.g. `/idea-to-build:critique`, `/idea-to-build:scaffold`). The `/plugin …` commands run in the Claude CLI; once installed, the `/idea-to-build:*` commands work in your CLI sessions. Verified working.
 
-### ✅ Option 2: Plugin — Cowork
-In Cowork: **Customize → Personal plugins → `+` → Create plugin → Add marketplace**, enter `winchxyz/idea-to-build`, hit **Sync**, install the plugin, then run `/idea-to-build:start`.
+### ✅ Option 2: Plugin via marketplace — Cowork / Claude Code (desktop app)
+In the Claude desktop app (Cowork or Claude Code — one shared environment): **Customize → Personal plugins → `+` → Create plugin → Add marketplace**, enter `winchxyz/idea-to-build`, hit **Sync**, install the plugin, then run `/idea-to-build:start`. Once installed this way, the `/idea-to-build:*` commands work across both Cowork and Claude Code.
 
 > **If Cowork's marketplace lags or won't update** — a known Cowork plugin-update bug where the *Update* button stays greyed out and re-adding reuses a stale cache — install it manually instead: download **`idea-to-build-plugin.zip`** from the [latest release](https://github.com/winchxyz/idea-to-build/releases/latest), then **Customize → Personal plugins → `+` → Create plugin → Upload plugin** and pick the zip. It lands under **My Uploads** and works identically.
 
-### ✅ Option 3: Clone the repo (Cowork folder / Claude Code)
+### ✅ Option 3: Clone the repo (open in the desktop app or the Claude CLI)
 ```bash
 git clone https://github.com/winchxyz/idea-to-build.git
 ```
-Open the cloned folder. The root [`CLAUDE.md`](CLAUDE.md) bootstraps the coordinator automatically (no `/start` needed); the repo's `.claude/skills/` provide the `/`-commands in Claude Code.
+Open the cloned folder. The root [`CLAUDE.md`](CLAUDE.md) bootstraps the coordinator automatically (no `/start` needed); the repo's `.claude/skills/` provide the `/`-commands in Claude Code and the Claude CLI.
 
 ### ✅ Option 4: Standalone prompt — any LLM
 Copy [`distributions/standalone-prompts/lite.md`](distributions/standalone-prompts/lite.md) into ChatGPT, Claude, Gemini, or any chat. Degraded quality (no sub-agent isolation, no cross-session memory, no `/scaffold`), but zero setup.
@@ -171,7 +172,7 @@ Full methodology: [`docs/METHODOLOGY.md`](docs/METHODOLOGY.md)
 ```
 idea-to-build/
 ├── CLAUDE.md                 # Entry point — auto-activates the coordinator
-├── .claude/skills/           # Slash commands for Claude Code / CLI (/profile, /critique, /plan…)
+├── .claude/skills/           # Slash commands for Claude Code and the Claude CLI (/profile, /critique…)
 ├── core/
 │   ├── CLAUDE.md             # Full coordinator specification
 │   ├── agents/               # 6 agents: research, ideation, deep-dive, critic, planner, scaffolder
