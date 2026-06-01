@@ -45,7 +45,7 @@ Then the part that makes it *idea-to-build*: when the brainstorm is done, **`/sc
 
 ## 👀 See It in Action
 
-https://github.com/user-attachments/assets/b3c68305-1573-43d5-80f3-f496d2ab7f2f
+https://github.com/user-attachments/assets/7fa999e7-d4d8-4d67-b39e-ac2698c52ca6
 
 Real sessions, each linked in full — strongest first. Most put one prompt through a normal chat vs. the methodology, side by side; one runs a single idea through all six profiles; the first is a complete start-to-finish run that ends in a buildable plan:
 
