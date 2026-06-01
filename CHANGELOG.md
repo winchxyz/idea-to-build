@@ -13,6 +13,9 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 ### Changed
 - The `factcheck` / `phase` / `profile` commands now describe their argument as "whatever the user provided after `/<cmd>` (as a slash command, `$ARGUMENTS`)" — equivalent behavior, but the wording now also reads correctly when the same file runs as an auto-invoked skill.
 
+### Fixed
+- **The v0.3.0 release `.zip` was not actually a zip.** It had been built with `tar -a -c -f …zip`, but the `tar` in the build environment is **GNU tar**, which ignores the `.zip` extension and writes a *tar* archive with a `.zip` name — so Windows reported the download as "invalid" and Cowork couldn't open it. Rebuilt the v0.3.0 asset as a real zip and added `scripts/package-plugin.sh` (Python `zipfile`, forward-slash entries, integrity-checked, with a magic-byte assertion) so this can't recur.
+
 ## [0.3.0] — 2026-06-01
 
 ### Changed

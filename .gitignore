@@ -34,3 +34,6 @@ venv/
 # Temporary
 *.tmp
 tmp/
+
+# Built release artifact (produced by scripts/package-plugin.sh, uploaded to a GitHub Release)
+idea-to-build-plugin.zip
