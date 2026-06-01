@@ -4,6 +4,11 @@ All notable changes to `idea-to-build` are tracked here.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+- `scripts/check-plugin-commands.sh` — a guard for the packaged slash commands. It fails if an arg-taking command (`factcheck` / `phase` / `profile`) loses its `$ARGUMENTS` handling, a skill-only `name:` frontmatter leaks into a command, a bare `core/` / `profiles/` / `docs/` path isn't rewritten to `${CLAUDE_PLUGIN_ROOT}/…`, or the command set drifts from the skill set. Run it before packaging. The `commands/*.md` are **hand-maintained** (not a pure copy of `.claude/skills/`, which is why an earlier ad-hoc regen silently stripped `$ARGUMENTS`); this catches that class of regression.
+
 ## [0.3.0] — 2026-06-01
 
 ### Changed
