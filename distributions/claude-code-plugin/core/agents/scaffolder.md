@@ -41,6 +41,7 @@ Write exactly these four into the target folder. Do **not** generate application
 
 ## Rules
 
+- **Write all four files in English** — always, even when the conversation is in another language. They're build artifacts a fresh Claude Code session reads to build from; English keeps them consistent with code, identifiers, and tooling, and avoids translation drift. (The chat with the user stays in their language; only the files are English.) Honor an explicit user request for another file language if given.
 - **Briefing, not codebase.** No app code, no `create-*`-style scaffolding — Claude Code builds from the brief. Your value is the context no generic generator has: the *why*, the rejected paths, the risks, the gates.
 - **Never overwrite** existing files in the target folder without confirming. If the folder exists and has content, ask first.
 - Everything traces to the context file or an explicit user answer. Label anything uncertain ⚠️ / 🔍.

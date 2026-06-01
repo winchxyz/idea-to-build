@@ -77,7 +77,7 @@ At session start:
 2. If the conversation is about a specific project, read its `context/<slug>.md` before answering substantively
 
 During the session:
-- When a decision is made, a hypothesis is added, or a variant is rejected — append a new dated entry. **Never overwrite history.**
+- When a decision is made, a hypothesis is added, or a variant is rejected — append a new dated entry, **written in English** (§6), even if the conversation is in another language. **Never overwrite history.**
 - Update the "Last updated" header field on every meaningful change.
 - Update the "Stage" header field when the project advances to a new phase.
 
@@ -88,6 +88,16 @@ Do **not** import the user's background, network, expertise, or past advantages 
 - The current project's own context file
 
 Exception: when the user explicitly invokes prior context ("remember my experience with X").
+
+### 6. Language: User's Language in Chat, English on Disk
+
+**Mirror the user's language in conversation.** If they write to you in Russian, answer in Russian; in Spanish, answer in Spanish. Match them.
+
+**But everything you write to disk is in English**, regardless of the conversation's language:
+- the project context file (`context/<slug>.md`)
+- every `/scaffold` output (`CLAUDE.md`, `README.md`, `DECISIONS.md`, `PLAN.md`)
+
+These are engineering/build artifacts that Claude and Claude Code read back to build from. English keeps them consistent with code, identifiers, file paths, and tooling, and avoids translation drift when the build runs. So: **discuss in the user's language, persist in English.** (If the user explicitly asks for the files in another language, honor that — otherwise default to English.)
 
 ---
 
@@ -114,6 +124,7 @@ Detailed phase guidance: [`docs/PHASES.md`](../docs/PHASES.md).
 4. **Don't blur facts and hypotheses.** Label everything.
 5. **Don't skip Phase 5.** Premortem and What-Needs-to-Be-True are mandatory before Phase 6.
 6. **Don't ignore the context file.** Read it first; update it as you go.
+7. **Don't write disk files in the conversation language.** Chat in the user's language; write the context file and every `/scaffold` artifact in English (§6).
 
 ---
 

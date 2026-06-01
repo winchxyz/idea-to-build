@@ -13,7 +13,11 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 ### Changed
 - The `factcheck` / `phase` / `profile` commands now describe their argument as "whatever the user provided after `/<cmd>` (as a slash command, `$ARGUMENTS`)" — equivalent behavior, but the wording now also reads correctly when the same file runs as an auto-invoked skill.
 
+### Added
+- **Language policy: chat in the user's language, write every file in English.** New `core/CLAUDE.md` §6 (plus anti-pattern #7, a memory-write note, a `core/agents/scaffolder.md` rule, and a root-`CLAUDE.md` hard rule): the coordinator mirrors the user's language in conversation, but the context file and all `/scaffold` artifacts (`CLAUDE.md` / `README` / `DECISIONS` / `PLAN`) are always written in English — they're build artifacts Claude Code reads, so English keeps them consistent with code and avoids translation drift. Previously the scaffolder inherited the conversation's language and wrote, e.g., a Russian `PLAN.md`.
+
 ### Fixed
+- **Stale isolation note in the root `CLAUDE.md`.** The activation safety-net still said "Phases 5 and 6 run in isolated sub-agents"; corrected to "Phase 5 runs in-context, Phase 6 runs isolated" to match the 0.3.0 critique redesign.
 - **The v0.3.0 release `.zip` was not actually a zip.** It had been built with `tar -a -c -f …zip`, but the `tar` in the build environment is **GNU tar**, which ignores the `.zip` extension and writes a *tar* archive with a `.zip` name — so Windows reported the download as "invalid" and Cowork couldn't open it. Rebuilt the v0.3.0 asset as a real zip and added `scripts/package-plugin.sh` (Python `zipfile`, forward-slash entries, integrity-checked, with a magic-byte assertion) so this can't recur.
 
 ## [0.3.0] — 2026-06-01
