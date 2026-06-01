@@ -4,7 +4,7 @@ All notable changes to `idea-to-build` are tracked here.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [0.3.1] — 2026-06-01
 
 ### Added
 - **Reproducible plugin-command build.** `scripts/build-plugin-commands.sh` regenerates `distributions/claude-code-plugin/commands/*.md` from `.claude/skills/*/SKILL.md` as a pure transform (drop the skill-only `name:` key; rewrite `core/` / `profiles/` / `docs/` paths to `${CLAUDE_PLUGIN_ROOT}/…`; leave working-dir paths like `context/` bare). The skills are now the single source of truth, so the commands can't drift — and `$ARGUMENTS` can't be dropped, because the arg-taking skills (`factcheck` / `phase` / `profile`) now carry a `$ARGUMENTS` reference phrased to read correctly both as an auto-invoked skill and as a slash command.
