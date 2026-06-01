@@ -7,7 +7,11 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 ## [Unreleased]
 
 ### Added
-- `scripts/check-plugin-commands.sh` — a guard for the packaged slash commands. It fails if an arg-taking command (`factcheck` / `phase` / `profile`) loses its `$ARGUMENTS` handling, a skill-only `name:` frontmatter leaks into a command, a bare `core/` / `profiles/` / `docs/` path isn't rewritten to `${CLAUDE_PLUGIN_ROOT}/…`, or the command set drifts from the skill set. Run it before packaging. The `commands/*.md` are **hand-maintained** (not a pure copy of `.claude/skills/`, which is why an earlier ad-hoc regen silently stripped `$ARGUMENTS`); this catches that class of regression.
+- **Reproducible plugin-command build.** `scripts/build-plugin-commands.sh` regenerates `distributions/claude-code-plugin/commands/*.md` from `.claude/skills/*/SKILL.md` as a pure transform (drop the skill-only `name:` key; rewrite `core/` / `profiles/` / `docs/` paths to `${CLAUDE_PLUGIN_ROOT}/…`; leave working-dir paths like `context/` bare). The skills are now the single source of truth, so the commands can't drift — and `$ARGUMENTS` can't be dropped, because the arg-taking skills (`factcheck` / `phase` / `profile`) now carry a `$ARGUMENTS` reference phrased to read correctly both as an auto-invoked skill and as a slash command.
+- `scripts/check-plugin-commands.sh` — structural sanity gate the build runs (also runnable standalone): fails on a leftover `name:`, a missing `description:`, a bare repo path, an arg-command missing `$ARGUMENTS`, or command/skill set drift. Fixes the class of regression where an earlier ad-hoc regen silently stripped `$ARGUMENTS` from `factcheck`/`phase`/`profile`.
+
+### Changed
+- The `factcheck` / `phase` / `profile` commands now describe their argument as "whatever the user provided after `/<cmd>` (as a slash command, `$ARGUMENTS`)" — equivalent behavior, but the wording now also reads correctly when the same file runs as an auto-invoked skill.
 
 ## [0.3.0] — 2026-06-01
 

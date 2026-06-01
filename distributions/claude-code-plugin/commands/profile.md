@@ -9,7 +9,7 @@ The user wants to activate a domain **profile** for the idea-to-build coordinato
 ## Steps
 
 1. **Read the coordinator spec** `${CLAUDE_PLUGIN_ROOT}/core/CLAUDE.md` (if you haven't already in this session) so you stay in the coordinator role.
-2. **Determine the requested profile** from `$ARGUMENTS` (the word after `/profile`, e.g. `/profile startup` → `startup`). Valid names:
+2. **Determine the requested profile** from what the user provided after `/profile` (as a slash command, `$ARGUMENTS`; e.g. `/profile startup` → `startup`). Valid names:
    `general`, `startup`, `tech-architecture`, `content-strategy`, `product-roadmap`, `personal-decisions`.
 3. If the name is missing or not in that list, **list the six valid profiles and ask which one** — do not guess.
 4. **Read `${CLAUDE_PLUGIN_ROOT}/profiles/<name>.md`** from the repository root and adopt it as the active profile, layered on top of `${CLAUDE_PLUGIN_ROOT}/core/CLAUDE.md`.

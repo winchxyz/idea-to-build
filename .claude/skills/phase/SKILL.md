@@ -6,6 +6,6 @@ description: Jump the idea-to-build session to a specific phase (1–6). Use spa
 # /phase — jump to a phase (use sparingly)
 
 1. Read `core/CLAUDE.md` and `docs/PHASES.md`.
-2. Parse the target phase number (1–6) from the user's message.
+2. Parse the target phase number (1–6) from what the user provided after `/phase` (as a slash command, `$ARGUMENTS`; e.g. `/phase 4` → 4). If no number is given, ask which phase.
 3. Skipping phases weakens the result — especially skipping **Phase 5 (Critique)**. If the user jumps past Critique toward Plan, flag that once before proceeding.
 4. Set the current phase and continue, announcing the phase on the first line of the reply as usual.

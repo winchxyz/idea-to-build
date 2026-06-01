@@ -6,7 +6,7 @@ description: Apply the idea-to-build verification protocol (Tier 1/2/3, Skeptica
 # /factcheck — verify a claim (Skeptical-by-Default)
 
 1. Read `core/CLAUDE.md` (the Factual Rigor / Tier 1/2/3 protocol and the Skeptical-by-Default stance).
-2. Classify the claim:
+2. The claim to verify is whatever the user provided after `/factcheck` (as a slash command, that's `$ARGUMENTS`). If it's empty, ask which claim to check. Then classify it:
    - **Tier 1** — logic, math on given numbers, fundamental concepts → assert directly.
    - **Tier 2** — tool details, "best practices", memory-based claims below ~90% confidence → mark ⚠️ and verify when possible.
    - **Tier 3** — market sizes, prices, competitor data, current platform policies, recent news, anything that could have changed in the last 6–18 months → **search before stating.**

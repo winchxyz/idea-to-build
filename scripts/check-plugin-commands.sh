@@ -4,17 +4,18 @@
 # Guard for the Claude Code plugin's slash commands.
 #
 # WHY THIS EXISTS
-#   distributions/claude-code-plugin/commands/*.md are HAND-MAINTAINED.
-#   They are NOT a pure copy of .claude/skills/*/SKILL.md. Each command differs
-#   from its skill in three ways a naive "regenerate from skills" gets wrong:
-#     1. the skill's `name:` frontmatter is removed,
-#     2. repo paths (core/, profiles/, docs/) are rewritten to
+#   distributions/claude-code-plugin/commands/*.md are GENERATED from
+#   .claude/skills/*/SKILL.md by scripts/build-plugin-commands.sh. This script
+#   is the structural sanity gate the build runs at the end (and that you can
+#   run standalone after a hand-edit). It fails loudly if a command regresses:
+#     1. a leftover skill-only `name:` frontmatter key,
+#     2. a missing `description:` frontmatter,
+#     3. a bare repo path (core/ / profiles/ / docs/) not rewritten to
 #        ${CLAUDE_PLUGIN_ROOT}/...,
-#     3. arg-taking commands add explicit `$ARGUMENTS` handling that the skill
-#        (auto-invoked, reads "the user's message") never contains.
-#   An ad-hoc regen once silently dropped `$ARGUMENTS` from factcheck/phase/
-#   profile, breaking their arguments. This script fails loudly if that
-#   regression — or the other two packaging mistakes — reappears.
+#     4. an arg-taking command (factcheck/phase/profile) that lost its
+#        `$ARGUMENTS` handling — the exact regression an earlier ad-hoc regen
+#        caused, and the reason arg-skills now carry `$ARGUMENTS` at the source,
+#     5. the command set drifting from the skill set.
 #
 # Run it before packaging or cutting a release:
 #   bash scripts/check-plugin-commands.sh
