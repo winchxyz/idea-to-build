@@ -6,7 +6,7 @@ This document explains how `idea-to-build` is built and why.
 
 **Take a raw idea to a plan you can build — maximize the quality of the brainstorm in between, with minimal setup friction.**
 
-The single biggest quality lever in any structured brainstorm is **process isolation** — different perspectives on the same problem, operating without contaminating each other. We achieve this with native Claude sub-agents. The arc doesn't stop at a plan: a final scaffolder turns the brainstorm into a folder Claude Code can build from.
+The single biggest quality lever in any structured brainstorm is **a forced adversarial critique you can't skip** — a hard-gated Phase 5 that runs a fixed rubric (premortem, what-needs-to-be-true, steelman, inversion, verdict) against the idea you're attached to. It runs *in-context*: full knowledge of the brainstorm lets it find sharper, more specific cracks than a cold outsider could. The one phase that genuinely benefits from a fresh context — the planner — is dispatched as a native Claude sub-agent. The arc doesn't stop at a plan: a final scaffolder turns the brainstorm into a folder Claude Code can build from.
 
 ## High-Level Architecture
 
@@ -18,43 +18,42 @@ The single biggest quality lever in any structured brainstorm is **process isola
 │   • Manages the 6-phase flow                                    │
 │   • Reads and writes the project context file                   │
 │   • Enforces phase-explicit communication                       │
-│   • Dispatches sub-agents at critical phases                    │
-│   • Aggregates sub-agent outputs back to the user               │
+│   • Runs the Phase 5 critique itself, in-context (adversarial)  │
+│   • Dispatches the planner sub-agent at Phase 6                  │
+│   • Aggregates the sub-agent output back to the user            │
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
                               │
-          launches a real sub-agent (Agent in Cowork / Task in Claude Code)
-                              │
-        ┌─────────────────────┼─────────────────────┐
-        │                     │                     │
-   ┌────▼─────┐         ┌─────▼─────┐         ┌─────▼─────┐
-   │ Research │         │  Critic   │         │  Planner  │
-   │  Agent   │         │   Agent   │         │   Agent   │
-   │ (Phase 2)│         │ (Phase 5) │         │ (Phase 6) │
-   └──────────┘         └───────────┘         └───────────┘
-                              ▲                     ▲
-                              │                     │
-                         FRESH CONTEXT       FRESH CONTEXT
-                         (cannot inherit coordinator state)
+        ┌─────────────────────┴─────────────────────┐
+        │                                           │
+  in-context (no sub-agent)              real sub-agent (Agent in
+        │                                Cowork / Task in Claude Code)
+   ┌────▼──────┐         ┌──────────┐         ┌─────▼─────┐
+   │  Critic   │         │ Research │         │  Planner  │
+   │ (Phase 5) │         │  Agent   │         │   Agent   │
+   │ adversarial│        │ (Phase 2)│         │ (Phase 6) │
+   └───────────┘         └────▲─────┘         └─────▲─────┘
+        ▲                     │                     │
+        │                FRESH CONTEXT (optional) FRESH CONTEXT
+   FULL CONTEXT          (cannot inherit coordinator state)
+   (sharper cracks)
 ```
 
 Sub-agents for Phases 2 (Research), 3 (Ideation), and 4 (Deep Dive) are **optional** — invoked when the user wants stronger isolation or when the coordinator is at risk of context bleed.
 
-## Why Sub-Agents for Phases 5 and 6 Specifically
+## Why Phase 5 Runs In-Context and Phase 6 Runs Isolated
 
-These two phases benefit most from isolation:
+**Phase 5 (Critique) — in-context:**
+The instinct is to isolate the critic so it can't "drink the Kool-Aid." We A/B-tested that. With a forced adversarial rubric, a critic that has the *full* brainstorm was as sharp or sharper than a cold one — it catches idea-specific cracks the outsider misses. The bias risk (a critic that watched you defend the idea wants to let you keep it) is handled not by amnesia but by an explicit instruction to override the sunk cost and your enthusiasm. The lever is the forced structure, not the isolation.
 
-**Phase 5 (Critique):**
-A critic that watched the user spend 30 messages defending an idea is biased toward letting them keep it. A critic that sees only "user chose X, premortem it" has no such bias. The result: real criticism, not theater.
-
-**Phase 6 (Plan):**
-A planner that has seen the ideation debate may inherit unresolved tensions and produce a plan that hedges. A planner that sees only "X was chosen, here are the critic's risks" produces a tighter, more committed plan.
+**Phase 6 (Plan) — isolated:**
+A planner that has seen the ideation debate may inherit unresolved tensions and produce a plan that hedges. A planner that sees only "X was chosen, here are the critic's risks" produces a tighter, more committed plan. This one genuinely benefits from a fresh context, so it's dispatched as a sub-agent.
 
 For Phases 1–4, continuity matters more than isolation. The coordinator holds context naturally and saves on token cost.
 
 ## The Scaffolder — the opposite design choice (after Phase 6)
 
-The critic and planner are isolated *because* judgment must be unbiased. The **scaffolder** is the inverse, on purpose: it runs with the **full** project context. Its job is to *transform* a finished brainstorm into a buildable handoff — `CLAUDE.md`, `README.md`, `DECISIONS.md`, `PLAN.md` — so it needs everything the brainstorm decided, including the rejected paths and the risks to carry forward. Isolation would cripple it. It's gated to require a completed Phase 6, and it produces the briefing, **not** application code — you open the folder in Claude Code and build from there. This is the "to-build" half of idea-to-build.
+The critic runs under a forced adversarial rubric and the planner is isolated *because* judgment must be unbiased. The **scaffolder** is the inverse, on purpose: it runs with the **full** project context. Its job is to *transform* a finished brainstorm into a buildable handoff — `CLAUDE.md`, `README.md`, `DECISIONS.md`, `PLAN.md` — so it needs everything the brainstorm decided, including the rejected paths and the risks to carry forward. Isolation would cripple it. It's gated to require a completed Phase 6, and it produces the briefing, **not** application code — you open the folder in Claude Code and build from there. This is the "to-build" half of idea-to-build.
 
 ## Memory Model
 
@@ -115,16 +114,16 @@ The coordinator and sub-agents assume access to:
 
 - **Read / Write / Edit** — for context file management
 - **Web Search** — for Tier 3 factual rigor
-- **Sub-agent launch** — for Phase 5 and Phase 6 isolation. This is the **`Agent`** tool in Cowork and the **`Task`** tool in Claude Code. ⚠️ It is *not* the `TaskCreate`/`TaskUpdate`/`TaskList` to-do tools, which only track a checklist and provide no context isolation.
+- **Sub-agent launch** — for the Phase 6 planner (and optional Phase 2–4 isolation). This is the **`Agent`** tool in Cowork and the **`Task`** tool in Claude Code. ⚠️ It is *not* the `TaskCreate`/`TaskUpdate`/`TaskList` to-do tools, which only track a checklist and provide no context isolation. The Phase 5 critique does **not** need this — it runs in-context.
 
 If a target environment lacks any of these, the relevant capability degrades gracefully:
 - No web search → Tier 3 claims are flagged 🔍 instead of researched
-- No sub-agent launch tool → all phases run in single-agent mode (degraded critique quality), and the critique must be labeled ⚠️ "non-isolated" rather than claiming isolation
+- No sub-agent launch tool → the Phase 6 plan runs in-context too (the critique is unaffected — it was already in-context)
 
 ## Trade-Offs We Accepted
 
-1. **Token cost.** Sub-agent dispatch consumes more tokens than single-agent. We accept this because critique quality is the primary value.
-2. **Slower critique phase.** Sub-agent invocation adds 30–60 seconds. Acceptable for the depth gain.
+1. **Token cost.** The Phase 6 planner sub-agent consumes more tokens than single-agent. We accept this because the build handoff is the primary value.
+2. **Slower plan phase.** The planner sub-agent invocation adds 30–60 seconds. Acceptable for the tighter, less-hedged plan. (The Phase 5 critique runs in-context, so it adds no dispatch latency.)
 3. **Per-platform install glue.** Multiple distribution paths require maintenance. We accept this because friction is the #1 adoption killer.
 
 ## Non-Goals

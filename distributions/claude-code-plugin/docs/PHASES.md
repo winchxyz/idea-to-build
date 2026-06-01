@@ -92,19 +92,19 @@ This document explains what each phase does, what its output looks like, and whe
 **Goal:** Try to break the chosen idea.
 
 **Coordinator behavior:**
-- **Must dispatch the Critic Sub-Agent in isolated context**
-- Pass only the chosen idea + scope + constraints — never the rationale or alternatives
-- Aggregate the critic's verdict back to the user
+- **Become the critic in-context** — follow `core/agents/critic.md`; do **not** spawn a sub-agent
+- Use the full brainstorm (idea, rationale, rejected alternatives) to find *sharper* cracks — but explicitly override the sunk cost and the user's enthusiasm; don't soften the verdict because they want it to work
+- Render the verdict verbatim — no re-softening, no Phase-6 sales pitch
 
 **Required critic output:**
-1. **Premortem** — 5 ranked failure causes with probability
+1. **Premortem** — 5 ranked failure causes with probability + mechanism + preventability
 2. **What Needs to Be True** — 5–7 assumptions labeled ✅ / ⚠️ / 🔍
 3. **Steelman the opposition** — the strongest argument against
 4. **Inversion** — what would reliably kill this
 5. **Verdict** — GO / GO with conditions / NO-GO
 
 **Common mistakes:**
-- Letting the coordinator do the critique (context bleed = soft critique)
+- Going easy because you've seen how much the user wants this (the sunk cost is exactly what you're here to counter)
 - Skipping inversion because it's uncomfortable
 - Refusing to commit to a verdict
 
@@ -140,6 +140,6 @@ This document explains what each phase does, what its output looks like, and whe
 
 ## After Phase 6 — the build handoff
 
-The brainstorm is **closed** — but it doesn't just evaporate into "now go build it somehow." Run **`/scaffold`** to turn the whole brainstorm into a ready-to-build folder — `CLAUDE.md` (chosen approach, rejected paths, risks to watch, go/no-go gates), `README.md`, `DECISIONS.md`, `PLAN.md` — that you open in Claude Code to start building. The scaffolder runs with the **full** project context (it is *not* isolated, unlike the critic and planner) and is gated to require a completed Phase 6. It produces the briefing, **not** application code.
+The brainstorm is **closed** — but it doesn't just evaporate into "now go build it somehow." Run **`/scaffold`** to turn the whole brainstorm into a ready-to-build folder — `CLAUDE.md` (chosen approach, rejected paths, risks to watch, go/no-go gates), `README.md`, `DECISIONS.md`, `PLAN.md` — that you open in Claude Code to start building. The scaffolder runs with the **full** project context (it is *not* isolated, unlike the planner) and is gated to require a completed Phase 6. It produces the briefing, **not** application code.
 
 Future sessions reopen the project from its context file and may run targeted phases (e.g., re-critique a pivot, re-plan after pilot data). Re-opening Phase 3 requires an explicit user signal: "let's reconsider variants" or "I want to pivot."

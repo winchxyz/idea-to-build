@@ -4,7 +4,15 @@ All notable changes to `idea-to-build` are tracked here.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.2.2] — 2026-06-01
+## [0.3.0] — 2026-06-01
+
+### Changed
+- **Phase 5 (Critique) now runs in-context, adversarially — no longer an isolated sub-agent.** I A/B-tested an isolated critic against an in-context one running the same forced rubric (premortem, what-needs-to-be-true, steelman, inversion, verdict); the context-aware critic was as sharp or sharper, because full knowledge of the idea finds idea-specific cracks a cold outsider misses. The lever is the **forced structure**, not the isolation. The critic is now instructed to use the full brainstorm but explicitly override the sunk cost and the user's enthusiasm. **Phase 6 (Plan) still runs as a genuinely isolated sub-agent**, where a fresh context measurably helps.
+- This also fixes two bugs surfaced by the A/B test: the critique double-dispatching (coordinator §3 + the critique command both firing), and the coordinator re-softening the relayed verdict on the way back to the user.
+- **Repositioned away from "isolation" as the headline.** The product is a quality 6-phase brainstorm that ends in something buildable (`/scaffold` → a folder Claude Code builds from) — not a multi-agent isolation demo. Updated `README.md`, `core/agents/critic.md`, `core/CLAUDE.md` §3, and the `docs/` (ARCHITECTURE, METHODOLOGY, FAQ, PHASES) to describe the in-context adversarial critique and the build handoff as the core value. Historical `examples/` traces are left as-is.
+- Plugin/marketplace manifests and bundled commands regenerated to match.
+
+
 
 ### Changed
 - **Plugin capabilities now ship as real slash commands.** All ten live in `commands/*.md` (flat command files) instead of `skills/`, so they invoke as user-typed `/idea-to-build:start`, `/idea-to-build:critique`, `/idea-to-build:scaffold`, etc. (Cowork / Claude Code register a plugin's `commands/` as slash commands; `skills/` are only model-auto-invoked — which is why the earlier skills-based build showed up in the menu but returned "Unknown command".) **Verified executing in both the Claude CLI and the Cowork / Claude Code desktop app.**

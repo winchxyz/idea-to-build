@@ -55,21 +55,16 @@ Only advance to the next phase after an **explicit commit signal** from the user
 
 ### 3. Sub-Agent Dispatch
 
-Phases 5 (Critique) and 6 (Plan) **must** run in a genuinely isolated sub-agent — a separate agent invocation with its own fresh context window that **cannot see this conversation**. This isolation is the single biggest quality lever in the whole method. If it does not happen, the critique is worthless.
+**Phase 5 (Critique) runs in-context.** You — the coordinator — become the critic yourself, following `core/agents/critic.md` to the letter: full premortem, what-needs-to-be-true, steelman, inversion, and a 🟢/🟡/🔴 verdict. You have the whole brainstorm, and that's an advantage — it lets you find sharper, more specific cracks than a cold outsider could. The discipline is **not** isolation; it's the **forced adversarial structure** plus refusing to let the user's enthusiasm or sunk cost soften the verdict. Do **not** spawn a sub-agent for the critique, and do **not** soften it on the way out — run the rubric in full and deliver it straight.
 
-**Use your environment's actual sub-agent launch tool:**
-- In **Cowork**, this is the **`Agent`** tool.
-- In **Claude Code**, this is the **`Task`** tool (it launches a sub-agent).
+**Phase 6 (Plan) runs in a genuinely isolated sub-agent** — a separate agent invocation with its own fresh context window. Use your environment's actual sub-agent launch tool: the **`Agent`** tool in **Cowork**, the **`Task`** tool in **Claude Code**.
 
-⚠️ **Do NOT use the task-tracking tools `TaskCreate` / `TaskUpdate` / `TaskList`.** Those manage a to-do checklist. They do **not** spawn an agent and provide **zero** context isolation. Creating a to-do item called "Phase 5 critic" and then writing the critique yourself — in this same context — is the exact failure this method exists to prevent. A critic that has seen you fall in love with the idea is not a critic.
-
-**Verification (mandatory):** a correct dispatch returns the sub-agent's output to you as a tool result from a *separate* agent run. If no separate agent executed — if you produced the critique in your own turn — you have NOT isolated. Stop and dispatch properly. If your environment genuinely has no sub-agent launch tool, say so explicitly to the user and label the critique ⚠️ "non-isolated, single-context" rather than claiming isolation that did not occur.
+⚠️ **Do NOT use the task-tracking tools `TaskCreate` / `TaskUpdate` / `TaskList`** for the dispatch — they manage a to-do checklist, do **not** spawn an agent, and provide zero isolation.
 
 Dispatch protocol:
-- Phase 5: launch a sub-agent using the contents of `core/agents/critic.md` as its instructions, passing only `{chosen_idea, scope, constraints}`. Do **not** pass the rationale for choosing it. The critic must work cold.
 - Phase 6: launch a sub-agent using `core/agents/planner.md`, passing `{chosen_idea, critique_output, constraints}`.
 
-Phases 2 (research-heavy), 3 (ideation), and 4 (deep dive) may optionally use sub-agents from `core/agents/` (same launch tool) if the user requests stronger isolation or higher quality.
+Phases 2 (research-heavy), 3 (ideation), and 4 (deep dive) may optionally use sub-agents from `core/agents/` (same launch tool) for stronger isolation or higher quality.
 
 **After Phase 6 — the build handoff.** When the plan is locked, the user can run `/scaffold` to turn the brainstorm into a ready-to-build folder (`CLAUDE.md` + `README` + `DECISIONS` + `PLAN`) for Claude Code — see `core/agents/scaffolder.md`. The scaffolder is the one agent that is **not** isolated: it needs the full project context to transform it faithfully (the opposite of the critic/planner). It produces the briefing, not application code, and is gated to require a completed Phase 6. This is the "to-build" half of idea-to-build.
 
@@ -104,7 +99,7 @@ Exception: when the user explicitly invokes prior context ("remember my experien
 | 2 — Context | Map the existing landscape, competitors, constraints | Optional | Landscape briefing with sources |
 | 3 — Generation | Produce 3–5 *radically different* approaches | Optional | Variant table with pros/cons |
 | 4 — Deep Dive | Develop the chosen approach in detail | Optional | Detailed concept |
-| 5 — Critique | Premortem + What-Needs-to-Be-True + Steelman | **Yes (isolated)** | Risk-ranked failure causes + assumptions |
+| 5 — Critique | Premortem + What-Needs-to-Be-True + Steelman | **In-context (adversarial)** | Risk-ranked failure causes + assumptions |
 | 6 — Plan | Actionable next steps with green-light criteria | **Yes (isolated)** | Concrete plan with checkpoints |
 
 Detailed phase guidance: [`docs/PHASES.md`](../docs/PHASES.md).

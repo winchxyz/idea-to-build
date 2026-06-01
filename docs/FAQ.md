@@ -6,43 +6,43 @@ Honest answers to the questions people actually ask. If something here is hand-w
 
 ### Is this *really* multi-agent, or is it one model role-playing "now I'm the critic"?
 
-Really multi-agent — when you run it on a host that can launch sub-agents. The critique and planning phases are dispatched as **separate agent invocations with their own fresh context window** via the host's sub-agent tool (the `Agent` tool in Cowork, the `Task` tool in Claude Code). The critic does not see your conversation; it gets only the chosen idea, scope, and constraints.
+Partly multi-agent — by design, not by accident. The **planner** (Phase 6) is dispatched as a separate agent invocation with its own fresh context window via the host's sub-agent tool (the `Agent` tool in Cowork, the `Task` tool in Claude Code). It sees only the chosen idea, the critic's risks, and the constraints — so the plan doesn't hedge against debates it never saw.
 
-You can verify this yourself: in the [Hyperliquid](../examples/hyperliquid-wallet-comparison.md) and [food-delivery](../examples/food-delivery-comparison.md) examples, the Phase 5 trace shows `ran an agent` — a separate agent that does its *own* web research the main thread never did.
+The **critique** (Phase 5) deliberately runs *in-context*. I originally isolated it too; then I A/B-tested isolated-vs-in-context with the same adversarial rubric, and the context-aware critic was as sharp or sharper — full knowledge of the idea finds cracks a cold outsider misses. So the value here isn't "more agents," it's the forced structure plus the build handoff.
 
-The one caveat: the **standalone single-prompt version** (`distributions/standalone-prompts/lite.md`) runs in one context — no real isolation. It's the degraded fallback for non-Claude chats, and it says so.
+The **standalone single-prompt version** (`distributions/standalone-prompts/lite.md`) runs entirely in one context — no sub-agent planner, no memory. It's the degraded fallback for non-Claude chats, and it says so.
 
-> Note: "multi-agent" here means multiple agent *roles with isolated contexts*, all running on the same Claude model — not multiple different models. The value is the isolation, not model diversity.
+> Note: when this calls itself "multi-agent," it means the planner runs as a real isolated sub-agent on the same Claude model — not multiple different models. The value is the forced structure and the build handoff, not agent count.
 
 ---
 
 ### Couldn't a good system prompt get the same pushback inside one context?
 
-Maybe, for simple stuff — and I'd genuinely like to see a counter-example. The bet is that after a long conversation, a single-context model has read all of you being excited and tends to mirror it; a sub-agent that starts clean isn't anchored. I lean toward isolation mattering, but I haven't tested that claim rigorously. If you've gotten consistently blunt critique out of one context, show me.
+This is exactly the question I tested — and it turned out yes, *if* the pushback is forced and structured. I A/B'd an isolated critic against an in-context one running the same adversarial rubric (premortem, what-needs-to-be-true, steelman, inversion, verdict). The in-context critic was as blunt or blunter, because full context lets it find idea-specific cracks. The lever is the forced structure plus an explicit "override the sunk cost and the excitement" instruction — not the fresh context. That's why Phase 5 now runs in-context. (The plan still runs isolated, where a clean context genuinely helps.) If you've got a case where the in-context critique caved, show me — that's a bug, not the design.
 
 ---
 
 ### Does it actually tell you "no," or just hedge?
 
-It says no. See [AI support agent](../examples/ai-support-agent-comparison.md) (recommends not building), [food delivery](../examples/food-delivery-comparison.md) (isolated critic returns NO-GO on the head-on idea), and [Hyperliquid](../examples/hyperliquid-wallet-comparison.md) (NO-GO: you'd be entering behind a funded incumbent). It pushes back, respects your override if you insist, and then lets an isolated critic render the verdict — it doesn't nag and it doesn't cave.
+It says no. See [AI support agent](../examples/ai-support-agent-comparison.md) (recommends not building), [food delivery](../examples/food-delivery-comparison.md) (NO-GO on the head-on idea), and [Hyperliquid](../examples/hyperliquid-wallet-comparison.md) (NO-GO: you'd be entering behind a funded incumbent). The Phase 5 critique pushes back, respects your override if you insist, and renders a real verdict — it doesn't nag and it doesn't cave.
 
 ---
 
 ### Why Claude and not [other model]?
 
-Because the sub-agent dispatch is native in Cowork / Claude Code, so the isolation that does most of the work is clean. The single-prompt fallback runs anywhere but loses that. Nothing stops someone porting the multi-agent flow to another orchestrator — PRs welcome.
+Because the sub-agent dispatch (for the planner), the file access, and the cross-session memory are native in Cowork / Claude Code. The single-prompt fallback runs anywhere but loses the memory and the isolated planner. Nothing stops someone porting the flow to another orchestrator — PRs welcome.
 
 ---
 
 ### How is this different from raw ChatGPT/Claude, an awesome-prompts repo, or a CrewAI build?
 
-Forced critique (Phase 5 is hard-gated, not optional), a fact-checking discipline (Tier 1/2/3 with ✅/⚠️/🔍 labels so it stops inventing market sizes), cross-session memory (append-only context files), real phase isolation (sub-agents, not one context bleeding into itself), and six ready domain profiles. The full comparison table is in the [README](../README.md#-why-this-vs-alternatives).
+Forced critique (Phase 5 is hard-gated, not optional, and runs a fixed adversarial rubric), a fact-checking discipline (Tier 1/2/3 with ✅/⚠️/🔍 labels so it stops inventing market sizes), cross-session memory (append-only context files), a buildable handoff (`/scaffold` turns the finished brainstorm into a folder you build from), and six ready domain profiles. The full comparison table is in the [README](../README.md#-why-this-vs-alternatives).
 
 ---
 
 ### How do I run it?
 
-Clone the repo and open the folder in Cowork or Claude Code — the root `CLAUDE.md` activates the coordinator automatically. For any other LLM, copy `distributions/standalone-prompts/lite.md` into the chat (degraded: no isolation, no memory).
+Clone the repo and open the folder in Cowork or Claude Code — the root `CLAUDE.md` activates the coordinator automatically. For any other LLM, copy `distributions/standalone-prompts/lite.md` into the chat (degraded: no memory, no isolated planner).
 
 ---
 

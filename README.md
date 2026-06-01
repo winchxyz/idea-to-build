@@ -11,7 +11,7 @@ Turn a raw idea into a plan you can actually build — in about 30 minutes. Clau
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Claude](https://img.shields.io/badge/Powered%20by-Claude-D97757)](https://claude.com)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
-[![Status](https://img.shields.io/badge/status-v0.2.2-orange.svg)](CHANGELOG.md)
+[![Status](https://img.shields.io/badge/status-v0.3.0-orange.svg)](CHANGELOG.md)
 
 [Quick Start](#-quick-start) • [See It in Action](#-see-it-in-action) • [How It Works](#-how-it-works) • [Profiles](#-profiles) • [Why This](#-why-this-vs-alternatives) • [Contribute](CONTRIBUTING.md)
 
@@ -21,24 +21,23 @@ Turn a raw idea into a plan you can actually build — in about 30 minutes. Clau
 
 ## The Problem
 
-LLMs are great at telling you why your idea is brilliant. They're terrible at telling you why it will fail.
+Brainstorming with an LLM is shallow — and it dead-ends. You get an enthusiastic wall of text, and then nothing you can actually build from.
 
-Ask any LLM — Claude, ChatGPT, Gemini, Grok — to brainstorm and you get the same failure modes:
-- ❌ Same-side agreement (no real pushback)
+Ask any LLM — Claude, ChatGPT, Gemini, Grok — to brainstorm and you hit the same failure modes:
+- ❌ Agreement, not pushback — it tells you why your idea is brilliant, not why it'll fail
 - ❌ Fabricated market sizes and made-up statistics
 - ❌ Generic SWOT lists that fit any business
 - ❌ "5 great ideas!" — none of which are actually different
 - ❌ No memory across sessions — you re-explain context every time
+- ❌ And even a *good* brainstorm ends in a chat you have to translate into a plan, then into a build, by hand
 
-This tool fixes those failures. The **full multi-agent version runs on Claude** (Cowork, Claude Code, or the Claude CLI) — that's where sub-agent isolation lives. A **degraded-but-functional standalone prompt** in `distributions/standalone-prompts/lite.md` works in any other LLM.
+This tool fixes those — and closes the loop to a build. The full version runs on Claude (Cowork, Claude Code, or the Claude CLI); a degraded standalone prompt (`distributions/standalone-prompts/lite.md`) works in any other LLM.
 
 ## The Solution
 
-**A structured 6-phase brainstorming flow with dedicated sub-agents.** Each phase has a specialist that doesn't see what the others did — so the critic actually criticizes, the researcher actually researches, and the planner actually plans.
+**A structured 6-phase brainstorm that takes a raw idea all the way to something you can build.** Understand → Context → Generate → Deep Dive → Critique → Plan — each phase does the work most chats skip: real research with sources, genuinely different options, a ruthless critique that won't let you skip the premortem, and a plan with go/no-go gates.
 
-It's the same way professional strategy teams work: separate people for ideation, critique, and execution. We just made each "person" a specialized Claude agent.
-
-And when the brainstorm is done, `/scaffold` hands the whole thing to Claude Code as a ready-to-build folder — the chosen approach, the paths you rejected, the risks to watch, the go/no-go gates. Idea in, buildable plan out. That's the "to-build" in the name.
+Then the part that makes it *idea-to-build*: when the brainstorm is done, **`/scaffold` turns the whole thing into a folder you open in Claude Code and build from** — the chosen approach, the paths you rejected, the risks to watch, the gates. Idea in, buildable plan out.
 
 > "It found a flaw in my pivot that I'd been missing for three weeks." — early tester
 
@@ -90,7 +89,7 @@ Copy [`distributions/standalone-prompts/lite.md`](distributions/standalone-promp
 
 ## 🧩 How It Works
 
-A coordinator agent guides you through six phases. For the two most-skipped phases — critique and planning — it spawns isolated sub-agents that can't see the conversation, so they can't drink the Kool-Aid. When the plan is done, a scaffolder turns the whole brainstorm into a folder Claude Code can build from.
+A coordinator guides you through six phases — and won't let you skip the ones that hurt. The critique phase is a ruthless, structured pass (forced premortem, steelman, inversion, a real verdict); the planning phase produces a gated plan with a kill-switch. When the plan is done, a scaffolder turns the whole brainstorm into a folder Claude Code can build from.
 
 ```
 ┌────────────────────────────────────────────────────────────────┐
@@ -101,8 +100,8 @@ A coordinator agent guides you through six phases. For the two most-skipped phas
 │  Phase 2 ─ Context         🔍 Research Agent (optional)        │
 │  Phase 3 ─ Generation      💡 Ideation Agent (optional)        │
 │  Phase 4 ─ Deep Dive       🔬 Deep-Dive Agent (optional)       │
-│  Phase 5 ─ Critique        ⚔️  Critic Sub-Agent  ◄── isolated │
-│                             Sees: final choice only            │
+│  Phase 5 ─ Critique        ⚔️  In-context, adversarial        │
+│                             Sees: everything — stays harsh     │
 │                             Forced: premortem + steelman       │
 │  Phase 6 ─ Plan            📋 Planner Sub-Agent  ◄── isolated │
 │                             Sees: choice + critique            │
@@ -114,7 +113,7 @@ A coordinator agent guides you through six phases. For the two most-skipped phas
 └────────────────────────────────────────────────────────────────┘
 ```
 
-**Why isolation matters:** A critic that has seen 30 messages of you defending an idea is biased toward letting you keep it. A critic that sees only "the user chose X, premortem it" has no such bias. This is the single biggest quality lever — and the reason the plan you walk out with is one you can actually build, not just a nicer version of what you already believed.
+**Why this works:** Most "brainstorms" fail because the model skips the hard parts and then leaves you with a transcript. idea-to-build forces the hard parts — a structured premortem and steelman you can't skip, fact-checking with confidence labels, and a verdict that's allowed to be NO-GO — then hands the result to a build via `/scaffold`. The forced structure is the lever; the build handoff is the point.
 
 ---
 
@@ -143,7 +142,7 @@ Profiles override defaults inside each phase. Switch with `/profile startup` —
 | Forced critique | ❌ | ⚠️ Often skipped | ✅ if coded | ✅ Hard-gated |
 | Fact-checking discipline | ❌ Hallucinates | ❌ No enforcement | ⚠️ DIY | ✅ Tier 1/2/3 protocol |
 | Cross-session memory | ❌ | ❌ | ✅ if coded | ✅ Context files |
-| Phase isolation | ❌ Single context bleed | ❌ | ✅ if multi-agent | ✅ Sub-agents native |
+| Isolated planner | ❌ | ❌ | ✅ if coded | ✅ Fresh-context sub-agent |
 | Domain profiles | ❌ One-size | ❌ | ⚠️ DIY | ✅ 6 ready |
 | Ends in a buildable plan | ❌ Just a chat | ❌ | ⚠️ DIY | ✅ `/scaffold` → folder Claude Code builds |
 | Cost per brainstorm | Free–$1 | Free | $$ (LLM API) | Free (your Claude subscription) |
@@ -159,7 +158,7 @@ More questions — *is it really multi-agent? could a prompt do this? does it ac
 3. **Factual rigor (Tier 1/2/3).** Made-up numbers are a sin. Each material claim gets a ✅ / ⚠️ / 🔍 confidence label.
 4. **Calibrated recommendations.** Every recommendation includes a confidence percentage, what would raise/lower it, and an alternative if confidence drops. No false certainty.
 5. **Forced critique.** Phase 5 cannot be skipped. Premortem + What-Needs-to-Be-True are mandatory.
-6. **Sub-agent isolation.** Critic and Planner agents work in fresh context. They cannot inherit your biases.
+6. **Adversarial critique.** A dedicated critic pass forced to premortem, steelman, and invert — built to find the flaw you're too attached to see, and to return an honest GO / NO-GO.
 7. **Memory as a log, not state.** Decisions and rejected options are appended, never overwritten. History matters.
 8. **Ends in a build, not just a brainstorm.** The point isn't a tidy writeup — it's a scoped, critiqued plan you can act on. `/scaffold` turns the finished brainstorm into a folder Claude Code builds from.
 
@@ -192,7 +191,7 @@ idea-to-build/
 └── examples/                 # Template, guide + real comparison transcripts
 ```
 
-> The `examples/` directory ships with a template, an authoring guide, and seven real transcripts — five run the same prompt as plain Claude vs. through the methodology: a stickman game, a personal-health-AI startup, a Hyperliquid wallet (full methodology through a trace-verified Phase 5 critique → NO-GO), an AI support agent, and a food-delivery app (where a trace-verified isolated critic returns NO-GO on the head-on idea, then GO-with-conditions on the pivot) — plus a profiles comparison (one idea, six profiles) and a full start-to-finish run that ends in a buildable plan. A broader library lands in v0.2. See [`CHANGELOG.md`](CHANGELOG.md).
+> The `examples/` directory ships with a template, an authoring guide, and seven real transcripts — five run the same prompt as plain Claude vs. through the methodology: a stickman game, a personal-health-AI startup, a Hyperliquid wallet (full methodology through a trace-verified Phase 5 critique → NO-GO), an AI support agent, and a food-delivery app (where the Phase 5 critique returns NO-GO on the head-on idea, then GO-with-conditions on the pivot) — plus a profiles comparison (one idea, six profiles) and a full start-to-finish run that ends in a buildable plan. A broader library lands in v0.2. See [`CHANGELOG.md`](CHANGELOG.md).
 
 Full architecture: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
 

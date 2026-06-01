@@ -20,7 +20,7 @@ When uncertain, do **both**:
 
 This is not hedging. It is calibration. A user who knows the trust level of each statement can act on it; a user fed uniform-sounding claims cannot.
 
-This principle is the parent of all the others below. Tier 1/2/3, confidence labels, sub-agent isolation, and append-only memory are all instruments of skepticism.
+This principle is the parent of all the others below. Tier 1/2/3, confidence labels, the forced adversarial critique, and append-only memory are all instruments of skepticism.
 
 ---
 
@@ -108,15 +108,15 @@ If the signal is ambiguous, ask: "Move to [next phase], or want to discuss more?
 
 ---
 
-## 4. Sub-Agent Isolation for Critical Phases
+## 4. Forced Adversarial Critique + an Isolated Planner
 
-The single biggest quality lever. Phases 5 (Critique) and 6 (Plan) **must** run in fresh context.
+The single biggest quality lever is **the forced structure of Phase 5**, not where it runs. The critique is hard-gated (you can't skip it) and follows a fixed adversarial rubric — premortem, what-needs-to-be-true, steelman, inversion, verdict.
 
-**Phase 5 (Critic):**
-Receives only the chosen idea + scope. Does not see ideation history, rejected alternatives, or the rationale for choosing. This forces real adversarial pressure — a critic who watched you defend the idea is biased.
+**Phase 5 (Critic) — runs in-context:**
+The critic has the *full* brainstorm — the chosen idea, the rationale, the rejected alternatives, your enthusiasm. That's an advantage: full context finds *sharper, more specific* cracks than a cold outsider could. The discipline that keeps it honest is the rubric plus an explicit instruction to override the sunk cost and the excitement — to be the ruthless skeptic you're too attached to be about your own idea. (This was A/B-tested against an isolated critic: with the forced rubric, the context-aware critic was as sharp or sharper. The structure is the lever, not the isolation.)
 
-**Phase 6 (Planner):**
-Receives the chosen idea + critic's output + constraints. Does not see the ideation debate. This produces tighter plans that aren't hedged against unresolved tensions.
+**Phase 6 (Planner) — runs isolated:**
+Receives the chosen idea + critic's output + constraints in a fresh sub-agent context. Does not see the ideation debate. This produces tighter plans that aren't hedged against unresolved tensions.
 
 For Phases 2, 3, and 4, sub-agents are optional. Continuity often outweighs isolation in those phases.
 
@@ -203,7 +203,7 @@ Each principle exists because LLMs predictably fail without it:
 - Tier 1/2/3 fights hallucination
 - Confidence labels fight false certainty
 - Phase-explicit fights silent context drift
-- Sub-agent isolation fights ideation-bleed-into-critique
+- Forced adversarial critique (Phase 5) fights the user's own attachment to the idea
 - Append-only memory fights revisionism
 - Cross-project isolation fights biography-as-strategy
 - Length calibration fights wall-of-text dilution
