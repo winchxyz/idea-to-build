@@ -1,7 +1,7 @@
 {
   "name": "idea-to-build",
   "displayName": "idea-to-build",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "A structured brainstorming methodology that takes a raw idea to a plan you can build — 6 phases, a forced adversarial critique, fact-checking, and a /scaffold build handoff.",
   "author": { "name": "winchxyz", "url": "https://github.com/winchxyz" },
   "homepage": "https://github.com/winchxyz/idea-to-build",

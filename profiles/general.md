@@ -1,6 +1,12 @@
 # General Profile (default)
 
-The base profile that activates if no specialized profile is loaded. Suitable for any brainstorming context.
+The base profile that activates if no specialized profile is loaded, or as the fallback when a preset doesn't fit. Suitable for any brainstorming context.
+
+**Calibrate to nature first.** General does *not* mean "business by default." Before applying the lenses below, register what the project actually is (personal build, commercial venture, exploration, decision…) and aim the questions and the critique accordingly — if it's clearly a personal/internal build or an open exploration, prefer the `personal-project` or `exploration` preset. Do not import market/competitor/ROI framing into a project that has no market.
+
+## Flow shape
+
+Default: all six phases `full`, scaffold available after Phase 6. (Specialized presets override this — see their own Flow shape sections.)
 
 ## When to use
 
@@ -19,11 +25,13 @@ The base profile that activates if no specialized profile is loaded. Suitable fo
 - What's the time horizon for a "result"?
 
 ### Phase 2 — Context
-**Tier 3 search topics to cover:**
+**For outward-facing / commercial projects, Tier 3 search topics to cover:**
 - Direct competitors / alternatives
 - Recent shifts in the relevant market or platform
 - Regulatory or policy constraints
-- Current pricing or cost benchmarks (if applicable)
+- Current pricing or cost benchmarks
+
+**For a personal / internal build,** "context" is different — there's no market to research. Cover instead: existing tools/libraries you'd otherwise use, the build-vs-reuse case, and your own constraints (time, skills, stack).
 
 ### Phase 3 — Generation
 **Variant spread axes:**

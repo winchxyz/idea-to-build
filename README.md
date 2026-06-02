@@ -11,7 +11,7 @@ Turn a raw idea into a plan you can actually build — in about 30 minutes. Clau
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Claude](https://img.shields.io/badge/Powered%20by-Claude-D97757)](https://claude.com)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
-[![Status](https://img.shields.io/badge/status-v0.3.1-orange.svg)](CHANGELOG.md)
+[![Status](https://img.shields.io/badge/status-v0.4.0-orange.svg)](CHANGELOG.md)
 
 [Quick Start](#-quick-start) • [See It in Action](#-see-it-in-action) • [How It Works](#-how-it-works) • [Profiles](#-profiles) • [Why This](#-why-this-vs-alternatives) • [Contribute](CONTRIBUTING.md)
 
@@ -52,7 +52,7 @@ Real sessions, each linked in full — strongest first. Most put one prompt thro
 - [**Full run: medieval tycoon game**](examples/medieval-tycoon-fullrun.md) — the whole method, Phase 1 → 6 → `/scaffold`. A vague "tycoon game" comes out scoped, critiqued (GO with conditions), planned with a kill-switch, and handed off as a buildable folder. **Start here — it's the idea→build arc end to end.**
 - [**Hyperliquid wallet**](examples/hyperliquid-wallet-comparison.md) — the deepest comparison: the full method through a trace-verified isolated Phase-5 critique. Read this to see the rigor.
 - [**Personal health AI**](examples/health-system-comparison.md) — the harder case: plain Claude was already competent, and the methodology still added strategy (beachhead, regulatory risk, an architectural blocker).
-- [**Profiles in action**](examples/profiles-comparison.md) — the *same* idea run through all six profiles, showing how each asks different questions. Proof the profiles aren't cosmetic.
+- [**Profiles in action**](examples/profiles-comparison.md) — the *same* idea run through six profiles, showing how each asks different questions. Proof the profiles aren't cosmetic.
 - [**Food delivery app**](examples/food-delivery-comparison.md) — the "can it say no?" test (trace-verified): the cold critic returns NO-GO on the head-on idea, then GO-with-conditions on the pivot.
 - [**AI support agent**](examples/ai-support-agent-comparison.md) — another honest NO-GO: the methodology pushes back and recommends *not* building the idea.
 - [**Stickman game**](examples/stickman-comparison.md) — the simplest contrast: plain Claude builds instantly, the methodology stops to scope. A quick way to see the difference.
@@ -123,14 +123,16 @@ idea-to-build ships with **6 modes**: one general-purpose base plus five domain 
 
 | Profile | When to use | Key tools |
 |---------|-------------|-----------|
-| 🎯 [General](profiles/general.md) | Any idea, any domain | Full 6-phase framework |
+| 🎯 [General](profiles/general.md) | Any idea, any domain (calibrates to nature) | Full 6-phase framework |
 | 🚀 [Startup](profiles/startup.md) | Founder ideating a product/business | Unit economics, GTM, JTBD, Beachhead |
+| 🛠️ [Personal Project](profiles/personal-project.md) | A tool/app/game you're building for yourself | Build-vs-reuse, MVP, YAGNI, abandonment premortem |
+| 🔭 [Exploration](profiles/exploration.md) | Thinking a topic through; no build intended | First-principles, steelman, second-order effects |
 | ⚙️ [Tech Architecture](profiles/tech-architecture.md) | System design, stack choices | Trade-off matrices, RFC structure |
 | 🎬 [Content Strategy](profiles/content-strategy.md) | Channel, niche, monetization | Audience-fit, virality patterns, RPM |
 | 🗺️ [Product Roadmap](profiles/product-roadmap.md) | Feature prioritization, GTM | ICE/RICE, Kano, North Star Metric |
 | 🧭 [Personal Decisions](profiles/personal-decisions.md) | Career moves, life transitions | Reversibility, Expected Value, Inversion |
 
-Profiles override defaults inside each phase. Switch with `/profile startup` — a real slash command in Claude Code and the Claude CLI; in Cowork, just say it in plain language ("switch to the startup profile"). See all six compared on one idea: [`profiles-comparison.md`](examples/profiles-comparison.md).
+A preset is chosen at the start of every session (or auto-classified from your description); it sets the lens **and** the flow shape — which phases run full, light, or skipped. Profiles override defaults inside each phase. Switch any time with `/profile startup` — a real slash command in Claude Code and the Claude CLI; in Cowork, just say it in plain language ("switch to the startup profile"). See six compared on one idea: [`profiles-comparison.md`](examples/profiles-comparison.md).
 
 ---
 
@@ -143,7 +145,7 @@ Profiles override defaults inside each phase. Switch with `/profile startup` —
 | Fact-checking discipline | ❌ Hallucinates | ❌ No enforcement | ⚠️ DIY | ✅ Tier 1/2/3 protocol |
 | Cross-session memory | ❌ | ❌ | ✅ if coded | ✅ Context files |
 | Isolated planner | ❌ | ❌ | ✅ if coded | ✅ Fresh-context sub-agent |
-| Domain profiles | ❌ One-size | ❌ | ⚠️ DIY | ✅ 6 ready |
+| Domain profiles | ❌ One-size | ❌ | ⚠️ DIY | ✅ 8 ready + auto-preset |
 | Ends in a buildable plan | ❌ Just a chat | ❌ | ⚠️ DIY | ✅ `/scaffold` → folder Claude Code builds |
 | Cost per brainstorm | Free–$1 | Free | $$ (LLM API) | Free (your Claude subscription) |
 
@@ -178,7 +180,7 @@ idea-to-build/
 │   ├── agents/               # 6 agents: research, ideation, deep-dive, critic, planner, scaffolder
 │   ├── skills/               # Recommendation + confidence module
 │   └── templates/            # Project context file template
-├── profiles/                 # 6 domain profiles (general + 5 specialized)
+├── profiles/                 # 8 domain profiles (general + 7 specialized)
 ├── distributions/
 │   ├── claude-code-plugin/   # Installable plugin — 10 commands + 6 agents (Cowork / Claude CLI)
 │   └── standalone-prompts/   # Lite version for any LLM

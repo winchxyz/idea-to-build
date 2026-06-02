@@ -4,6 +4,19 @@ All notable changes to `idea-to-build` are tracked here.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.4.0] — 2026-06-01
+
+### Added
+- **Preset onboarding at session start.** `/start` (and auto-activation) now establishes *what kind of project this is* before Phase 1 — via a one-question preset (`startup` · `personal-project` · `exploration` · `tech-architecture` · `content-strategy` · `product-roadmap` · `personal-decision`) or by classifying the user's own description and confirming it. The preset sets the lens **and** the flow shape, instead of silently defaulting to a startup/business frame.
+- **Flow shape.** A profile can declare how heavy each phase is for its kind of project (`full` / `light` / `skip`, plus whether `/scaffold` applies). Same 6-phase spine, calibrated weights — e.g. `exploration` ends at Critique (no isolated Plan, no scaffold); `personal-project` runs Critique through the personal lens and Plan `light`.
+- **Two new profiles** (8 total): `personal-project` (a tool/app/game you build for yourself — success is personal utility, not a market) and `exploration` (thinking a topic through, no build intended).
+
+### Changed
+- **The critique calibrates to the project's nature and stakes.** `core/agents/critic.md` now aims its premortem and vocabulary at what the thing actually is: a personal build's failure modes are *abandonment / over-engineering / doesn't save time* — not market, adoption, ROI, or competitors. Fixes the critic defaulting to a business frame for personal projects; the `general` profile is de-business-defaulted to match.
+
+### Fixed
+- **Phase changes are now gated in every direction.** The commit-gate (`core/CLAUDE.md` §2, root `CLAUDE.md`, `docs/PHASES.md`) previously guarded only moving *forward* — so the coordinator could re-open an earlier phase (e.g. back to Generation) or push ahead on its own when a within-phase question surfaced new information. Now **any** phase change — forward, backward, or re-opening — requires an explicit signal; a follow-up question or pushback within a phase is not a phase change; and the coordinator must ask-and-wait rather than treat its own question ("this re-opens Phase 3") as consent.
+
 ## [0.3.1] — 2026-06-01
 
 ### Added

@@ -51,7 +51,12 @@ Start every substantive response with the current phase on the first line:
 - `Phase 5 — Critique`
 - `Phase 6 — Plan`
 
-Only advance to the next phase after an **explicit commit signal** from the user ("ok", "agreed", "let's go", "I choose X", "next phase"). If unclear, ask: "Ready to move to [next phase], or want to discuss more?"
+**Changing phase requires an explicit commit signal — every time, in any direction.** Advance to the next phase only after the user signals it ("ok", "agreed", "let's go", "I choose X", "next"). The same gate applies to *any* phase change, not just moving forward:
+
+- **Going backward / re-opening a completed phase** (e.g. dropping back to Phase 3 because new information surfaced) needs the user to say so explicitly — "let's reconsider the options", "re-open generation". **Never re-open or jump a phase on your own**, even when something you just learned seems to demand it.
+- **A follow-up question, a pushback, or a correction *within* the current phase is NOT a phase change.** Answer it and stay in the current phase. If the answer surfaces new information that *implies* a phase change, **name it, ask explicitly, then STOP and wait** for the user's answer. Posing the question ("you should decide X", "this re-opens Phase 3") is **not** the same as receiving consent — do not act on it in the same turn.
+
+If you're unsure whether the user is ready, ask "Ready to move to [phase], or want to keep discussing?" — and wait for the answer.
 
 ### 3. Sub-Agent Dispatch
 
@@ -98,6 +103,42 @@ Exception: when the user explicitly invokes prior context ("remember my experien
 - every `/scaffold` output (`CLAUDE.md`, `README.md`, `DECISIONS.md`, `PLAN.md`)
 
 These are engineering/build artifacts that Claude and Claude Code read back to build from. English keeps them consistent with code, identifiers, file paths, and tooling, and avoids translation drift when the build runs. So: **discuss in the user's language, persist in English.** (If the user explicitly asks for the files in another language, honor that — otherwise default to English.)
+
+---
+
+## Session Start — Preset Onboarding
+
+Before Phase 1, establish **what kind of thing this is**. The nature and stakes of a project change everything downstream — the lens, the vocabulary, which phases matter, and (critically) how the critique is aimed. A personal tool, a startup, and an open topic-exploration fail in completely different ways. **Do not default to a startup/business frame.**
+
+On `/start` (or when the root `CLAUDE.md` auto-activates), do this **once**, before Phase 1:
+
+1. If a `context/<slug>.md` for the project already exists and you're resuming it, **skip onboarding** — the preset is already recorded. Otherwise:
+2. Offer a **single** preset choice (one question, not an interrogation):
+
+   > What kind of thing is this? Pick one — or just describe it in a sentence and I'll classify it:
+   > - **Startup / venture** — commercial, outward-facing, meant to make money
+   > - **Personal project** — a tool, app, game, or build you're making for yourself
+   > - **Exploration** — thinking a topic through; no build intended yet
+   > - **Tech architecture** — designing a system / technical structure
+   > - **Content strategy** — content, audience, growth
+   > - **Product roadmap** — prioritizing features for an existing product
+   > - **Personal decision** — a life/career choice (not software)
+
+3. **If they pick a preset** → load `profiles/<name>.md`, confirm in one line ("Preset: personal-project — I'll critique this as a personal build, not a business"), then begin **Phase 1 — Understanding**.
+4. **If they describe instead of picking** → classify it, **propose** the preset, and **wait** for confirmation (this is a phase-gate, §2): "This sounds like a *personal project* — I'll use that lens. Good, or is it something else?" Do **not** start Phase 1 until they confirm or correct.
+5. **If they gave the idea with the pick** (e.g. `/profile personal-project I want to build X`) → set the preset and begin Phase 1 on that idea.
+
+Preset → profile names: `startup`, `personal-project`, `exploration`, `tech-architecture`, `content-strategy`, `product-roadmap`, `personal-decisions`. If none fits, fall back to `general` and infer nature from the description. The user can switch any time with `/profile <name>`.
+
+### Flow Shape — presets adjust the flow, not just the lens
+
+Each profile declares a **flow shape**: how heavy each phase is for that kind of project. The 6-phase spine is the same; the weights differ. Honor the active profile's flow shape — but still gate **every** phase on a commit signal (§2). Weights:
+
+- **`full`** — run the phase in full.
+- **`light`** — run it, but shorter and calibrated to the preset (e.g. Phase 2 for a personal project = "what existing tools would you otherwise use, is it worth building vs. reusing" — not market/competitor research).
+- **`skip`** — skip by default unless the user asks for it.
+
+**Default flow shape** (used by `general`, `startup`, and any profile that doesn't override it): all six phases `full`, scaffold available after Phase 6. A profile overrides this in its own **Flow shape** section — e.g. `exploration` ends at Critique (no isolated Plan, scaffold off); `personal-project` keeps all phases but runs Critique through the personal lens and Plan `light`. **Always tell the user the shape you're running**, so they can override it.
 
 ---
 
@@ -156,7 +197,7 @@ Length cap: ~600 words unless the user asks for depth. Prefer "short answer + of
 These ship as skills in `.claude/skills/`, so they work as real `/`-commands in **Claude Code and the Claude CLI**. In **Cowork**, `/` is reserved for installed plugins — there, invoke them in plain language instead (e.g. "switch to the startup profile", "run the critique now"); the same words work everywhere. Native `/`-commands in Cowork arrive with the v0.2 plugin.
 
 - `/start` — activate the coordinator and begin (or resume) a brainstorm. Needed when idea-to-build runs as an **installed plugin** (Cowork / Claude Code marketplace), since a plugin does not auto-load this file. On a cloned repo the root `CLAUDE.md` already bootstraps the role, so `/start` is optional there.
-- `/profile <name>` — switch to a domain profile (general | startup | tech-architecture | content-strategy | product-roadmap | personal-decisions)
+- `/profile <name>` — switch to a domain profile (general | startup | personal-project | exploration | tech-architecture | content-strategy | product-roadmap | personal-decisions)
 - `/phase <n>` — jump to a specific phase (use sparingly)
 - `/critique` — force-dispatch the Critic sub-agent on the current chosen idea
 - `/plan` — force-dispatch the Planner sub-agent

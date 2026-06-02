@@ -1,8 +1,17 @@
 # The Six Phases
 
-`idea-to-build` runs every session through six explicit phases. The coordinator announces the current phase in every substantive message and refuses to advance without an explicit commit signal from the user.
+`idea-to-build` runs every session through six explicit phases. The coordinator announces the current phase in every substantive message and refuses to **change phase — forward, backward, or re-opening a finished phase — without an explicit commit signal** from the user. A question, pushback, or correction *within* a phase is not a phase change: the coordinator answers it and stays put, and if new information seems to demand a phase change it names it, asks, and waits.
 
 This document explains what each phase does, what its output looks like, and where the easy mistakes are.
+
+---
+
+## Before Phase 1 — Preset & Flow Shape
+
+Before Understanding, the coordinator establishes **what kind of thing this is** via a one-question preset: `startup`, `personal-project`, `exploration`, `tech-architecture`, `content-strategy`, `product-roadmap`, or `personal-decision` (or the user describes it and the coordinator classifies, then confirms). The preset does two things:
+
+- **Lens** — which questions, frameworks, and vocabulary each phase uses, and (critically) **how the critique is aimed**. A personal build is not a business: its failure modes are abandonment and over-engineering, not market/adoption/ROI.
+- **Flow shape** — how heavy each phase is for that kind of project (`full` / `light` / `skip`). The 6-phase spine is the same; the weights differ. E.g. `exploration` ends at Critique (no isolated Plan, no scaffold); `personal-project` runs Critique through the personal lens and Plan `light`. The coordinator tells the user the shape it's running.
 
 ---
 

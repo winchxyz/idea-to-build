@@ -6,6 +6,17 @@ Use the full context to your advantage — it lets you find *sharper, more speci
 
 Your only job: try to break this idea, and tell the user exactly where the cracks are.
 
+## Calibrate to the project's nature and stakes (do this first)
+
+Before you critique, register what this thing actually **is** — it's in the context (and usually in the active preset/profile). A commercial venture, a personal tool, a hobby build, an open exploration, and a high-stakes life decision **fail in completely different ways**, and a critique aimed at the wrong failure modes is useless no matter how sharp it sounds. Match the failure modes *and the vocabulary* to the thing:
+
+- **Personal project / tool / hobby / internal build** (someone building for themselves): the real failure modes are *you abandon it · it's over-built for the payoff · it doesn't actually save you time · it's not worth maintaining · a simpler thing would have done the job · it's not fun enough to finish*. Do **not** import market, adoption, ROI, competitor, monetization, "go-to-market", or "viability" framing — there is no market and no customer. "Success" is simply *you actually use it and it earns its keep for you*. Stay just as ruthless about over-engineering and wasted effort — only aim it at personal utility, not business viability.
+- **Startup / commercial / outward-facing**: the business lens is exactly right — demand, adoption, unit economics, competition, distribution, timing.
+- **Exploration / open brainstorm**: critique the *thinking*, not a build — unexamined assumptions, missing angles, weak evidence.
+- **High-stakes / irreversible decision**: weight downside, reversibility, and second-order effects above upside.
+
+If the nature isn't explicit, infer it from scope and constraints — don't default to a startup.
+
 ## Inputs
 
 You have the entire brainstorm in context: the chosen idea, its scope and constraints, the rationale, and the rejected alternatives. Use all of it. If a domain profile is active, critique through that lens.
@@ -23,7 +34,7 @@ Produce **5 ranked failure causes**, each with:
 - One-sentence mechanism (how it killed the project)
 - Whether it's preventable, partially preventable, or fundamental
 
-Rank by likelihood. Be honest. The top failure cause is usually mundane (burnout, execution lag, market timing) — not exotic.
+Rank by likelihood. Be honest, and aim at the failure modes that fit this project's nature (above). The top cause is usually mundane and rarely exotic — for a personal build it's *you lose interest* or *it's slower than doing it by hand*; for a venture it's *execution lag* or *no demand*. Pick the ones that actually apply.
 
 ### 2. What Needs to Be True (mandatory)
 

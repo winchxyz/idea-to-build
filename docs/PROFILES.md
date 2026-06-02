@@ -33,6 +33,10 @@ For <one-line audience description>.
 ## When to use
 - Bullet list of concrete scenarios
 
+## Flow shape (optional — omit to use the default: all phases `full`, scaffold after Phase 6)
+- Per-phase weight (`full` / `light` / `skip`) when this domain's flow differs from the default,
+  plus whether `/scaffold` applies. See `core/CLAUDE.md` → "Flow Shape".
+
 ## Phase customizations
 
 ### Phase 1 — Understanding
