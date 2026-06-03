@@ -17,6 +17,13 @@ Before you critique, register what this thing actually **is** — it's in the co
 
 If the nature isn't explicit, infer it from scope and constraints — don't default to a startup.
 
+## Separate the thesis from the tuning (do this too)
+
+A whole class of projects dies by optimizing the *parameters* of an idea whose *core premise* was never true. No amount of calibration fixes a structurally wrong approach. So, explicitly:
+
+- **Name the core thesis** — the single belief the whole idea rests on ("we have a real edge over X", "users will switch for Y", "this is faster than doing it by hand"). Then ask: *has it actually been validated, or are we tuning around an unproven premise?* If it's unproven, that is the **#1 risk**, and everything should be gated on testing **it** first — not on improving a metric. Insist the test be a **fair** one (the thesis at its best plausible configuration, not un-tuned defaults — a good thesis looks bad under bad parameters), and that the plan **defines up front what a fair shot looks like** (how many configs / how much tuning), so a wrong thesis can later be told apart from a merely under-tuned one.
+- **Outcome vs. proxy.** Check whether the success metric measures the *real outcome* (money in, users retained, the edge realized, time actually saved) or a **proxy** that can improve while the real thing fails (a model score, a vanity number, "it feels better"). Optimizing a proxy is how you get a precise measurement of an inability to win. Name the proxy if you see one.
+
 ## Inputs
 
 You have the entire brainstorm in context: the chosen idea, its scope and constraints, the rationale, and the rejected alternatives. Use all of it. If a domain profile is active, critique through that lens.
@@ -45,6 +52,8 @@ For this idea to succeed, list **5–7 assumptions** that must hold. Label each:
 
 The ⚠️ and 🔍 items are the **risky bets**. Flag them explicitly. The user should know exactly which beliefs the whole plan rests on.
 
+One of these assumptions **must be the core thesis itself** (the belief the whole idea rests on, from above). If it's ⚠️ or 🔍, say plainly that nothing else matters until it's tested — improving anything else is just polishing an unproven premise.
+
 ### 3. Steelman the Opposition (mandatory)
 
 Write the **strongest possible argument** against this idea, in the voice of an intelligent skeptic. Not a strawman. Not "but what if you fail." A real, sharp objection that a knowledgeable adversary would make.
@@ -64,6 +73,17 @@ Conclude with one of three verdicts. Use the dedicated verdict icons below (do *
 - 🟢 **GO** — the plan is defensible. Move to Phase 6.
 - 🟡 **GO with conditions** — list 3–5 conditions the user must satisfy before committing.
 - 🔴 **NO-GO** — fundamental problems. Recommend returning to Phase 3 with reframing.
+
+## Re-critique mode (invoked with results — e.g. via `/recheck`)
+
+When you're called **after the build, with real execution data**, run the same rubric but under one overriding question: **is the THESIS failing, or only the TUNING?** Don't pre-decide. The common failure is to auto-route bad results to "tune more" and keep polishing a dead premise — but the opposite error is just as real: killing a good thesis that was only ever tested at bad parameters. Force the thesis question to be *asked* (it usually gets skipped), then **diagnose** which it is:
+
+- **Rule out the third option first:** check **build fidelity** (does what was built still implement the chosen thesis, or did it drift into a generic version?) and **outcome vs. proxy** (are the numbers the real outcome or a proxy?). If either is off, that's the problem — fix it before judging the thesis.
+- **Give the thesis a fair, bounded test before condemning it.** Judge it at its *best plausible* configuration, not at un-tuned defaults — a good thesis looks bad under bad parameters.
+- **The key tell is signal presence:** is there *any* trace of the real mechanism anywhere (a subset, a config, a condition)? Real signal that just isn't optimized → it's the **parameters**, keep tuning. Zero signal even at best-case / across the bounded test → it's the **thesis**.
+- **Independent validation:** has the premise shown a result anywhere (earlier, for others, from first principles)? If yes, lean parameters; if it's never been demonstrated, lean thesis.
+- **Small-N as an excuse:** "not enough data to conclude" is fair for the *parameters*, but it must not defer the *structural* question (is the thesis even coherent / being tested correctly?).
+- Verdict for re-critique: 🟢 **keep** (thesis alive — keep tuning inside the bound) / 🟡 **pivot the thesis** (fair test, no signal — change the approach, don't tune) / 🔴 **kill** (thesis disconfirmed).
 
 ## Tone
 

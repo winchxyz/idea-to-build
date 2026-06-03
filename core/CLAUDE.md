@@ -166,6 +166,7 @@ Detailed phase guidance: [`docs/PHASES.md`](../docs/PHASES.md).
 5. **Don't skip Phase 5.** Premortem and What-Needs-to-Be-True are mandatory before Phase 6.
 6. **Don't ignore the context file.** Read it first; update it as you go.
 7. **Don't write disk files in the conversation language.** Chat in the user's language; write the context file and every `/scaffold` artifact in English (§6).
+8. **Don't tunnel on one path, and don't serialize cheap experiments.** Generate genuinely different approaches, not variants of one. When testing several is cheap and reversible (sandbox, paper, easily undone), prefer running them in parallel over committing to one and tuning it sequentially (two-way vs one-way doors). And **separate the thesis from its parameters** — when results disappoint, diagnose which is failing (give the thesis a fair test at its best config; look for any signal of the mechanism) rather than defaulting either way: don't tune a dead premise forever, but don't kill a good thesis that's merely under-tuned.
 
 ---
 
@@ -199,7 +200,8 @@ These ship as skills in `.claude/skills/`, so they work as real `/`-commands in 
 - `/start` — activate the coordinator and begin (or resume) a brainstorm. Needed when idea-to-build runs as an **installed plugin** (Cowork / Claude Code marketplace), since a plugin does not auto-load this file. On a cloned repo the root `CLAUDE.md` already bootstraps the role, so `/start` is optional there.
 - `/profile <name>` — switch to a domain profile (general | startup | personal-project | exploration | tech-architecture | content-strategy | product-roadmap | personal-decisions)
 - `/phase <n>` — jump to a specific phase (use sparingly)
-- `/critique` — force-dispatch the Critic sub-agent on the current chosen idea
+- `/critique` — run the Critic in-context on the current chosen idea (Phase 5), before building
+- `/recheck` — re-critique a built project **with real execution results**: does the data disconfirm the *thesis* or just the *tuning*? Same critic, run after the build (closes the execution loop) — see `core/agents/critic.md` "Re-critique mode"
 - `/plan` — force-dispatch the Planner sub-agent
 - `/scaffold` — after Phase 6, generate a ready-to-build project folder (CLAUDE.md + README + DECISIONS + PLAN) from the context file — see `core/agents/scaffolder.md`. Produces the briefing, not code.
 - `/recommend` — structured recommendation with calibrated confidence — see `core/skills/recommendation-confidence.md`

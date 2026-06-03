@@ -120,6 +120,10 @@ Receives the chosen idea + critic's output + constraints in a fresh sub-agent co
 
 For Phases 2, 3, and 4, sub-agents are optional. Continuity often outweighs isolation in those phases.
 
+**Separate the thesis from the parameters.** A whole class of projects dies by optimizing the *tuning* of an idea whose *core premise* was never true — no amount of calibration fixes a structurally wrong approach. But the opposite error is just as real: killing a good thesis that was only ever tested at bad parameters. So the critic forces the thesis question to be *asked* (it usually gets skipped) without pre-deciding the answer: it names the core thesis, insists it be tested *fairly* (at its best plausible configuration, within a bound the plan defines up front), and then diagnoses — is there *any* signal of the mechanism? Real signal that's just unoptimized means keep tuning; no signal at best-case means the thesis is wrong. It also checks the success metric is the real outcome, not a proxy that can improve while the real thing fails.
+
+**The loop doesn't end at the plan.** The deadliest failures happen during execution, not in the brainstorm. So once you have real results, **`/recheck`** re-runs the critic in re-critique mode — *does the data disconfirm the thesis or just the tuning?* — and the scaffolded `CLAUDE.md` carries the same guardrails into the build so the building agent thinks wide instead of tunneling.
+
 ---
 
 ## 5. Memory as a Log, Not State

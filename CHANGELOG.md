@@ -4,6 +4,18 @@ All notable changes to `idea-to-build` are tracked here.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.5.0] — 2026-06-01
+
+### Added
+- **`/recheck` — re-critique a built project with real execution results.** The deadliest failures happen during execution, not in the brainstorm: a project quietly optimizes the *parameters* of a *thesis that was never true*, and a one-time pre-build critique can't catch it. `/recheck` re-runs the critic in re-critique mode on the project (from its context file), under one question — is the **thesis** failing or only the **tuning**? It rules out build-drift and proxy metrics, gives the thesis a fair bounded test, diagnoses by signal presence, and returns 🟢 keep / 🟡 pivot the thesis / 🔴 kill — pointing back to the rejected alternatives so you don't tunnel a dead approach. This extends the methodology past the plan into the execution loop.
+
+### Changed
+- **The critique now separates the thesis from the parameters.** `core/agents/critic.md` names the core thesis, insists it be validated by a *fair* test (its best plausible configuration, with the bound defined up front) before optimization, and checks the success metric is the real outcome rather than a proxy. It diagnoses thesis-vs-parameter failure by signal presence instead of defaulting either way — avoiding both tuning a dead premise forever and killing a good thesis that was merely under-tuned.
+- **The planner tests the premise first — cheap and fair — and prefers parallel experiments when they're cheap and reversible** rather than serially tuning one. `core/agents/planner.md`.
+- **The scaffolded `CLAUDE.md` carries the strategic discipline into the build** so the building agent thinks wide instead of tunneling: the core thesis, rejected alternatives kept as fallbacks, the #1 premise-risk, and explicit guardrails (measure the real outcome not a proxy; separate thesis from parameters when results disappoint; check build fidelity; parallel-test cheap reversible options; don't tunnel; come back and `/recheck`). `core/agents/scaffolder.md`.
+- **Generation gains a reversibility / parallel-testability lens** (two-way vs one-way doors): when several approaches are cheap and reversible to test, prefer parallel over sequential. `profiles/general.md`, `core/CLAUDE.md` anti-pattern #8.
+- Docs updated (`docs/PHASES.md`, `docs/METHODOLOGY.md`); fixed a stale "Critic sub-agent" label in the `core/CLAUDE.md` command list (the critique runs in-context).
+
 ## [0.4.0] — 2026-06-01
 
 ### Added

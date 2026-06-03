@@ -28,7 +28,7 @@ SKILL_DIR="$ROOT/.claude/skills"
 
 # Commands that accept typed input after the slash and therefore MUST use
 # $ARGUMENTS. Add a command name here when you give it arguments.
-ARG_COMMANDS="factcheck phase profile"
+ARG_COMMANDS="factcheck phase profile recheck"
 
 fail=0
 err() { echo "  x $*"; fail=1; }

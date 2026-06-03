@@ -27,13 +27,19 @@ Read `context/<slug>.md` (the project's append-only log) and treat it as the sin
 
 Write exactly these four into the target folder. Do **not** generate application code or framework boilerplate.
 
-1. **`CLAUDE.md`** — the new project's build-time instructions for Claude Code:
+1. **`CLAUDE.md`** — the new project's build-time instructions for Claude Code. This file is how the brainstorm's *strategic discipline* reaches the build, so the building agent thinks wide instead of tunneling. Include:
    - one paragraph: what this is + who it's for
-   - the chosen approach and the *why*
-   - **Rejected — do not re-propose:** killed variants, each with a one-line reason
-   - **Risks to watch:** the open hypotheses/risks from Critique
+   - the chosen approach, the **core thesis it rests on**, and the *why*
+   - **Rejected — don't re-propose while the thesis holds**, but keep them visible: each killed variant with a one-line reason. (If the thesis fails, these are your fallback — see the guardrails below. Don't tunnel: keep alternatives in view.)
+   - **Risks to watch:** the open hypotheses/risks from Critique, with the **#1 premise-risk named first** (the belief the whole thing rests on)
    - constraints (stack, budget, jurisdiction, timeline)
-   - the go/no-go gates from the plan
+   - the go/no-go gates and kill-criteria from the plan
+   - **Staying honest while you build** — anti-tunnel-vision guardrails for the building agent, stated explicitly:
+     - **Measure the real outcome, not a proxy.** Track the actual success metric from the plan, not a number that can improve while the real thing fails.
+     - **When results disappoint, separate the thesis from the parameters — don't auto-tune, don't auto-kill.** Give the thesis a fair test (its best plausible config, within the bound the plan set) and look for *any* signal of the mechanism: real signal that's just unoptimized → keep tuning; no signal even at best-case → the thesis is wrong, pivot. No amount of tuning fixes a dead premise, but a good thesis looks bad under bad parameters.
+     - **Check build fidelity:** confirm what you're building still implements the chosen thesis; don't let it drift into a generic version that was never the plan.
+     - **If experiments are cheap and reversible, test approaches in parallel** rather than serially tuning one.
+     - **Don't tunnel:** keep the rejected alternatives in view; if the thesis is failing, pivot to one of them rather than optimizing a dead approach. When in doubt, come back and re-critique (the methodology's `/recheck`).
    - a short "how to work here" (what to build first, what *not* to build yet)
 2. **`README.md`** — the project's own readme: problem, approach, current status (pre-build), links to `DECISIONS.md` and `PLAN.md`.
 3. **`DECISIONS.md`** — a dated snapshot distilled from the context file: key decisions, rejected variants + why, open risks. (A state snapshot; the brainstorm's `context/<slug>.md` stays the full history.)

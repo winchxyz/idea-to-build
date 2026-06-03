@@ -39,8 +39,11 @@ Default: all six phases `full`, scaffold available after Phase 6. (Specialized p
 - Speed: fast-to-market vs. long-build
 - Scope: narrow vs. broad
 - Resources: leveraging existing vs. greenfield
+- Testability: mutually exclusive (you must pick one) vs. cheaply parallel-testable
 
 Produce 3–5 variants spanning these axes.
+
+**Reversibility check.** If several variants are **cheap and reversible** to test (sandbox, paper, easily undone), flag that running them **in parallel** likely beats committing to one and tuning it sequentially — same wall-clock, more learning. Sequential, one-at-a-time commitment is for **one-way doors** (expensive or hard to undo). Don't serialize what you could cheaply parallelize.
 
 ### Phase 4 — Deep Dive
 **Specification structure:**

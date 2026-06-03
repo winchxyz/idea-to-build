@@ -151,4 +151,12 @@ Before Understanding, the coordinator establishes **what kind of thing this is**
 
 The brainstorm is **closed** — but it doesn't just evaporate into "now go build it somehow." Run **`/scaffold`** to turn the whole brainstorm into a ready-to-build folder — `CLAUDE.md` (chosen approach, rejected paths, risks to watch, go/no-go gates), `README.md`, `DECISIONS.md`, `PLAN.md` — that you open in Claude Code to start building. The scaffolder runs with the **full** project context (it is *not* isolated, unlike the planner) and is gated to require a completed Phase 6. It produces the briefing, **not** application code.
 
-Future sessions reopen the project from its context file and may run targeted phases (e.g., re-critique a pivot, re-plan after pilot data). Re-opening Phase 3 requires an explicit user signal: "let's reconsider variants" or "I want to pivot."
+The scaffolded `CLAUDE.md` carries the brainstorm's strategic discipline into the build so the building agent **thinks wide instead of tunneling**: the core thesis, the rejected alternatives (kept in view as fallbacks), the #1 premise-risk, and explicit guardrails — measure the real outcome (not a proxy); when results disappoint, separate the thesis from the parameters and diagnose which is failing (a fair test of the thesis at its best config; any signal of the mechanism?) rather than defaulting to tune-more or to kill; check the build still implements the thesis; and parallel-test cheap reversible options instead of serially tuning one.
+
+## The loop doesn't end at the plan — `/recheck`
+
+The deadliest failures don't happen in the brainstorm; they happen **during execution**, where a project quietly optimizes the *parameters* of a *thesis that was never true* — "no amount of calibration fixes a structurally wrong approach." A one-time pre-build critique can't catch this.
+
+So once you have **real results**, come back and run **`/recheck`** (paste the data). It re-runs the critic in *re-critique mode* on the project from its context file, under one question: **does this data disconfirm the thesis, or just the tuning?** It checks outcome-vs-proxy and build-fidelity, refuses to let "not enough data" defer the structural question, and returns 🟢 keep / 🟡 pivot the thesis / 🔴 kill. If it says pivot or kill, it points back to the rejected alternatives so you don't tunnel a dead approach.
+
+Future sessions also reopen the project from its context file and may run other targeted phases (e.g., re-plan after pilot data). Re-opening Phase 3 requires an explicit user signal: "let's reconsider variants" or "I want to pivot."

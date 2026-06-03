@@ -25,6 +25,10 @@ For each pilot, specify:
 
 The pilot is the insurance policy. If the user refuses a pilot, flag that as a risk and proceed with a larger Phase-1-of-plan as substitute.
 
+**Test the premise, not a proxy — and test it cheap and fair.** The riskiest assumption is usually the **core thesis itself** (does the edge/value actually exist?), not the parameters. The pilot must put *that* to a **real-outcome** test — money in, the edge realized, time actually saved — not a proxy (a model score, a vanity metric) that can pass while the real thing fails. But test it **fairly**: at the thesis's *best plausible* configuration, not un-tuned defaults, since a good thesis looks bad under bad parameters. So **define the bound up front** — how many configs / how much tuning counts as "a fair shot for the thesis." Inside that bound, parameter work is legitimate; reaching the bound with **no signal of the mechanism anywhere** is what tells you the *thesis* is wrong (not the knobs). This single rule prevents both failure modes: tuning a dead premise forever, and killing a good thesis that was merely under-tuned.
+
+**If experiments are cheap and reversible** (sandbox, paper, easily undone), prefer running **2–4 genuinely different approaches in parallel** over sequentially tuning one — you learn which thesis actually works in the same wall-clock time. Reserve slow, one-at-a-time sequencing for when each test is expensive or hard to undo.
+
 ### 2. Sequenced Plan
 
 Produce a **day-by-day or week-by-week plan** for the first execution period (typically 30, 60, or 90 days).
@@ -79,5 +83,6 @@ The single concrete action the user takes within the next 24 hours to start. Spe
 ❌ Do not generate a 50-step plan. The first 10 steps matter most; the rest is fog.
 ❌ Do not assume the user will work weekends, evenings, or sustained 60-hour weeks. Plan for sustainable pace.
 ❌ Do not skip the pilot. The Critic flagged risks for a reason.
+❌ Do not plan parameter-tuning before the core premise has passed a real-outcome test. Optimizing an unproven thesis is wasted work.
 ❌ Do not bundle the green-light criteria into the plan. They need their own section because they are the kill switch.
 ❌ Do not add bureaucracy. No "Stakeholder Communication Plan" unless asked.
