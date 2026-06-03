@@ -89,11 +89,13 @@ Copy [`distributions/standalone-prompts/lite.md`](distributions/standalone-promp
 
 ## 🧩 How It Works
 
-A coordinator guides you through six phases — and won't let you skip the ones that hurt. The critique phase is a ruthless, structured pass (forced premortem, steelman, inversion, a real verdict); the planning phase produces a gated plan with a kill-switch. When the plan is done, a scaffolder turns the whole brainstorm into a folder Claude Code can build from.
+It starts by asking what kind of project this is — a preset that sets the lens and the *flow shape* (which phases run full, light, or skipped) — then guides you through six phases and won't let you skip the ones that hurt. The critique is a ruthless, structured pass (forced premortem, steelman, inversion, a real verdict that separates the *thesis* from the *parameters*); the planner produces a gated plan with a kill-switch. `/scaffold` turns the whole brainstorm into a folder Claude Code builds from, and `/recheck` re-critiques it once real results are in.
 
 ```
 ┌────────────────────────────────────────────────────────────────┐
 │                    Coordinator (you talk to)                   │
+│                                                                │
+│  Preset ─ "what kind of project?"  → lens + flow shape         │
 │                                                                │
 │  Phase 1 ─ Understanding   "What are you actually trying to    │
 │                             accomplish?"                       │
@@ -102,7 +104,8 @@ A coordinator guides you through six phases — and won't let you skip the ones 
 │  Phase 4 ─ Deep Dive       🔬 Deep-Dive Agent (optional)       │
 │  Phase 5 ─ Critique        ⚔️  In-context, adversarial        │
 │                             Sees: everything — stays harsh     │
-│                             Forced: premortem + steelman       │
+│                             Forced: premortem + steelman,      │
+│                             thesis vs. parameters              │
 │  Phase 6 ─ Plan            📋 Planner Sub-Agent  ◄── isolated │
 │                             Sees: choice + critique            │
 │                             Forced: actionable steps + gates   │
@@ -110,6 +113,8 @@ A coordinator guides you through six phases — and won't let you skip the ones 
 │  /scaffold ───────────────▶ 📦 Scaffolder → buildable folder   │
 │                             (CLAUDE.md · README · DECISIONS ·   │
 │                              PLAN) → open in Claude Code, build │
+│                                                                │
+│  /recheck  ◀── real results  "thesis failing, or just tuning?" │
 └────────────────────────────────────────────────────────────────┘
 ```
 
@@ -163,7 +168,7 @@ More questions — *is it really multi-agent? could a prompt do this? does it ac
 3. **Factual rigor (Tier 1/2/3).** Made-up numbers are a sin. Each material claim gets a ✅ / ⚠️ / 🔍 confidence label.
 4. **Calibrated recommendations.** Every recommendation includes a confidence percentage, what would raise/lower it, and an alternative if confidence drops. No false certainty.
 5. **Forced critique.** Phase 5 cannot be skipped. Premortem + What-Needs-to-Be-True are mandatory.
-6. **Adversarial critique.** A dedicated critic pass forced to premortem, steelman, and invert — built to find the flaw you're too attached to see, and to return an honest GO / NO-GO.
+6. **Adversarial critique.** A dedicated critic pass forced to premortem, steelman, and invert — built to find the flaw you're too attached to see, and to return an honest GO / NO-GO. It separates the *thesis* from the *parameters*, so you don't later optimize a premise that was never true.
 7. **Memory as a log, not state.** Decisions and rejected options are appended, never overwritten. History matters.
 8. **Ends in a build, not just a brainstorm.** The point isn't a tidy writeup — it's a scoped, critiqued plan you can act on. `/scaffold` turns the finished brainstorm into a folder Claude Code builds from.
 9. **Honest past the plan.** The deadliest failures happen during execution, not the brainstorm — a project quietly optimizes the *parameters* of a *thesis that was never true*. `/recheck` re-critiques a built project against real results (*is the thesis failing, or just the tuning?*), and the scaffolded folder carries the same anti-tunnel-vision discipline into the build.
