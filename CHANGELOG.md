@@ -4,6 +4,11 @@ All notable changes to `idea-to-build` are tracked here.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.5.2] — 2026-06-03
+
+### Added
+- **`docs/GUIDE.md`: a step-by-step "re-check a project you built elsewhere."** Beginner-grade walkthrough — copy the project folder (safety), get a brutally-honest structured summary from the AI that built it (ready-to-paste prompt), run `/recheck` on it while telling it to distrust the self-summary (the build AI is biased toward "it's fine"), optionally let it read the real files to catch build-drift, then act on keep/pivot/kill. Bundled into the plugin.
+
 ## [0.5.1] — 2026-06-03
 
 ### Added
