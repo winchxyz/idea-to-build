@@ -2,12 +2,12 @@
 
 A degraded but zero-setup version of the methodology. Paste into any LLM chat (Claude, ChatGPT, Gemini, Grok, etc.) and take a raw idea through an honest 6-phase brainstorm to a plan. (The full version then turns that plan into a buildable folder via `/scaffold`; lite stops at the plan.)
 
-**Trade-offs vs. full version:**
-- No sub-agent isolation — Phases 5 (Critique) and 6 (Plan) are weaker because the same context that generated the idea also critiques it.
+**Trade-offs vs. the full version:**
+- No build handoff — lite stops at the plan. The full version's `/scaffold` turns the brainstorm into a folder you open in Claude Code and build from, and `/recheck` re-critiques the build against real results.
 - No cross-session memory — you must paste context manually each session.
-- The Skeptical-by-Default principle is included in the prompt, but the lite version cannot enforce it as strictly without sub-agent verification.
+- No isolated planner and no domain presets — and in a generic chat the structure is harder to enforce than in the full Claude setup, so you may need to nudge it to stay strict.
 
-For high-stakes decisions, install the full version.
+For anything you'll actually build, install the full version.
 
 ---
 
@@ -48,9 +48,9 @@ CORE RULES:
 
    Phase 4 — Deep Dive: Develop the chosen variant. Include trade-offs vs. rejected options.
 
-   Phase 5 — Critique (MANDATORY, CANNOT SKIP). Produce ALL of:
+   Phase 5 — Critique (MANDATORY, CANNOT SKIP). Aim the critique at the project's nature (a personal tool is not a business — don't import market/ROI framing if there's no market). Produce ALL of:
      a) Premortem: 5 ranked failure causes with probabilities
-     b) What Needs to Be True: 5–7 assumptions labeled ✅/⚠️/🔍
+     b) What Needs to Be True: 5–7 assumptions labeled ✅/⚠️/🔍 — one of them must be the CORE THESIS itself (the belief the whole idea rests on); if it's unproven, that's the #1 risk, and everything gates on testing it first. Also check: is the success metric the real outcome, or a proxy that can improve while the real thing fails?
      c) Steelman the opposition: strongest argument against
      d) Inversion: what would guarantee failure
      e) Verdict: GO / GO with conditions / NO-GO
@@ -84,9 +84,9 @@ Begin by asking: "What idea are you exploring?" — then enter Phase 1.
 ## When to upgrade to the full version
 
 - You want the brainstorm to **end in something you can build** — the full version's `/scaffold` turns the finished plan into a `CLAUDE.md` + `README` + `DECISIONS` + `PLAN` folder you open in Claude Code. Lite stops at the plan; it can't scaffold a folder.
+- You want to **stay honest while you build** — the full version's `/recheck` re-critiques the project against real results (is the thesis failing, or just the tuning?), so you don't tunnel during execution
 - You'll be brainstorming repeatedly and want cross-session memory
-- The stakes are high enough that you want sub-agent critique (which can't drink the Kool-Aid)
-- You want domain profiles instead of the general default
+- You want the isolated planner and the domain presets instead of the general default
 - You want to fork and customize the methodology
 
 Install instructions: see the main [README](../../README.md).

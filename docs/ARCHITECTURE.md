@@ -6,7 +6,7 @@ This document explains how `idea-to-build` is built and why.
 
 **Take a raw idea to a plan you can build — maximize the quality of the brainstorm in between, with minimal setup friction.**
 
-The single biggest quality lever in any structured brainstorm is **a forced adversarial critique you can't skip** — a hard-gated Phase 5 that runs a fixed rubric (premortem, what-needs-to-be-true, steelman, inversion, verdict) against the idea you're attached to. It runs *in-context*: full knowledge of the brainstorm lets it find sharper, more specific cracks than a cold outsider could. The one phase that genuinely benefits from a fresh context — the planner — is dispatched as a native Claude sub-agent. The arc doesn't stop at a plan: a final scaffolder turns the brainstorm into a folder Claude Code can build from.
+The single biggest quality lever in any structured brainstorm is **a forced adversarial critique you can't skip** — a hard-gated Phase 5 that runs a fixed rubric (premortem, what-needs-to-be-true, steelman, inversion, verdict) against the idea you're attached to, and that separates the *thesis* from the *parameters* so you don't later optimize a premise that was never true. It runs *in-context*: full knowledge of the brainstorm lets it find sharper, more specific cracks than a cold outsider could. The one phase that genuinely benefits from a fresh context — the planner — is dispatched as a native Claude sub-agent. The arc doesn't stop at a plan: a final scaffolder turns the brainstorm into a folder Claude Code can build from, and `/recheck` re-critiques the project once real results are in — so the discipline reaches past the plan into the build.
 
 ## High-Level Architecture
 

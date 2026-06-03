@@ -1,12 +1,12 @@
 <div align="center">
 
-<img src="assets/logo.png" alt="idea-to-build — multi-agent brainstorming methodology" width="800"/>
+<img src="assets/logo.png" alt="idea-to-build — a structured brainstorm that ends in something you can build" width="800"/>
 
 # idea-to-build
 
-**A multi-agent brainstorming methodology that takes a raw idea to a plan you can build — for founders, builders, and creators.**
+**A quality, structured brainstorm that takes a raw idea all the way to something you can build — for founders, builders, and creators.**
 
-Turn a raw idea into a plan you can actually build — in about 30 minutes. Claude sub-agents research it, argue with it, and won't let you skip the hard parts; when it's done, it hands the whole thing to Claude Code ready to build.
+The point is the brainstorm itself: it researches your idea, argues with it, fact-checks it, makes you weigh real alternatives, and won't let you skip the hard parts — then `/scaffold` hands the whole thing to Claude Code as a folder you build from. A rigorous brainstorm, and a real handoff to the build.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Claude](https://img.shields.io/badge/Powered%20by-Claude-D97757)](https://claude.com)
@@ -50,10 +50,10 @@ https://github.com/user-attachments/assets/7fa999e7-d4d8-4d67-b39e-ac2698c52ca6
 Real sessions, each linked in full — strongest first. Most put one prompt through a normal chat vs. the methodology, side by side; one runs a single idea through all six profiles; the first is a complete start-to-finish run that ends in a buildable plan:
 
 - [**Full run: medieval tycoon game**](examples/medieval-tycoon-fullrun.md) — the whole method, Phase 1 → 6 → `/scaffold`. A vague "tycoon game" comes out scoped, critiqued (GO with conditions), planned with a kill-switch, and handed off as a buildable folder. **Start here — it's the idea→build arc end to end.**
-- [**Hyperliquid wallet**](examples/hyperliquid-wallet-comparison.md) — the deepest comparison: the full method through a trace-verified isolated Phase-5 critique. Read this to see the rigor.
+- [**Hyperliquid wallet**](examples/hyperliquid-wallet-comparison.md) — the deepest comparison: the full method through a trace-verified Phase-5 critique. Read this to see the rigor.
 - [**Personal health AI**](examples/health-system-comparison.md) — the harder case: plain Claude was already competent, and the methodology still added strategy (beachhead, regulatory risk, an architectural blocker).
 - [**Profiles in action**](examples/profiles-comparison.md) — the *same* idea run through six profiles, showing how each asks different questions. Proof the profiles aren't cosmetic.
-- [**Food delivery app**](examples/food-delivery-comparison.md) — the "can it say no?" test (trace-verified): the cold critic returns NO-GO on the head-on idea, then GO-with-conditions on the pivot.
+- [**Food delivery app**](examples/food-delivery-comparison.md) — the "can it say no?" test (trace-verified): the critique returns NO-GO on the head-on idea, then GO-with-conditions on the pivot.
 - [**AI support agent**](examples/ai-support-agent-comparison.md) — another honest NO-GO: the methodology pushes back and recommends *not* building the idea.
 - [**Stickman game**](examples/stickman-comparison.md) — the simplest contrast: plain Claude builds instantly, the methodology stops to scope. A quick way to see the difference.
 
@@ -69,7 +69,7 @@ In a terminal, run `claude`, then:
 /plugin marketplace add winchxyz/idea-to-build
 /plugin install idea-to-build@idea-to-build
 ```
-Then `/idea-to-build:start` to activate the coordinator. All ten commands are namespaced `/idea-to-build:*` (e.g. `/idea-to-build:critique`, `/idea-to-build:scaffold`). The `/plugin …` commands run in the Claude CLI; once installed, the `/idea-to-build:*` commands work in your CLI sessions. Verified working.
+Then `/idea-to-build:start` to activate the coordinator. All eleven commands are namespaced `/idea-to-build:*` (e.g. `/idea-to-build:critique`, `/idea-to-build:scaffold`, `/idea-to-build:recheck`). The `/plugin …` commands run in the Claude CLI; once installed, the `/idea-to-build:*` commands work in your CLI sessions. Verified working.
 
 ### ✅ Option 2: Plugin via marketplace — Cowork / Claude Code (desktop app)
 In the Claude desktop app (Cowork or Claude Code — one shared environment): **Customize → Personal plugins → `+` → Create plugin → Add marketplace**, enter `winchxyz/idea-to-build`, hit **Sync**, install the plugin, then run `/idea-to-build:start`. Once installed this way, the `/idea-to-build:*` commands work across both Cowork and Claude Code.
@@ -83,7 +83,7 @@ git clone https://github.com/winchxyz/idea-to-build.git
 Open the cloned folder. The root [`CLAUDE.md`](CLAUDE.md) bootstraps the coordinator automatically (no `/start` needed); the repo's `.claude/skills/` provide the `/`-commands in Claude Code and the Claude CLI.
 
 ### ✅ Option 4: Standalone prompt — any LLM
-Copy [`distributions/standalone-prompts/lite.md`](distributions/standalone-prompts/lite.md) into ChatGPT, Claude, Gemini, or any chat. Degraded quality (no sub-agent isolation, no cross-session memory, no `/scaffold`), but zero setup.
+Copy [`distributions/standalone-prompts/lite.md`](distributions/standalone-prompts/lite.md) into ChatGPT, Claude, Gemini, or any chat. Degraded quality (no isolated planner, no cross-session memory, no `/scaffold`, no `/recheck`), but zero setup.
 
 ---
 
@@ -115,11 +115,13 @@ A coordinator guides you through six phases — and won't let you skip the ones 
 
 **Why this works:** Most "brainstorms" fail because the model skips the hard parts and then leaves you with a transcript. idea-to-build forces the hard parts — a structured premortem and steelman you can't skip, fact-checking with confidence labels, and a verdict that's allowed to be NO-GO — then hands the result to a build via `/scaffold`. The forced structure is the lever; the build handoff is the point.
 
+And it doesn't abandon you at the handoff. Once you have real results, **`/recheck`** re-critiques the project — *is the thesis failing, or just the tuning?* — so you don't spend weeks optimizing the parameters of an idea that was never going to work. The scaffolded folder carries that same discipline into the build, so the building agent thinks wide instead of tunneling.
+
 ---
 
 ## 📚 Profiles
 
-idea-to-build ships with **6 modes**: one general-purpose base plus five domain specializations.
+idea-to-build ships with **8 modes**: one general-purpose base plus seven domain specializations.
 
 | Profile | When to use | Key tools |
 |---------|-------------|-----------|
@@ -147,6 +149,7 @@ A preset is chosen at the start of every session (or auto-classified from your d
 | Isolated planner | ❌ | ❌ | ✅ if coded | ✅ Fresh-context sub-agent |
 | Domain profiles | ❌ One-size | ❌ | ⚠️ DIY | ✅ 8 ready + auto-preset |
 | Ends in a buildable plan | ❌ Just a chat | ❌ | ⚠️ DIY | ✅ `/scaffold` → folder Claude Code builds |
+| Honest during the build | ❌ | ❌ | ⚠️ DIY | ✅ `/recheck` re-critique loop |
 | Cost per brainstorm | Free–$1 | Free | $$ (LLM API) | Free (your Claude subscription) |
 
 More questions — *is it really multi-agent? could a prompt do this? does it actually say no?* — see the [**FAQ**](docs/FAQ.md).
@@ -163,6 +166,7 @@ More questions — *is it really multi-agent? could a prompt do this? does it ac
 6. **Adversarial critique.** A dedicated critic pass forced to premortem, steelman, and invert — built to find the flaw you're too attached to see, and to return an honest GO / NO-GO.
 7. **Memory as a log, not state.** Decisions and rejected options are appended, never overwritten. History matters.
 8. **Ends in a build, not just a brainstorm.** The point isn't a tidy writeup — it's a scoped, critiqued plan you can act on. `/scaffold` turns the finished brainstorm into a folder Claude Code builds from.
+9. **Honest past the plan.** The deadliest failures happen during execution, not the brainstorm — a project quietly optimizes the *parameters* of a *thesis that was never true*. `/recheck` re-critiques a built project against real results (*is the thesis failing, or just the tuning?*), and the scaffolded folder carries the same anti-tunnel-vision discipline into the build.
 
 Full methodology: [`docs/METHODOLOGY.md`](docs/METHODOLOGY.md)
 
@@ -182,7 +186,7 @@ idea-to-build/
 │   └── templates/            # Project context file template
 ├── profiles/                 # 8 domain profiles (general + 7 specialized)
 ├── distributions/
-│   ├── claude-code-plugin/   # Installable plugin — 10 commands + 6 agents (Cowork / Claude CLI)
+│   ├── claude-code-plugin/   # Installable plugin — 11 commands + 6 agents (Cowork / Claude CLI)
 │   └── standalone-prompts/   # Lite version for any LLM
 ├── docs/
 │   ├── ARCHITECTURE.md       # How sub-agents are orchestrated
@@ -193,7 +197,7 @@ idea-to-build/
 └── examples/                 # Template, guide + real comparison transcripts
 ```
 
-> The `examples/` directory ships with a template, an authoring guide, and seven real transcripts — five run the same prompt as plain Claude vs. through the methodology: a stickman game, a personal-health-AI startup, a Hyperliquid wallet (full methodology through a trace-verified Phase 5 critique → NO-GO), an AI support agent, and a food-delivery app (where the Phase 5 critique returns NO-GO on the head-on idea, then GO-with-conditions on the pivot) — plus a profiles comparison (one idea, six profiles) and a full start-to-finish run that ends in a buildable plan. A broader library lands in v0.2. See [`CHANGELOG.md`](CHANGELOG.md).
+> The `examples/` directory ships with a template, an authoring guide, and seven real transcripts — five run the same prompt as plain Claude vs. through the methodology: a stickman game, a personal-health-AI startup, a Hyperliquid wallet (full methodology through a trace-verified Phase 5 critique → NO-GO), an AI support agent, and a food-delivery app (where the Phase 5 critique returns NO-GO on the head-on idea, then GO-with-conditions on the pivot) — plus a profiles comparison (one idea, six profiles) and a full start-to-finish run that ends in a buildable plan. See [`CHANGELOG.md`](CHANGELOG.md) for what's new.
 
 Full architecture: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
 

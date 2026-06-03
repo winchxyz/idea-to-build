@@ -36,7 +36,7 @@ Because the sub-agent dispatch (for the planner), the file access, and the cross
 
 ### How is this different from raw ChatGPT/Claude, an awesome-prompts repo, or a CrewAI build?
 
-Forced critique (Phase 5 is hard-gated, not optional, and runs a fixed adversarial rubric), a fact-checking discipline (Tier 1/2/3 with ✅/⚠️/🔍 labels so it stops inventing market sizes), cross-session memory (append-only context files), a buildable handoff (`/scaffold` turns the finished brainstorm into a folder you build from), and six ready domain profiles. The full comparison table is in the [README](../README.md#-why-this-vs-alternatives).
+Forced critique (Phase 5 is hard-gated, not optional, and runs a fixed adversarial rubric that separates the *thesis* from the *parameters*), a fact-checking discipline (Tier 1/2/3 with ✅/⚠️/🔍 labels so it stops inventing market sizes), cross-session memory (append-only context files), a buildable handoff (`/scaffold` turns the finished brainstorm into a folder you build from), an execution-loop re-critique (`/recheck`) so you don't tunnel during the build, and eight ready domain profiles. The full comparison table is in the [README](../README.md#-why-this-vs-alternatives).
 
 ---
 
@@ -48,15 +48,15 @@ Clone the repo and open the folder in Cowork or Claude Code — the root `CLAUDE
 
 ### What are profiles?
 
-Six modes — one general base plus five domain specializations (startup, tech-architecture, content-strategy, product-roadmap, personal-decisions). They override defaults *inside* each phase (which frameworks the coordinator reaches for, which questions it asks). Switch with `/profile <name>`. See [docs/PROFILES.md](PROFILES.md).
+Eight modes — one general base plus seven domain specializations (startup, personal-project, exploration, tech-architecture, content-strategy, product-roadmap, personal-decisions). A preset is picked at the start of each session (or auto-classified from your description); it sets the lens **and** the *flow shape* — which phases run full, light, or skipped. They override defaults *inside* each phase (which frameworks the coordinator reaches for, which questions it asks). Switch with `/profile <name>`. See [docs/PROFILES.md](PROFILES.md).
 
 ---
 
 ### Do the slash commands (`/profile`, `/critique`, `/plan`…) work?
 
-In **Claude Code and the Claude CLI**, yes — they ship as skills in `.claude/skills/`, so typing `/profile startup` (or `/critique`, `/plan`, `/recommend`, `/memory`, `/reset`, `/phase`, `/scaffold`) just works.
+In **Claude Code and the Claude CLI**, yes — they ship as skills in `.claude/skills/`, so typing `/profile startup` (or `/critique`, `/recheck`, `/plan`, `/recommend`, `/memory`, `/reset`, `/phase`, `/scaffold`) just works.
 
-In **Cowork**, `/` is reserved for installed plugins, so a bare `/profile` returns "Unknown skill." Until the v0.2 Cowork plugin ships (it will register these commands), just say it in plain language — "switch to the startup profile", "run the critique now", "start a new brainstorm". The coordinator understands those everywhere, including Claude Code.
+In **Cowork**, `/` is reserved for installed plugins. Install the idea-to-build plugin (see the README Quick Start) and the namespaced `/idea-to-build:*` commands work there too. Without the plugin installed, just say it in plain language — "switch to the startup profile", "run the critique now", "start a new brainstorm" — the coordinator understands those everywhere, including Claude Code.
 
 To fact-check a claim, the command is **`/factcheck <claim>`** — named `factcheck` rather than `verify`, because `/verify` collides with a built-in Claude Code skill.
 
@@ -71,6 +71,12 @@ It's built specifically not to. Every material claim gets a confidence label —
 ### Does it write the code / build my project?
 
 It doesn't write your application code — it's a *thinking* tool that takes you from a raw idea to a critiqued plan, and deliberately refuses to jump to building. But once Phase 6 is done, **`/scaffold`** generates a ready-to-build project folder from your brainstorm: a `CLAUDE.md` (with the chosen approach, the rejected paths, the risks to watch, and the go/no-go gates), plus `README.md`, `DECISIONS.md`, and `PLAN.md`. That's the *briefing* — you open the folder in Claude Code and it builds from there. The scaffolder makes the handoff, Claude Code writes the code.
+
+---
+
+### What happens once I start building — does it just leave me there?
+
+No. The deadliest failures don't happen in the brainstorm; they happen during the build, where a project quietly tunes the *parameters* of a *thesis that was never true* — "no amount of calibration fixes a structurally wrong approach." Once you have real results, run **`/recheck`** (paste the data): it re-critiques the project from its context file under one question — *is the thesis failing, or just the tuning?* It checks whether you're measuring the real outcome or a proxy, whether the build still implements the thesis, gives the thesis a fair bounded test, and returns 🟢 keep / 🟡 pivot the thesis / 🔴 kill — pointing back to the alternatives you rejected so you don't tunnel a dead approach. The scaffolded `CLAUDE.md` carries the same guardrails into the build, so the building agent stays honest without you having to come back.
 
 ---
 
