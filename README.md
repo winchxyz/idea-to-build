@@ -13,7 +13,7 @@ The point is the brainstorm itself: it researches your idea, argues with it, fac
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![Status](https://img.shields.io/badge/status-v0.5.2-orange.svg)](CHANGELOG.md)
 
-[Quick Start](#-quick-start) • [See It in Action](#-see-it-in-action) • [How It Works](#-how-it-works) • [Guide](docs/GUIDE.md) • [Profiles](#-profiles) • [Why This](#-why-this-vs-alternatives) • [Contribute](CONTRIBUTING.md)
+[Quick Start](#-quick-start) • [See It in Action](#-see-it-in-action) • [How It Works](#-how-it-works) • [Using It](#-using-it) • [Profiles](#-profiles) • [Why This](#-why-this-vs-alternatives) • [Contribute](CONTRIBUTING.md)
 
 </div>
 
@@ -122,6 +122,19 @@ It starts by asking what kind of project this is — a preset that sets the lens
 **Why this works:** Most "brainstorms" fail because the model skips the hard parts and then leaves you with a transcript. idea-to-build forces the hard parts — a structured premortem and steelman you can't skip, fact-checking with confidence labels, and a verdict that's allowed to be NO-GO — then hands the result to a build via `/scaffold`. The forced structure is the lever; the build handoff is the point.
 
 And it doesn't abandon you at the handoff. Once you have real results, **`/recheck`** re-critiques the project — *is the thesis failing, or just the tuning?* — so you don't spend weeks optimizing the parameters of an idea that was never going to work. The scaffolded folder carries that same discipline into the build, so the building agent thinks wide instead of tunneling.
+
+---
+
+## 📖 Using It
+
+Different situations, different moves — the full [**Usage Guide**](docs/GUIDE.md) walks each one step by step:
+
+- **A brand-new idea** → the full arc (preset → 6 phases → `/scaffold` → build → `/recheck`)
+- **A project you're already building** → `/recheck` it with real results (is the thesis failing, or just the tuning?)
+- **A change to an existing project** → a brainstorm scoped to the decision
+- **Not sure which lens fits** → a profile picker that maps what you're doing to the right preset
+
+→ [**Read the guide**](docs/GUIDE.md)
 
 ---
 
