@@ -30,7 +30,7 @@ Keep callouts short — they should point, not narrate.
 <!-- The chosen approach worked through in depth. -->
 
 ## Phase 5 — Critique  ⚔️
-<!-- The isolated Critic sub-agent. This is the section readers care about most. -->
+<!-- The in-context Critic (Phase 5). This is the section readers care about most. -->
 
 > 📝 **What the critic caught:** <the single most valuable thing the premortem / steelman surfaced>
 

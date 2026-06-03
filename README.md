@@ -48,7 +48,7 @@ Then the part that makes it *idea-to-build*: when the brainstorm is done, **`/sc
 
 https://github.com/user-attachments/assets/7fa999e7-d4d8-4d67-b39e-ac2698c52ca6
 
-Real sessions, each linked in full — strongest first. Most put one prompt through a normal chat vs. the methodology, side by side; one runs a single idea through all six profiles; the first is a complete start-to-finish run that ends in a buildable plan:
+Real sessions, each linked in full — strongest first. Most put one prompt through a normal chat vs. the methodology, side by side; one runs a single idea through six profiles; the first is a complete start-to-finish run that ends in a buildable plan:
 
 - [**Full run: medieval tycoon game**](examples/medieval-tycoon-fullrun.md) — the whole method, Phase 1 → 6 → `/scaffold`. A vague "tycoon game" comes out scoped, critiqued (GO with conditions), planned with a kill-switch, and handed off as a buildable folder. **Start here — it's the idea→build arc end to end.**
 - [**Hyperliquid wallet**](examples/hyperliquid-wallet-comparison.md) — the deepest comparison: the full method through a trace-verified Phase-5 critique. Read this to see the rigor.
