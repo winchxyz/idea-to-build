@@ -44,6 +44,41 @@ You already built something (here or elsewhere) and have results — good or bad
 
 **No prior idea-to-build brainstorm for it?** `/recheck` still works — describe the project and the thesis it rests on, then paste the results. If no clear thesis exists yet, it helps you name one first (that's usually the real problem).
 
+### Step by step: re-checking a project you built somewhere else
+
+If you built the project in another chat or in Claude Code (not through idea-to-build), here's the safe, no-skill-needed way to get an honest re-check.
+
+**Step 1 — Make a copy of your project folder, so nothing real gets touched.**
+Find the folder on your computer, right-click → Copy, then Paste. Rename the copy to something like `myproject-recheck`. *(Why: idea-to-build only writes small notes files, never your code — but working on a copy means your real project stays exactly as it is.)*
+
+**Step 2 — Get an honest summary from the AI that built it.**
+Go back to the chat (or Claude Code session) where the project was built — it knows the project. Paste this and send it:
+
+> Write a brutally honest project summary for an outside skeptic. Don't reassure me. Cover:
+> 1. **The core thesis** — the one belief this whole project rests on, in one sentence.
+> 2. **The real success metric** — the actual outcome that would prove it works (money, users, the edge, time saved) and the **real numbers so far**. Separate it from any proxy numbers we've tracked.
+> 3. What we've **tried/tuned** and what moved or didn't.
+> 4. Where there **is** a signal of it working (any subset/config), and where there's **none**.
+> 5. Anywhere the build may have **drifted** from the original thesis into a generic version.
+> 6. The honest open question: is the **thesis** in doubt, or just the **tuning**?
+> Be specific, include numbers. Under-reporting problems makes this useless.
+
+Copy the answer. *(If it sounds too upbeat, reply: "Be harsher — focus on what's NOT working and the real numbers.")*
+
+**Step 3 — Open idea-to-build.**
+Open the copy folder (`myproject-recheck`) in Cowork or Claude Code — or just start any idea-to-build chat.
+
+**Step 4 — Run the re-check.**
+Type **`/recheck`** and paste the summary from Step 2. *(In Cowork, if `/recheck` isn't available, just write: "Re-check this project — is the thesis failing, or just the tuning?" and paste the summary.)* Add one line: **"Don't trust this summary on its face — the AI that wrote it built the project, so it may be soft-pedaling the problems."**
+
+**Step 5 — (Optional, makes it stronger) Let it check the real files.**
+If you opened the copy folder, add: *"You can also read the project files to check whether the code actually does what the thesis claims."* This catches a build that quietly drifted from the plan.
+
+**Step 6 — Read the verdict and act.**
+- 🟢 **keep** — the idea's still alive; keep going.
+- 🟡 **pivot** — the premise looks wrong; switch to one of the alternatives, don't keep tuning.
+- 🔴 **kill** — stop; the thesis doesn't hold.
+
 ---
 
 ## Plan a change to an existing project
