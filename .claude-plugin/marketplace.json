@@ -10,7 +10,7 @@
       "name": "idea-to-build",
       "source": "./distributions/claude-code-plugin",
       "description": "6-phase brainstorm coordinator with a forced adversarial critique, fact-checking, domain profiles, an isolated planner, and a /scaffold build handoff.",
-      "version": "0.5.0",
+      "version": "0.5.1",
       "homepage": "https://github.com/winchxyz/idea-to-build",
       "license": "MIT"
     }

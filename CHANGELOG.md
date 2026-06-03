@@ -4,6 +4,14 @@ All notable changes to `idea-to-build` are tracked here.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.5.1] — 2026-06-03
+
+### Added
+- **`docs/GUIDE.md` — a usage guide** for the situations you actually hit: a new idea end-to-end, re-checking a project you're already building (with real results), planning a change to an existing project, and a profile picker that maps "what you're doing" to the right preset — plus a quick command reference.
+
+### Changed
+- **Documentation refresh, brought current to v0.5.0.** The README is re-centered on the core thesis (a quality brainstorm that ends in something you build): How It Works now shows the preset step, the thesis-vs-parameters critique, and the `/recheck` execution loop; the Problem/Solution, profile/command counts, FAQ, ARCHITECTURE, the lite prompt, and the examples index were all updated and de-stale-d. The released plugin now bundles these current docs.
+
 ## [0.5.0] — 2026-06-01
 
 ### Added

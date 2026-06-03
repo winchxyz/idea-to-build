@@ -11,9 +11,9 @@ The point is the brainstorm itself: it researches your idea, argues with it, fac
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Claude](https://img.shields.io/badge/Powered%20by-Claude-D97757)](https://claude.com)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
-[![Status](https://img.shields.io/badge/status-v0.5.0-orange.svg)](CHANGELOG.md)
+[![Status](https://img.shields.io/badge/status-v0.5.1-orange.svg)](CHANGELOG.md)
 
-[Quick Start](#-quick-start) • [See It in Action](#-see-it-in-action) • [How It Works](#-how-it-works) • [Profiles](#-profiles) • [Why This](#-why-this-vs-alternatives) • [Contribute](CONTRIBUTING.md)
+[Quick Start](#-quick-start) • [See It in Action](#-see-it-in-action) • [How It Works](#-how-it-works) • [Guide](docs/GUIDE.md) • [Profiles](#-profiles) • [Why This](#-why-this-vs-alternatives) • [Contribute](CONTRIBUTING.md)
 
 </div>
 
@@ -195,6 +195,7 @@ idea-to-build/
 │   ├── claude-code-plugin/   # Installable plugin — 11 commands + 6 agents (Cowork / Claude CLI)
 │   └── standalone-prompts/   # Lite version for any LLM
 ├── docs/
+│   ├── GUIDE.md              # Usage guide — scenarios + profile picker
 │   ├── ARCHITECTURE.md       # How sub-agents are orchestrated
 │   ├── METHODOLOGY.md        # Core principles in depth
 │   ├── PHASES.md             # 6 phases explained
