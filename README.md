@@ -30,14 +30,15 @@ Ask any LLM — Claude, ChatGPT, Gemini, Grok — to brainstorm and you hit the 
 - ❌ "5 great ideas!" — none of which are actually different
 - ❌ No memory across sessions — you re-explain context every time
 - ❌ And even a *good* brainstorm ends in a chat you have to translate into a plan, then into a build, by hand
+- ❌ And once you *are* building, nothing keeps you honest — you tunnel, and end up optimizing the parameters of a thesis that was never going to work
 
-This tool fixes those — and closes the loop to a build. The full version runs on Claude (Cowork, Claude Code, or the Claude CLI); a degraded standalone prompt (`distributions/standalone-prompts/lite.md`) works in any other LLM.
+This tool fixes those — it closes the loop to a build, and keeps you honest while you build it. The full version runs on Claude (Cowork, Claude Code, or the Claude CLI); a degraded standalone prompt (`distributions/standalone-prompts/lite.md`) works in any other LLM.
 
 ## The Solution
 
 **A structured 6-phase brainstorm that takes a raw idea all the way to something you can build.** Understand → Context → Generate → Deep Dive → Critique → Plan — each phase does the work most chats skip: real research with sources, genuinely different options, a ruthless critique that won't let you skip the premortem, and a plan with go/no-go gates.
 
-Then the part that makes it *idea-to-build*: when the brainstorm is done, **`/scaffold` turns the whole thing into a folder you open in Claude Code and build from** — the chosen approach, the paths you rejected, the risks to watch, the gates. Idea in, buildable plan out.
+Then the part that makes it *idea-to-build*: when the brainstorm is done, **`/scaffold` turns the whole thing into a folder you open in Claude Code and build from** — the chosen approach, the paths you rejected, the risks to watch, the gates. Idea in, buildable plan out. And when real results come in, **`/recheck`** re-critiques the project so you don't tunnel — *is the thesis failing, or just the tuning?*
 
 > "It found a flaw in my pivot that I'd been missing for three weeks." — early tester
 
