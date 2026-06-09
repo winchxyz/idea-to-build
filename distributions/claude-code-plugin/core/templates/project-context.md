@@ -17,6 +17,10 @@ _This is a log. Never overwrite. Append new entries below._
 
 - `YYYY-MM-DD` — <decision> — <rationale>
 
+_For decisions where it's worth tracking calibration (a go/kill call, or a contested choice), optionally record the run-record fields so you can later see who was right:_
+_`YYYY-MM-DD` — decision — rationale — **model-rec:** <what the AI recommended> · **decision:** <what you chose> · **prediction:** <what you expect> · **outcome:** <fill in later>_
+_(This is the `idea-level` altitude. The build folder's `FRAME-LOG.md` carries the `in-build` altitude — keep the two distinct.)_
+
 ## Open Hypotheses
 
 _Format: hypothesis — how to test — by when — status (open / testing / confirmed / rejected)_

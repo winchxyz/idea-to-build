@@ -10,7 +10,7 @@ The user built (or started building) a project from an earlier idea-to-build bra
 ## Steps
 
 1. **Read `core/CLAUDE.md`** (coordinator role) and **`core/agents/critic.md`** — especially its "Re-critique mode (invoked with results)" section.
-2. **Load the project's memory:** read `context/<slug>.md` for the chosen idea, its **core thesis**, the original critique, and the **rejected alternatives**. If it's unclear which project this is, ask.
+2. **Load the project's memory:** read `context/<slug>.md` for the chosen idea, its **core thesis**, the original critique, and the **rejected alternatives**. If it's unclear which project this is, ask. **If the built project has a `FRAME-LOG.md`** (written by `/scaffold`'s frame-check guardrail), read it too — it's the run-record of in-build tuning-vs-thesis calls and their predictions. Use it as evidence: a long trail of `altitude:in-build` tuning entries with no thesis-test is itself a calibration-myopia signal.
 3. **The results are whatever the user provided** after `/recheck` (as a slash command, `$ARGUMENTS`) — pasted data, metrics, or a description of how it's going. If none is given, ask what actually happened.
 4. **Become the critic yourself, in-context** (do **not** spawn a sub-agent, do **not** soften), and run **re-critique mode** under one overriding question — *does the data disconfirm the THESIS, or only the TUNING?*:
    - Default to suspecting the **thesis**, not the knobs. Make the user prove the premise is still alive before touching a parameter.

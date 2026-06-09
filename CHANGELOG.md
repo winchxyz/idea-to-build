@@ -4,6 +4,13 @@ All notable changes to `idea-to-build` are tracked here.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+- **Proactive frame-check guardrail in the scaffolded build folder.** `/scaffold` now also writes a Claude Code hook set (`.claude/settings.json` + `.claude/hooks/*.sh`) and a `FRAME-LOG.md`. The hooks make the "separate the thesis from the tuning" discipline *proactive* instead of a passage the build agent can forget: before each `git commit` a soft nudge injects the thesis-vs-tuning question, and once per session a `Stop` hook **blocks** until the agent answers it — re-reading the rejected alternatives if results disappoint, and logging a calibration record (`altitude / model-rec / decision / prediction / outcome`) to `FRAME-LOG.md`. This targets the deadliest failure mode — silently tuning a dead thesis for weeks while the AI keeps proposing the next calibration and never asks whether the premise is wrong. Portable POSIX `sh` (no `jq`), loop-safe, and softenable; falls back to the passive `CLAUDE.md` guardrail outside Claude Code. `core/agents/scaffolder.md`.
+- **`/recheck` reads `FRAME-LOG.md`** when present: a long trail of in-build tuning entries with no thesis-test is itself a calibration-myopia signal. `.claude/skills/recheck/SKILL.md`.
+- **The project-context template carries optional run-record fields** (`model-rec / decision / prediction / outcome`) for idea-level go/kill calls, so calibration data can accrue on the brainstorm side too — kept at a distinct `idea-level` altitude from the build's `in-build` log. `core/templates/project-context.md`.
+
 ## [0.5.2] — 2026-06-03
 
 ### Added

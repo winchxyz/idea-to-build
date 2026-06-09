@@ -23,8 +23,10 @@ The full arc, end to end.
 2. **Phases 1–4.** It restates your goal (Understanding), maps the landscape with sources (Context), generates 3–5 *genuinely different* approaches (Generation), and develops the one you pick (Deep Dive). It won't change phase without your "ok" / "next".
 3. **Phase 5 — Critique.** A forced premortem + steelman + inversion you can't skip. It names the **core thesis**, separates it from the parameters, and returns GO / GO-with-conditions / NO-GO. Push back and ask follow-ups freely — it stays in this phase until you signal to move.
 4. **Phase 6 — Plan.** A gated plan with a cheap **pilot that tests the riskiest assumption first** (usually whether the thesis is even true), plus kill-criteria.
-5. **`/scaffold`.** Turns the whole brainstorm into a folder — `CLAUDE.md` + `README` + `DECISIONS` + `PLAN` — you open in Claude Code and build from. The `CLAUDE.md` carries the thesis, the rejected paths, and "stay honest" guardrails so the build doesn't tunnel.
+5. **`/scaffold`.** Turns the whole brainstorm into a folder — `CLAUDE.md` + `README` + `DECISIONS` + `PLAN` — you open in Claude Code and build from. The `CLAUDE.md` carries the thesis, the rejected paths, and "stay honest" guardrails so the build doesn't tunnel. It also wires a **frame-check** into the folder (see below).
 6. **Build, then `/recheck`.** Once you have real results, come back and re-check (next section).
+
+**The frame-check (built into the scaffolded folder, Claude Code only).** The folder ships a small hook set so the "stay honest" discipline is *proactive*, not a paragraph the build agent forgets. Before each `git commit` it injects one question — *is this tuning the thesis, or testing it?* — and once per session it pauses until the agent answers. Each answer is logged to `FRAME-LOG.md` (`model-rec / decision / prediction / outcome`), which becomes your calibration trail over time. It exists because the deadliest failure is quietly tuning a dead thesis for weeks while the AI keeps proposing the next calibration and never asks whether the premise is wrong. Too noisy? Delete the `Stop` block from `.claude/settings.json` to keep only the gentle commit nudge.
 
 See it run end to end: [`examples/medieval-tycoon-fullrun.md`](../examples/medieval-tycoon-fullrun.md).
 
