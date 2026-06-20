@@ -72,6 +72,13 @@ Format:
 - `altitude:idea-level` = "should this idea live or die?"
 Keep the two altitudes distinct — mixing them makes the calibration meaningless.
 
+`prediction` is about the **real outcome**, not the mechanics — what you expect the
+thesis/metric to do, stated so `outcome` can later prove you right or wrong.
+
+Example entries:
+`2026-03-12 | altitude:in-build | model-rec:tuning | decision:keep tuning the ranking weights | prediction:CTR clears 4% within 3 runs; if not, the relevance thesis is suspect | outcome:fill later`
+`2026-03-01 | altitude:idea-level | model-rec:GO-with-conditions | decision:build the MVP | prediction:10 active users in week 1 or the demand thesis is weak | outcome:fill later`
+
 ---
 ```
 
@@ -135,7 +142,7 @@ cat <<'JSON'
 {
   "hookSpecificOutput": {
     "hookEventName": "PreToolUse",
-    "additionalContext": "FRAME CHECK (before commit). In one line before committing: is this change TUNING within the current thesis, or TESTING whether the thesis itself still holds? If you cannot recall the last time you questioned the premise (not the parameters), pause and do it now. If results have been disappointing, re-read the rejected alternatives in DECISIONS.md instead of optimizing this path further. Then append a record to FRAME-LOG.md (altitude / model-rec / decision / prediction)."
+    "additionalContext": "FRAME CHECK (before commit). In one line before committing: is this change TUNING within the current thesis, or TESTING whether the thesis itself still holds? If you cannot recall the last time you questioned the premise (not the parameters), pause and do it now. If results have been disappointing, re-read the rejected alternatives in DECISIONS.md (or CLAUDE.md) instead of optimizing this path further. Then append a record to FRAME-LOG.md (altitude / model-rec / decision / prediction)."
   }
 }
 JSON
@@ -160,7 +167,7 @@ fi
 cat <<'JSON'
 {
   "decision": "block",
-  "reason": "FRAME CHECK before we stop. Name the core thesis. State honestly whether you have any REAL signal it is working — not merely that parameters improved. If there is no signal even at the thesis's best plausible setting, the thesis may be wrong: re-read the rejected alternatives in DECISIONS.md and consider /recheck rather than tuning further. Append a 4-field record to FRAME-LOG.md (altitude:in-build / model-rec / decision / prediction). Then you may stop."
+  "reason": "FRAME CHECK before we stop. Name the core thesis. State honestly whether you have any REAL signal it is working — not merely that parameters improved. If there is no signal even at the thesis's best plausible setting, the thesis may be wrong: re-read the rejected alternatives in DECISIONS.md (or CLAUDE.md) and consider /recheck rather than tuning further. Append a 4-field record to FRAME-LOG.md (altitude:in-build / model-rec / decision / prediction). Then you may stop."
 }
 JSON
 exit 0
